@@ -26,6 +26,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TabsComponent } from './tabs/tabs.component';
     DropdownComponent,
     TooltipsComponent,
     CarouselComponent,
-    TabsComponent
+    TabsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
