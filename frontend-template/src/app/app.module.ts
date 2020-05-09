@@ -26,13 +26,10 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
-<<<<<<< HEAD
-import { DoctorComponent } from './doctor/doctor.component';
-=======
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
->>>>>>> 2910e9706b2aef8de54a75f693b9843b44c9c487
+import { DoctorComponent } from './doctor/doctor.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +53,8 @@ import { DepartmentComponent } from './department/department.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    DoctorComponent
+    DoctorComponent,
+    OverlapComponent
   ],
   imports: [
     BrowserModule,
