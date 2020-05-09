@@ -17,7 +17,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
-
+import { OverlapComponent } from './overlap/overlap.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -35,7 +35,8 @@ const routes: Routes = [
   { path: 'dropdowns', component: DropdownComponent },
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
-  { path: 'tabs', component: TabsComponent }
+  { path: 'tabs', component: TabsComponent },
+  { path: 'overlap', component: OverlapComponent }
 ];
 
 @NgModule({

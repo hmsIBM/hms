@@ -26,6 +26,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { OverlapComponent } from './overlap/overlap.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TabsComponent } from './tabs/tabs.component';
     DropdownComponent,
     TooltipsComponent,
     CarouselComponent,
-    TabsComponent
+    TabsComponent,
+    OverlapComponent
   ],
   imports: [
     BrowserModule,
