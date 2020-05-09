@@ -26,12 +26,9 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
-<<<<<<< HEAD
 import { OverlapComponent } from './overlap/overlap.component';
-=======
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
->>>>>>> c98a1d1b409891b9a1bec68df40b60237adf6eca
 
 @NgModule({
   declarations: [
