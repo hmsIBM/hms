@@ -17,9 +17,18 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
+<<<<<<< HEAD
 import { DoctorComponent } from './doctor/doctor.component';
 
+=======
+<<<<<<< HEAD
+import { OverlapComponent } from './overlap/overlap.component';
+=======
+import { LoginComponent } from './login/login.component'
+import { DepartmentComponent } from './department/department.component';
+>>>>>>> d23e2720b487be9665e71b240521ff18a1f24879
 
+>>>>>>> c98a1d1b409891b9a1bec68df40b60237adf6eca
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -38,7 +47,16 @@ const routes: Routes = [
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
   { path: 'tabs', component: TabsComponent },
+<<<<<<< HEAD
   { path: 'app-doctor', component: DoctorComponent },
+=======
+<<<<<<< HEAD
+  { path: 'overlap', component: OverlapComponent }
+=======
+  { path: 'login' , component: LoginComponent},
+  { path: 'department' , component: DepartmentComponent}
+>>>>>>> c98a1d1b409891b9a1bec68df40b60237adf6eca
+>>>>>>> d23e2720b487be9665e71b240521ff18a1f24879
 ];
 
 @NgModule({
