@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-lg-6 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
@@ -63,74 +63,258 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-6 grid-margin stretch-card">
+  </div> -->
+  <div class="col-lg-13 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Hoverable Table</h4>
-        <p class="card-description">
-          Add class
-          <code>.table-hover</code>
-        </p>
+        <h4 class="card-title">Appointment Sheet</h4>
+        <p class="card-description"></p>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm"><i class="mdi mdi-upload"></i>Add an Appointment</button>
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="dateOfBirth">Date of birth</label>
+                  <div class="input-group">
+                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+          </ng-template>
+          
+          <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+          
+          <hr>
+          
+          <pre>{{ closeResult }}</pre>
+          
+          <!-- <code>.table-hover</code> -->
+        
+
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>User</th>
-                <th>Product</th>
-                <th>Sale</th>
-                <th>Status</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Visit time</th>
+                <th>Number</th>
+                <th>Doctor</th>
+                <th>Injury</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Jacob</td>
-                <td>Photoshop</td>
-                <td class="text-danger"> 28.76%
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
                   <i class="mdi mdi-arrow-down"></i>
                 </td>
                 <td>
-                  <label class="badge badge-danger">Pending</label>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
                 </td>
               </tr>
               <tr>
-                <td>Messsy</td>
-                <td>Flash</td>
-                <td class="text-danger"> 21.06%
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
                   <i class="mdi mdi-arrow-down"></i>
                 </td>
                 <td>
-                  <label class="badge badge-warning">In progress</label>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
                 </td>
               </tr>
               <tr>
-                <td>John</td>
-                <td>Premier</td>
-                <td class="text-danger"> 35.00%
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
                   <i class="mdi mdi-arrow-down"></i>
                 </td>
                 <td>
-                  <label class="badge badge-info">Fixed</label>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
                 </td>
               </tr>
               <tr>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td class="text-success"> 82.00%
-                  <i class="mdi mdi-arrow-up"></i>
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
+                  <i class="mdi mdi-arrow-down"></i>
                 </td>
                 <td>
-                  <label class="badge badge-success">Completed</label>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
                 </td>
               </tr>
               <tr>
-                <td>Dave</td>
-                <td>53275535</td>
-                <td class="text-success"> 98.05%
-                  <i class="mdi mdi-arrow-up"></i>
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
+                  <i class="mdi mdi-arrow-down"></i>
                 </td>
                 <td>
-                  <label class="badge badge-warning">In progress</label>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
+                  <i class="mdi mdi-arrow-down"></i>
+                </td>
+                <td>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
+                  <i class="mdi mdi-arrow-down"></i>
+                </td>
+                <td>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
+                  <i class="mdi mdi-arrow-down"></i>
+                </td>
+                <td>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+                <td>Jacobgmail.com</td>
+                <td class="text-danger">12-1-2020
+                  <i class="mdi mdi-arrow-down"></i>
+                </td>
+                <td>
+                  <label >9:30</label>
+                </td>
+                <td>
+                  <label >9845685789</label>
+                </td>
+                <td>
+                  <label> Dr.Pablo </label>
+                </td>
+                <td>
+                  <label >lukemia</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
                 </td>
               </tr>
             </tbody>
@@ -139,7 +323,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-12 grid-margin stretch-card">
+  <!-- <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Striped Table</h4>
@@ -729,4 +913,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
