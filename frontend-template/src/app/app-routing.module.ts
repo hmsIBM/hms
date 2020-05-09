@@ -17,6 +17,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { DoctorComponent } from './doctor/doctor.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -35,7 +37,8 @@ const routes: Routes = [
   { path: 'dropdowns', component: DropdownComponent },
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
-  { path: 'tabs', component: TabsComponent }
+  { path: 'tabs', component: TabsComponent },
+  { path: 'app-doctor', component: DoctorComponent },
 ];
 
 @NgModule({
