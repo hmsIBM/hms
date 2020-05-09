@@ -27,6 +27,7 @@ import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { LoginComponent } from './login/login.component';
+import { DepartmentComponent } from './department/department.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LoginComponent } from './login/login.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    LoginComponent
+    LoginComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule,
