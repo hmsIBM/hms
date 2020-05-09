@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
   { path: 'tabs', component: TabsComponent },
-  { path: 'overlap', component: OverlapComponent }
+  { path: 'overlap', component: OverlapComponent },
   { path: 'login' , component: LoginComponent},
   { path: 'department' , component: DepartmentComponent}
 ];

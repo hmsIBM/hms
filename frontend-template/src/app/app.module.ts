@@ -52,12 +52,9 @@ import { DepartmentComponent } from './department/department.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-<<<<<<< HEAD
-    OverlapComponent
-=======
+    OverlapComponent,
     LoginComponent,
     DepartmentComponent
->>>>>>> c98a1d1b409891b9a1bec68df40b60237adf6eca
   ],
   imports: [
     BrowserModule,
