@@ -1,6 +1,23 @@
 <div class="col-sm-6 col-md-4 col-lg-3"> <i class="fa fa-vcard"></i>DEPARTMENT</div>
 
+
+
 <div class="cards">
+
+    
+    <div class="card"  *ngFor="let list of lists ">
+      <div class="card__image-holder">
+        <img class="card__image"  src="https://st.depositphotos.com/1101017/2544/i/450/depositphotos_25446801-stock-photo-pediatric-icu-with-ecg-monitor.jpg" />
+      </div>
+      <div class="card-title">
+        <a href="#" class="toggle-info btn">
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2> {{list.department}}</h2>
+      </div>
+    </div>
+
 
     <div class="card">
       <div class="card__image-holder">
@@ -106,7 +123,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   
    
   </div>

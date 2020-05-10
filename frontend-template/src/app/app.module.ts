@@ -29,6 +29,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -52,15 +53,13 @@ import { DepartmentComponent } from './department/department.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-<<<<<<< HEAD
-    OverlapComponent
-=======
     LoginComponent,
+    OverlapComponent,
     DepartmentComponent
->>>>>>> c98a1d1b409891b9a1bec68df40b60237adf6eca
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
