@@ -1,8 +1,7 @@
-package com.ibm.hospitalmanagementsystem.entities;
+package com.ibm.HospitalApp.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class TransactionalClass {
+public class RelationBetweenDoctorAndPatient {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,25 +21,21 @@ public class TransactionalClass {
 	
 	private int doctor_id;
 	private int patient_id;
-	
-	// @Column(name="appointment_date")
-	 @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
-	 @Temporal(TemporalType.DATE)
-	 @NotNull
-	 private Date appointmentDate;
-	 
-	 
-	// @Column(name="appointment_time")
-	 @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="HH:mm:ss")
-	 @Temporal(TemporalType.TIME)
-	 @NotNull
-	 private Date appointmentTime;
 
-	public TransactionalClass() {
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+    @Temporal(TemporalType.DATE)
+    @NotNull
+    private Date appointmentDate;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="HH:mm:ss")
+    @Temporal(TemporalType.TIME)
+    @NotNull
+    private Date appointmentTime;
+	
+	public RelationBetweenDoctorAndPatient() {
 		super();
 	}
 
-	public TransactionalClass(int id, int doctor_id, int patient_id, @NotNull Date appointmentDate,
+	public RelationBetweenDoctorAndPatient(int id, int doctor_id, int patient_id, @NotNull Date appointmentDate,
 			@NotNull Date appointmentTime) {
 		super();
 		this.id = id;
@@ -92,10 +87,9 @@ public class TransactionalClass {
 
 	@Override
 	public String toString() {
-		return "TransactionalClass [id=" + id + ", doctor_id=" + doctor_id + ", patient_id=" + patient_id
+		return "RelationBetweenDoctorAndPatient [id=" + id + ", doctor_id=" + doctor_id + ", patient_id=" + patient_id
 				+ ", appointmentDate=" + appointmentDate + ", appointmentTime=" + appointmentTime + "]";
 	}
-	
 	
 	
 	

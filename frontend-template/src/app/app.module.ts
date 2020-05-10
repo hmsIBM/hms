@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -53,14 +54,19 @@ import { DepartmentComponent } from './department/department.component';
     CarouselComponent,
     TabsComponent,
     OverlapComponent,
+
+    
     LoginComponent,
+    OverlapComponent,
     DepartmentComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],

@@ -1,0 +1,134 @@
+*-*-*SEE THE URL CAREFULLY*-*-*
+
+Add a new Hospital
+
+{
+    "id": 7,
+    "name": "max hospital",
+    "email": "max@gmail.com",
+    "contactNo": 123,
+    
+"department": [
+        {
+            "id": 8,
+            "department": "cardiology",
+           
+ "doctor": [
+                {
+                    "id": 10,
+                    "name": "shubham",
+                    "emailId": "shubham@gmail.com",
+                    "contactNumber": 7906664180,
+                    "desig": "doctor"
+                },
+        
+        {
+                    "id": 9,
+                    "name": "saiyam",
+                    "emailId": "shubham@gmail.com",
+                    "contactNumber": 7906664180,
+                    "desig": "doctor"
+                },
+         
+       {
+                    "id": 13,
+                    "name": "raj",
+                    "emailId": "shubham@gmail.com",
+                    "contactNumber": 7906664180,
+                    "desig": "doctor"
+                }
+            ],
+         
+   "patient": [
+                {
+                    "id": 11,
+                    "name": "Loki",
+                    "gender": "Female",
+                    "disease": "lukemia",
+                    "emailId": "saiyam@gmail.com",
+                    "contactNumber": 74128
+                },
+             
+   {
+                    "id": 12,
+                    "name": "aastha",
+                    "gender": "Female",
+                    "disease": "lukemia",
+                    "emailId": "saiyam@gmail.com",
+                    "contactNumber": 74128
+                }
+            ]
+        },
+    
+    {
+            "id": 14,
+            "department": "opthalmology",
+            "doctor": [
+          
+        
+         {
+                    "id": 17,
+                    "name": "akash",
+                    "emailId": "shubham@gmail.com",
+                    "contactNumber": 7906664180,
+                    "desig": "doctor"
+                }
+            ],
+   
+         "patient": [
+          {
+                    "id": 18,
+                    "name": "rahul",
+                    "gender": "male",
+                    "disease": "hypermiopia",
+                    "emailId": "rahul@gmail.com",
+                    "contactNumber": 7418529630
+                }
+        
+    ]
+        }
+    ]
+}
+
+Add A new relation b/w doc and patient
+
+ {
+      "id": 19,
+        "doctor_id": 3,
+        "patient_id": 5,
+        "appointmentDate": "08-05-2021",
+        "appointmentTime": "07:30:00"
+    }
+
+Add a department to a hospital *P.S* add doc and pat details otherwise a doc and pat will be created with null value 
+
+{
+	"department":"opthalmology",
+	
+"doctor":[{
+		
+	}],
+	
+"patient":[{
+		
+	}]
+
+}
+
+Add a patient in a department
+
+{ "name": "rahul",
+        "gender": "male",
+        "disease": "hypermiopia",
+        "emailId": "rahul@gmail.com",
+        "contactNumber": 7418529630
+}
+
+Add a doc to a department
+
+ {
+      "name": "akash",
+        "emailId": "shubham@gmail.com",
+        "contactNumber": 7906664180,
+        "desig": "doctor"
+    }
