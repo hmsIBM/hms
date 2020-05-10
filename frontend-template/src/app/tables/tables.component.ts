@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbCalendar, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
@@ -9,8 +10,11 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class TablesComponent implements OnInit {
   closeResult = '';
-
-  constructor(private modalService: NgbModal) {}
+  model: NgbDateStruct;
+  today = this.calendar.getToday();
+  time = {hour: 13, minute: 30};
+  meridian = true;
+  constructor(private modalService: NgbModal,private calendar: NgbCalendar) {}
 
   ngOnInit() {
   }
@@ -31,4 +35,7 @@ export class TablesComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+  toggleMeridian() {
+    this.meridian = !this.meridian;
+}
 }

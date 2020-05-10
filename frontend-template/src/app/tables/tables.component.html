@@ -69,37 +69,144 @@
       <div class="card-body">
         <h4 class="card-title">Appointment Sheet</h4>
         <p class="card-description"></p>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm"><i class="mdi mdi-upload"></i>Add an Appointment</button>
-          <ng-template #content let-modal>
-            <div class="modal-header">
-              <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="dateOfBirth">Date of birth</label>
-                  <div class="input-group">
-                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl"><i class="mdi mdi-upload"></i>Add an Appointment</button>
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button> -->
+
+          <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="contact-info">
+                        <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
+                        <h4><b>Take</b></h4>
+                        <h4><b>An</b></h4>
+                        <h4><b>Appointment</b></h4>
+                        <h4>We would love to cure your disease !</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div class="contact-form">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="fname">Name</label>
+                          <div class="col-sm-10">          
+                          <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="email">Email:</label>
+                          <div class="col-sm-10">
+                          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="comment">Date</label>
+                          <div class="col-sm-10">
+                          <span><div class="form-group">
+                            <div class="input-group">
+                              <input class="form-control" placeholder="yyyy-mm-dd"
+                                     name="dp" [(ngModel)]="model" ngbDatepicker [footerTemplate]="footerTemplate" #d="ngbDatepicker">
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" (click)="d.toggle()" type="button"><i class="fa fa-edit"></i></button>
+                              </div>
+                            </div>
+                          </div>
+                        
+                        
+                        <ng-template #footerTemplate>
+                          <hr class="my-0">
+                          <button class="btn btn-primary btn-sm m-2 float-left" (click)="model = today; d.close()">Today</button>
+                          <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Close</button>
+                        </ng-template></span>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="email">Time</label>
+                          <div class="col-sm-10">
+                            <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+                            <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+                                Meridian - {{meridian ? "ON" : "OFF"}}
+                            </button>
+                            <!-- <hr>
+                            <pre>Selected time: {{time | json}}</pre> -->
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm" for="number">Mobile Number:</label>
+                          <div class="col-sm-10">
+                          <input type="num" class="form-control" id="Mnumber" placeholder="Select 10 digit mobile number " name="number">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          
+                          <div class="col-sm-10">  
+                            <label class="control-label " for="fname">Department</label>     
+                            <div class="template-demo">
+                              <div ngbDropdown class="d-inline-block">
+                                <button class="btn btn-outline-primary" type="button" id="dropdownMenuOutlineButton1" ngbDropdownToggle>
+                                  Department
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownMenuOutlineButton1">
+                                  <h6 class="dropdown-header">Departments</h6>
+                                  <a class="dropdown-item" href="#">Physiology</a>
+                                  <a class="dropdown-item" href="#">Phsycology</a>
+                                  <a class="dropdown-item" href="#">Cardiology</a>
+                                  
+                                </div>
+                              </div> 
+                                
+                            </div>  
+                            
+                          <input type="text" class="form-control" id="department" placeholder="Select Department from list" name="department" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          
+                          <div class="col-sm-10">  
+                            <label class="control-label " for="fname">Doctor</label>     
+                            <div class="template-demo">
+                              <div ngbDropdown class="d-inline-block">
+                                <button class="btn btn-outline-primary" type="button" id="dropdownMenuOutlineButton1" ngbDropdownToggle>
+                                  Doctors
+                                </button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownMenuOutlineButton1">
+                                  <h6 class="dropdown-header">Doctors</h6>
+                                  <a class="dropdown-item" href="#">Dr.Pablo</a>
+                                  <a class="dropdown-item" href="#">Dr.Escobar</a>
+                                  <a class="dropdown-item" href="#">Dr.Gustavo</a>
+                                  
+                                </div>
+                              </div> 
+                                
+                            </div>  
+                            
+                          <input type="text" class="form-control" id="department" placeholder="select Doctor from list" name="department" disabled>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="fname">Injury/Disease</label>
+                          <div class="col-sm-10">          
+                          	<textarea class="form-control" rows="5" id="comment" placeholder="Elaborate about Injury/Disease from which you are suffering."></textarea>
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">        
+                          <div class="col-sm-offset-2 col-sm-10">
+                            
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Submit</button>
+                          
+                      
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </form>
+                
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-            </div>
-          </ng-template>
-          
-          <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
-          
-          <hr>
-          
-          <pre>{{ closeResult }}</pre>
+          </div>
           
           <!-- <code>.table-hover</code> -->
         
@@ -113,6 +220,7 @@
                 <th>Date</th>
                 <th>Visit time</th>
                 <th>Number</th>
+                <!-- <th>Department</th> -->
                 <th>Doctor</th>
                 <th>Injury</th>
                 <th>Actions</th>
@@ -131,6 +239,9 @@
                 <td>
                   <label >9845685789</label>
                 </td>
+                <!-- <td>
+                  <label >Phsycology</label>
+                </td> -->
                 <td>
                   <label> Dr.Pablo </label>
                 </td>
@@ -138,185 +249,10 @@
                   <label >lukemia</label>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
+                  <button type="button" class="btn btn-danger icon-btn" data-toggle="modal" data-target=".bd-example-modal-xl"><i class="mdi mdi-border-color"></i> Edit</button>
                 </td>
               </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label >9:30</label>
-                </td>
-                <td>
-                  <label >9845685789</label>
-                </td>
-                <td>
-                  <label> Dr.Pablo </label>
-                </td>
-                <td>
-                  <label >lukemia</label>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-                </td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
