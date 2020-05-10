@@ -14,6 +14,8 @@ import com.ibm.HospitalApp.entities.Doctor;
 import com.ibm.HospitalApp.entities.Hospital;
 import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
+import com.ibm.HospitalApp.repos.DepartmentRepo;
+import com.ibm.HospitalApp.repos.DoctorRepo;
 import com.ibm.HospitalApp.repos.HospitalRepo;
 import com.ibm.HospitalApp.repos.PatientRepo;
 import com.ibm.HospitalApp.repos.RelationBetweenDoctorAndPatientRepo;
@@ -29,6 +31,12 @@ public class HospitalAppService {
 	
 	@Autowired
 	PatientRepo patientRepo; 
+	
+	@Autowired
+	DoctorRepo doctorRepo;
+	
+	@Autowired
+	DepartmentRepo departmentRepo;
 	
 	public List<Hospital> findAllHospital() {
 		return hospitalRepo.findAll();
@@ -131,5 +139,21 @@ public class HospitalAppService {
 		    patients.add(patient);
 		}
 		return patients;
+	}
+	
+	public void deletePatient(int id) {
+		patientRepo.deleteById(id);
+	}
+	
+	public void deleteDoctor(int id) {
+		doctorRepo.deleteById(id);
+	}
+	
+	public void deleteDepartment(int id) {
+		departmentRepo.deleteById(id);
+	}
+	
+	public void deleteHospital(int id) {
+		hospitalRepo.deleteById(id);
 	}
 }

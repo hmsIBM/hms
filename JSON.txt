@@ -64,15 +64,8 @@ Add a new Hospital
             "id": 14,
             "department": "opthalmology",
             "doctor": [
-            
-    {
-                    "id": 15,
-                    "name": null,
-                    "emailId": null,
-                    "contactNumber": 0,
-                    "desig": null
-                },
-       
+          
+        
          {
                     "id": 17,
                     "name": "akash",
@@ -83,15 +76,6 @@ Add a new Hospital
             ],
    
          "patient": [
-                {
-                    "id": 16,
-                    "name": null,
-                    "gender": null,
-                    "disease": null,
-                    "emailId": null,
-                    "contactNumber": 0
-                },
-      
           {
                     "id": 18,
                     "name": "rahul",

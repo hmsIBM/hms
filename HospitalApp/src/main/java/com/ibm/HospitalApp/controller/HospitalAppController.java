@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -102,4 +103,33 @@ public class HospitalAppController {
 	public List<Patient> findAllPatientOfADoctor(@PathVariable("doc_id") int doc_id){
 		return hospitalAppService.findAllPatientOfADoctor(doc_id);
 	}
+	
+	@DeleteMapping("/hospital/patient/{id}")
+	public ResponseEntity<Void> deletePatient(@PathVariable("id") int id){
+		hospitalAppService.deletePatient(id);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
+		return re;
+	}
+	
+	@DeleteMapping("/hospital/doctor/{id}")
+	public ResponseEntity<Void> deleteDoctor(@PathVariable("id") int id){
+		hospitalAppService.deleteDoctor(id);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
+		return re;
+	}
+	
+	@DeleteMapping("/hospital/department/{id}")
+	public ResponseEntity<Void> deleteDepartment(@PathVariable("id") int id){
+		hospitalAppService.deleteDepartment(id);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
+		return re;
+	}
+	
+	@DeleteMapping("/hospital/{id}")
+	public ResponseEntity<Void> deleteHospital(@PathVariable("id") int id){
+		hospitalAppService.deleteHospital(id);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
+		return re;
+	}
+
 }
