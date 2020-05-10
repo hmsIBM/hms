@@ -25,6 +25,8 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component'
 import { DepartmentComponent } from './department/department.component';
+import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
+
 
 
 const routes: Routes = [
@@ -45,13 +47,11 @@ const routes: Routes = [
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
   { path: 'tabs', component: TabsComponent },
-
-  { path: 'app-doctor', component: DoctorComponent },
-
-
   { path: 'overlap', component: OverlapComponent },
   { path: 'login' , component: LoginComponent},
-  { path: 'department' , component: DepartmentComponent}
+  { path: 'department' , component: DepartmentComponent},
+  { path: 'app-doctor-display' , component: DoctorDisplayComponent}
+
 
 ];
 

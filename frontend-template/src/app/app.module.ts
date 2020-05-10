@@ -30,6 +30,7 @@ import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,10 @@ import { DoctorComponent } from './doctor/doctor.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    DoctorComponent,
-    OverlapComponent
+    OverlapComponent,
+    LoginComponent,
+    DepartmentComponent,
+    DoctorDisplayComponent
   ],
   imports: [
     BrowserModule,
