@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -55,6 +56,8 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     CarouselComponent,
     TabsComponent,
     OverlapComponent,
+
+    
     LoginComponent,
     DepartmentComponent,
     DoctorDisplayComponent
@@ -64,6 +67,7 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],
