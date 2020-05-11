@@ -87,7 +87,11 @@
                       </div>
                     </div>
                     <div class="col-md-9">
+                  
                       <div class="contact-form">
+                        <form novalidate
+                        (ngSubmit)="onSubmit()"
+                        #f="ngForm">
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="fname">Name</label>
                           <div class="col-sm-10">          
@@ -194,12 +198,14 @@
                         <div class="form-group">        
                           <div class="col-sm-offset-2 col-sm-10">
                             
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Submit</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-save"></i>Submit</button>
                           
                       
                           </div>
                         </div>
+                        </form>
                       </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -227,32 +233,35 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Jacob</td>
-                <td>Jacobgmail.com</td>
-                <td class="text-danger">12-1-2020
+              
+              <tr *ngFor="let a of lists">
+                
+                <td>{{a.name}}</td>
+                <td>{{a.emailId}}</td>
+                <td class="text-danger">{{a.appointmentDate}}
                   <i class="mdi mdi-arrow-down"></i>
                 </td>
                 <td>
-                  <label >9:30</label>
+                  <label >{{a.appointmentDate}}</label>
                 </td>
                 <td>
-                  <label >9845685789</label>
+                  <label >{{a.contactNumber}}</label>
                 </td>
                 <!-- <td>
                   <label >Phsycology</label>
                 </td> -->
                 <td>
-                  <label> Dr.Pablo </label>
+                  <label>{{a.doctorName}}</label>
                 </td>
                 <td>
-                  <label >lukemia</label>
+                  <label >{{a.disease}}</label>
                 </td>
                 <td>
                   <button type="button" class="btn btn-danger icon-btn" data-toggle="modal" data-target=".bd-example-modal-xl"><i class="mdi mdi-border-color"></i> Edit</button>
                 </td>
-              </tr>
               
+              </tr>
+            
             </tbody>
           </table>
         </div>
