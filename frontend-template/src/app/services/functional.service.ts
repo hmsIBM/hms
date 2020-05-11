@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 
 const baseUrl = 'http://localhost:8000/api/hospital/'
-const url = '/department'
-
-
+const url= '/department'
+const baseurl1='http://localhost:8000/api/appointment'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +13,9 @@ const url = '/department'
 export class FunctionalService {
 
   constructor(private http: HttpClient) { }
+  findAppointment(){
+    return this.http.get(baseurl1);
+  }
 
   hospitalByName(hospital: any){
     return this.http.get(baseUrl+hospital);
