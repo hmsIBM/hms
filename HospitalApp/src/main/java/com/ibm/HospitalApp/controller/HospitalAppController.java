@@ -22,7 +22,7 @@ import com.ibm.HospitalApp.entities.Hospital;
 import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
 import com.ibm.HospitalApp.service.HospitalAppService;
-@CrossOrigin
+
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
