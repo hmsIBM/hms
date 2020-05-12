@@ -21,4 +21,4 @@ before_install:
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static
     - cd HospitalApp
 script:
-- mvn clean install -DskipTests
+- mvn clean install 
