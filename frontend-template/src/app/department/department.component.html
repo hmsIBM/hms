@@ -1,32 +1,22 @@
-<div class="col-sm-6 col-md-4 col-lg-3"> <i class="fa fa-vcard"></i>DEPARTMENT</div>
+<div class="col-sm-6 col-md-4 col-lg-3"> <i class="toggle-info btn"></i>DEPARTMENT</div>
 
+
+
+<!-- integration with backend -->
 <div class="cards">
-
-    <div class="card">
+    <div class="card"  *ngFor="let list of lists ">
       <div class="card__image-holder">
-        <img class="card__image" src="https://st.depositphotos.com/1101017/2544/i/450/depositphotos_25446801-stock-photo-pediatric-icu-with-ecg-monitor.jpg" alt="wave" />
+        <img class="card__image"  src="https://st.depositphotos.com/1101017/2544/i/450/depositphotos_25446801-stock-photo-pediatric-icu-with-ecg-monitor.jpg" />
       </div>
       <div class="card-title">
         <a href="#" class="toggle-info btn">
           <span class="left"></span>
           <span class="right"></span>
         </a>
-        <h2>
-            Cardiology
-            <small>we will take care</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-            An integrated facility, it has a dedicated team of cardiologists and cardiac surgeons providing comprehensive, multi-disciplinary care to patients with various heart diseases. The entire team of doctors, nurses, technicians and heart specialists ensures excellent and efficient patient care.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
+        <h2> {{list.department}}</h2>
       </div>
     </div>
+
   
     <div class="card">
       <div class="card__image-holder">
@@ -54,33 +44,6 @@
       </div>
     </div>
   
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://st3.depositphotos.com/3261171/15091/i/450/depositphotos_150919904-stock-photo-obstetrician-consulting-pregnant-patient.jpg" alt="mountain" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Gynecology
-            <small>Have a healthy baby</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-            The Department of Obstetrics and Gynaecology offers
-            comprehensive services for the reproductive health and gynaecological
-            needs of women.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
   
     <div class="card">
       <div class="card__image-holder">
@@ -106,7 +69,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   
    
   </div>

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -29,8 +30,12 @@ import { TabsComponent } from './tabs/tabs.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+<<<<<<< HEAD
 import { PatientComponent } from './patient/patient.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+=======
+import { DepartmentAddComponent } from './department-add/department-add.component';
+>>>>>>> 45ad4c0c6cf09ed4cd6cd02c12beb2a21dc62e9b
 
 
 @NgModule({
@@ -56,17 +61,32 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     CarouselComponent,
     TabsComponent,
     OverlapComponent,
+
+    
     LoginComponent,
+<<<<<<< HEAD
     DepartmentComponent,
     PatientComponent
+=======
+    OverlapComponent,
+    DepartmentComponent,
+    DepartmentAddComponent
+>>>>>>> 45ad4c0c6cf09ed4cd6cd02c12beb2a21dc62e9b
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     NgbModule,
     HttpClientModule
+=======
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgbModule
+>>>>>>> 45ad4c0c6cf09ed4cd6cd02c12beb2a21dc62e9b
   ],
   providers: [],
   bootstrap: [AppComponent]

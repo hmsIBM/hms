@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Department {
@@ -17,24 +18,32 @@ public class Department {
 	int id;
 
 	private String department;
+	@OneToOne(cascade=CascadeType.ALL)
+	private ImageModel image;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	List<Doctor> doctor;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	List<Patient> patient;
+	
 
 	public Department() {
 		super();
 	}
 
-	public Department(int id, String department, List<Doctor> doctor, List<Patient> patient) {
+	
+
+	public Department(int id, String department, List<Doctor> doctor, List<Patient> patient, ImageModel image) {
 		super();
 		this.id = id;
 		this.department = department;
 		this.doctor = doctor;
 		this.patient = patient;
+		this.image = image;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -68,10 +77,26 @@ public class Department {
 		this.patient = patient;
 	}
 
+
+
+	public ImageModel getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(ImageModel image) {
+		this.image = image;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", department=" + department + ", doctor=" + doctor + ", patient=" + patient
-				+ "]";
+				+ ", image=" + image + "]";
 	}
+
+	
 
 }
