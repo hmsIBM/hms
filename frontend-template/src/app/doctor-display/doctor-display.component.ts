@@ -9,6 +9,8 @@ import { DoctorService } from '../services/doctor.service';
 export class DoctorDisplayComponent implements OnInit {
   Doctor:Array<any>=[]
   Hospital:Array<any>=[]
+  DoctorDep:Array<any>=[]
+  AllDoctor:Array<any>=[]
   Department:Array<any>=[]
   HospitalOne:Array<any>=[]
   hosname:string
@@ -42,9 +44,12 @@ displaydoctor(hosname:string)
       this.len=this.Department.length
       console.log(this.len)
       let i
+      let j
        for(i=0;i<this.len;i++)
         {
-        this.Doctor=this.Department[i].doctor;
+        this.Doctor.push(this.Department[i].doctor);
+          console.log("doctor",this.Doctor);
+         
         }
      // let a
      // let b
@@ -57,6 +62,7 @@ displaydoctor(hosname:string)
       //    } 
       // }
      // this.Doctor=this.Department[0].doctor;
+     
       console.log("Doctor of hospital",this.Doctor)
 
     })
