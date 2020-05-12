@@ -12,11 +12,13 @@ import org.springframework.stereotype.Service;
 import com.ibm.HospitalApp.entities.Department;
 import com.ibm.HospitalApp.entities.Doctor;
 import com.ibm.HospitalApp.entities.Hospital;
+import com.ibm.HospitalApp.entities.ImageModel;
 import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
 import com.ibm.HospitalApp.repos.DepartmentRepo;
 import com.ibm.HospitalApp.repos.DoctorRepo;
 import com.ibm.HospitalApp.repos.HospitalRepo;
+import com.ibm.HospitalApp.repos.ImageRepository;
 import com.ibm.HospitalApp.repos.PatientRepo;
 import com.ibm.HospitalApp.repos.RelationBetweenDoctorAndPatientRepo;
 
@@ -37,6 +39,9 @@ public class HospitalAppService {
 	
 	@Autowired
 	DepartmentRepo departmentRepo;
+	
+	@Autowired
+	ImageRepository imageRepo;
 	
 	public List<Hospital> findAllHospital() {
 		return hospitalRepo.findAll();
@@ -155,5 +160,23 @@ public class HospitalAppService {
 	
 	public void deleteHospital(int id) {
 		hospitalRepo.deleteById(id);
+	}
+	@Transactional
+	public void testPatient(int id,ImageModel image ) {
+		// TODO Auto-generated method stub
+		ImageModel img=imageRepo.findById(id);
+		img.setName(image.getName());
+		img.setType(image.getType());
+		img.setPicByte(image.getPicByte());
+		
+	}
+	@Transactional
+	public void testDoctor(int id,ImageModel image ) {
+		// TODO Auto-generated method stub
+		ImageModel img=imageRepo.findById(id);
+		img.setName(image.getName());
+		img.setType(image.getType());
+		img.setPicByte(image.getPicByte());
+		
 	}
 }
