@@ -1,7 +1,7 @@
 sudo: required
 language: java
-before_install:
- - chmod +x gradlew
+
+
 jdk: 
     - openjdk8
 
@@ -15,7 +15,9 @@ env:
       - SHA=$(git rev-parse HEAD)
  
 before_install:     
-    # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+ 
+ - chmod +x gradlew
+   
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static
     - cd HospitalApp
 script:
