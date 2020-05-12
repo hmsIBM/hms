@@ -2,8 +2,8 @@ sudo: required
 language: java
 jdk: 
     - openjdk8
-# services:
-#     - docker
+before_install:
+ - chmod +x gradlew
 branches:
     only:
     - minor
