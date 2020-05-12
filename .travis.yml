@@ -1,6 +1,7 @@
 sudo: required
 language: java
-
+before_install:
+  - chmod +x mvnw
 
 jdk: 
     - openjdk8
