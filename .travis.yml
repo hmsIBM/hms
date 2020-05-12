@@ -14,8 +14,8 @@ env:
       - SHA=$(git rev-parse HEAD)
  
 before_install:     
-  
-    - mv frontend-template/dist* HospitalApp/src/main/resources/static
+    # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - mv frontend-template/dist/* HospitalApp/src/main/resources/static
     - cd HospitalApp
 script:
 - mvn clean install -DskipTests
