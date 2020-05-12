@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ibm.HospitalApp.entities.Appointment;
 import com.ibm.HospitalApp.entities.Department;
 import com.ibm.HospitalApp.entities.Doctor;
 import com.ibm.HospitalApp.entities.Hospital;
@@ -29,7 +30,7 @@ import com.ibm.HospitalApp.entities.ImageModel;
 import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
 import com.ibm.HospitalApp.service.HospitalAppService;
-
+@CrossOrigin
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
@@ -113,7 +114,25 @@ public class HospitalAppController {
 			return outputStream.toByteArray();
 		}
 	
+	@GetMapping("/appointment")
+	public List<Appointment> findAllAppointments() {
+		return hospitalAppService.findAllAppointment();
+	}
 
+	@PostMapping("/appointment")
+	public ResponseEntity<Void> addAppointments(@RequestBody Appointment app) {
+		hospitalAppService.addAppointment(app);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+		return re;
+	}
+	
+	@PutMapping("/appointment/{name}")
+	public ResponseEntity<Void> addupdateAppointment(@PathVariable("name") String name,
+			@RequestBody Appointment app) {
+		hospitalAppService.addupdateAppointment(name, app);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return re;
+	}
 	@GetMapping("/hospital")
 	public List<Hospital> findAllHospital() {
 		return hospitalAppService.findAllHospital();

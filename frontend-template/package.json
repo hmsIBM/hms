@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "@mdi/font": "^4.8.95",
     "@ng-bootstrap/ng-bootstrap": "^5.2.0",
+    "angular-bootstrap-md": "^9.2.0",
     "bootstrap": "^4.4.1",
     "compass-mixins": "^0.12.10",
     "core-js": "^3.6.4",
