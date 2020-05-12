@@ -15,7 +15,7 @@ env:
  
 before_install:     
     # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - mv frontend-template/dist/frontend-template/* HospitalApp/src/main/resources/static
+    - mv frontend-template/dist* HospitalApp/src/main/resources/static
     - cd HospitalApp
 script:
 - mvn clean install -DskipTests
