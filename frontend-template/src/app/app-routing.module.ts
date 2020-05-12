@@ -23,7 +23,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 
 
 import { OverlapComponent } from './overlap/overlap.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 

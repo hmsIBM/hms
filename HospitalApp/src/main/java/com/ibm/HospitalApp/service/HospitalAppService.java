@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.ibm.HospitalApp.entities.Appointment;
 import com.ibm.HospitalApp.entities.Department;
 import com.ibm.HospitalApp.entities.Doctor;
 import com.ibm.HospitalApp.entities.Hospital;
 import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
+import com.ibm.HospitalApp.repos.AppointmentRepo;
 import com.ibm.HospitalApp.repos.DepartmentRepo;
 import com.ibm.HospitalApp.repos.DoctorRepo;
 import com.ibm.HospitalApp.repos.HospitalRepo;
@@ -38,6 +40,37 @@ public class HospitalAppService {
 	@Autowired
 	DepartmentRepo departmentRepo;
 	
+	@Autowired
+	AppointmentRepo appointmentRepo;
+	public List<Appointment> findAllAppointment() {
+		return appointmentRepo.findAll();
+	}
+	public void addAppointment(Appointment appointment) {
+		appointmentRepo.save(appointment);
+	}
+	
+	@Transactional
+	public void addupdateAppointment(String appointmentName,Appointment d) {
+		Appointment app = appointmentRepo.findByName(appointmentName);
+		
+	           
+	       
+	            app.setName(d.getName());
+	            app.setEmailId(d.getEmailId());
+	            app.setAppointmentDate(d.getAppointmentDate());
+	            app.setAppointmentTime(d.getAppointmentTime());
+	            app.setContactNumber(d.getContactNumber());
+	            app.setContactNumber(d.getContactNumber());
+	            app.setDepartmentName(d.getDepartmentName());
+	            app.setDoctorName(d.getDoctorName());
+	            app.setDisease(d.getDisease());
+	           
+	            System.out.println(app);
+	            
+	             
+	           
+	         
+	}
 	public List<Hospital> findAllHospital() {
 		return hospitalRepo.findAll();
 	}

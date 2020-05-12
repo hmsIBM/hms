@@ -59,11 +59,13 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 
     
     LoginComponent,
+    OverlapComponent,
     DepartmentComponent,
     DoctorDisplayComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
