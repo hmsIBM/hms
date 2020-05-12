@@ -1,0 +1,21 @@
+sudo: required
+language: java
+jdk: 
+    - openjdk11
+# services:
+#     - docker
+branches:
+    only:
+    - minor
+    except:
+    - dev 
+env:
+    global:
+      - SHA=$(git rev-parse HEAD)
+ 
+before_install:     
+    # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - mv frontend-template/dist/frontend-template/* HospitalApp/src/main/resources/static
+    - cd HospitalApp
+script:
+- mvn clean install -DskipTests
