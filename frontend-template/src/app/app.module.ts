@@ -29,6 +29,9 @@ import { TabsComponent } from './tabs/tabs.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+import { PatientComponent } from './patient/patient.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -54,14 +57,16 @@ import { DepartmentComponent } from './department/department.component';
     TabsComponent,
     OverlapComponent,
     LoginComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

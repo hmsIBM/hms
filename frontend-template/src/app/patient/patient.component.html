@@ -1,0 +1,153 @@
+<p>patient works!</p> 
+ <button type="button"  (click)="submit()" >Add an Appointment</button>
+        
+<h5 class="card-title"> {{PatientName}} {{gender}}</h5>
+
+
+
+<div class="col-lg-13 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Patient Sheet</h2>
+        <p class="card-description"></p>
+          <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm"><i class="mdi mdi-upload"></i>Add an Appointment</button> -->
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="dateOfBirth">Date of birth</label>
+                  <div class="input-group">
+                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                    </div>
+                  </div>
+                </div> 
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+          </ng-template>
+          
+          <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+          
+          <hr>
+          
+          <pre>{{ closeResult }}</pre>
+          
+          <!-- <code>.table-hover</code> -->
+          <div class="dropdown">
+
+            <!--Trigger-->
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Material dropdown</button>
+          
+            <!--Menu-->
+            <div class="dropdown-menu dropdown-primary">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Disease</th>
+                
+              </tr>
+            </thead>
+            <tbody *ngFor="let p of patient">
+              <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.gender}}</td>
+                <td>{{p.email}}}</td>
+                <td>
+                  <label >{{p.contactNumber}}</label>
+                </td>
+                <td>
+                  <label >{{p.disease}}</label>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>        
+
+
+
+<!-- 
+  <div class="row">
+    <div class="col-lg-6 grid-margin stretch-card" *ngFor="let hos of Hospital">
+        <div class="card" >
+          <div class="card-body">
+            
+            <ngb-carousel>
+              <ng-template ngbSlide>
+                <img src="assets/images/carousel/hospital1.jpg" >
+                <div class="carousel-caption">
+                  <h3>{{hos.name}}</h3>
+                  <h3>{{hos.id}}</h3>
+                  <button class="btn btn-primary" (click)="displaydoctor(hos.name)">display doctor</button>
+                   </div>
+              </ng-template>
+              
+            </ngb-carousel>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
+     <div *ngFor="let d of doc"> 
+    <div class="card-body">
+        <h5 class="card-title">{{d.name}}</h5>
+        
+    </div>   
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-lg-6 grid-margin stretch-card" *ngFor="let doc of Doctor">
+        
+        <div class="card" >
+          <div class="card-body">
+            <div *ngFor="let d of doc"> 
+   
+            <ngb-carousel>
+              <ng-template ngbSlide>
+                <img src="assets/images/carousel/doctor2.jpg" >
+                <div class="carousel-caption">
+                  <h3>{{d.name}}</h3>
+                  
+            
+                   </div>
+              </ng-template>
+              
+            </ngb-carousel>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div> 
