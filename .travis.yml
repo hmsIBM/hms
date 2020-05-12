@@ -16,7 +16,7 @@ env:
  
 before_install:     
  
- - chmod +x gradlew
+ - chmod +x mvnw
    
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static
     - cd HospitalApp
