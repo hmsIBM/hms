@@ -28,6 +28,7 @@ import { DepartmentComponent } from './department/department.component';
 //mport { PatientComponent } from './patient/patient.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 
+import { DepartmentAddComponent } from './department-add/department-add.component';
 
 const routes: Routes = [
   
@@ -52,9 +53,10 @@ const routes: Routes = [
   { path: 'overlap', component: OverlapComponent },
   { path: 'login' , component: LoginComponent},
   { path: 'department' , component: DepartmentComponent},
-  { path: 'app-doctor-display' , component: DoctorDisplayComponent}
+  { path: 'app-doctor-display' , component: DoctorDisplayComponent},
 
 
+  { path: 'add' , component: DepartmentAddComponent}
 ];
 
 @NgModule({

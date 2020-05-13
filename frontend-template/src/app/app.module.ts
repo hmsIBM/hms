@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -37,6 +36,11 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 import { DepartmentAddComponent } from './department-add/department-add.component';
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
+//import { PatientComponent } from './patient/patient.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+//import { DepartmentAddComponent } from './department-add/department-add.component';
+import { ImagesComponent } from './images/images.component';
 
 
 @NgModule({
@@ -65,24 +69,29 @@ import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
     
     LoginComponent,
+
+    DepartmentComponent,
+  //  PatientComponent,
+
     OverlapComponent,
     DepartmentComponent,
 
-    DoctorDisplayComponent,
-
     DepartmentAddComponent,
+    ImagesComponent
 
-    DoctoraddComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     NgbModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
