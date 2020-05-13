@@ -47,11 +47,6 @@ export class PatientComponent implements OnInit {
       console.log(res);
       console.log("res pulled...");
 
-     for(let p of this.dp)
-     {
-       console.log(p[0].name)
-       console.log("2nd working")
-     }
     })
    
 
@@ -105,5 +100,4 @@ export class PatientComponent implements OnInit {
   
 
 }
-
 }
