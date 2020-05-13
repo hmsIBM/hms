@@ -21,10 +21,13 @@ import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 import { DepartmentAddComponent } from './department-add/department-add.component';
+import { PatientComponent } from './patient/patient.component';
 
 const routes: Routes = [
+  
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'patient', component: PatientComponent},
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent },
   { path: 'tables', component: TablesComponent },
