@@ -20,6 +20,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+import { DepartmentAddComponent } from './department-add/department-add.component';
 import { PatientComponent } from './patient/patient.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 
@@ -46,8 +47,12 @@ const routes: Routes = [
   { path: 'overlap', component: OverlapComponent },
   { path: 'login' , component: LoginComponent},
   { path: 'department' , component: DepartmentComponent},
+<<<<<<< HEAD
   { path: 'add-patient', component: AddPatientComponent}
 
+=======
+  { path: 'add' , component: DepartmentAddComponent}
+>>>>>>> efcc24cc3aca94b09ecef7a1e6332a26a8039623
 ];
 
 @NgModule({

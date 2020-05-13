@@ -1,9 +1,11 @@
 sudo: required
+
 language: java
+
+
 jdk: 
     - openjdk8
-# services:
-#     - docker
+
 branches:
     only:
     - minor
@@ -13,9 +15,14 @@ env:
     global:
       - SHA=$(git rev-parse HEAD)
  
-before_install:     
-    # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - mv frontend-template/dist/* HospitalApp/src/main/resources/static
-    - cd HospitalApp
+    
+ 
+ 
+ before_install:
+  - chmod +x mvnw
+  - mv frontend-template/dist/* HospitalApp/src/main/resources/static
+  - cd HospitalApp
+   
+   
 script:
 - mvn clean install -DskipTests
