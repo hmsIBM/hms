@@ -25,13 +25,15 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+//mport { PatientComponent } from './patient/patient.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 
 
-
 const routes: Routes = [
+  
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+//  { path: 'patient', component: PatientComponent},
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent },
   { path: 'tables', component: TablesComponent },

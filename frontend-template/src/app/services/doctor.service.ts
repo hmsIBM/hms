@@ -18,19 +18,19 @@ export class DoctorService {
   fetchAllDoctor(){
     return this.http.get(baseUrl);
   }
+
+
   fetchAllHospital(){
     return this.http.get(baseUrl);
   }
+
   fetchParHospital(hosname:string){
     return this.http.get(baseUrl+hosname);
   }
+
 
   
   addDoctor(doctor:any){
     return this.http.get(baseUrl+doctor);
   }
 }
-
-
-
-

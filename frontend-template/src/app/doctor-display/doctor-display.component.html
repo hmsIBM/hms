@@ -199,7 +199,7 @@
     </div>
 </div> -->
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-6 grid-margin stretch-card" *ngFor="let doc of Doctor">
         
         <div class="card" >
@@ -220,13 +220,32 @@
               </ng-template>
               
             </ngb-carousel>
+            <hr>
           </div>
           </div>
         </div>
       </div>
     </div>
+ -->
+ <div class="container">
+     <!-- <div class="column"> -->
+         <!-- <div class="row">  -->
+     <div class="column align-items-stretch justify-content-start card-deck"> 
+    <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
+       <div *ngFor="let d of doc">
+        <img src="assets/images/carousel/hospital1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h1 class="card-title">{{d.name}}</h1>
+          <p class="card-text">{{d.emailId}}</p>
+          <p class="card-text">{{d.contactNumber}}</p>
+          
+          <a href="#" class="btn btn-primary">view Doctor</a>
+        </div>
+      </div>
+      </div>
+     </div> 
+     </div>
 
 
-   
   
 

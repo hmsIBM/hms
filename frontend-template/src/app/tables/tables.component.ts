@@ -56,4 +56,6 @@ export class TablesComponent implements OnInit {
   toggleMeridian() {
     this.meridian = !this.meridian;
 }
+onSubmit()
+{}
 }

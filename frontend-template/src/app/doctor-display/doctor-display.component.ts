@@ -45,10 +45,20 @@ displaydoctor(hosname:string)
       console.log(this.len)
       let i
       let j
+      let k
        for(i=0;i<this.len;i++)
         {
         this.Doctor.push(this.Department[i].doctor);
           console.log("doctor",this.Doctor);
+         
+        }
+       // this.DoctorDep=this.Doctor[0];
+       // console.log("bvbvibrivbrbvb",this.DoctorDep)
+        for(j=0;j<this.Doctor.length;j++)
+        {
+            for(k=0;k<this.Doctor[j].length;k++)
+              this.DoctorDep.push(this.Doctor[j][k]);
+              console.log("doctor of array",this.DoctorDep);
          
         }
      // let a

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http'
 
@@ -30,8 +30,14 @@ import { TabsComponent } from './tabs/tabs.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
+
+import { DepartmentAddComponent } from './department-add/department-add.component';
+import { DoctoraddComponent } from './doctoradd/doctoradd.component';
+
+
 
 @NgModule({
   declarations: [
@@ -61,7 +67,12 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     LoginComponent,
     OverlapComponent,
     DepartmentComponent,
-    DoctorDisplayComponent
+
+    DoctorDisplayComponent,
+
+    DepartmentAddComponent,
+
+    DoctoraddComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +80,7 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule
   ],
