@@ -1,4 +1,51 @@
-<div class="col-sm-6 col-md-4 col-lg-3"> <i class="toggle-info btn"></i>DEPARTMENT</div>
+<!-- <div class="col-sm-6 col-md-4 col-lg-3"> <i class="toggle-info btn"></i>DEPARTMENT</div> -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl"> <a class="nav-link" routerLink="/add" routerLinkActive="active">Add Department</a>
+ </button>
+
+
+<!-- <div class="container row">
+  <div class="col-md-12">
+      <h1>Upload Image</h1>
+  </div>
+</div>
+
+
+<div class="container row">
+  <div class="col-md-6">
+      <input type="file" (change)="onFileChanged($event)">
+
+  </div>
+  <div class="col-md-6">
+      <input type="button" (click)="onUpload()" value="upload">
+  </div>
+</div>
+<hr />
+
+<div class="container row">
+  <div class="col-md-12">
+      <div *ngIf=message>{{message}}</div>
+  </div>
+</div>
+
+<div class="container row">
+  <div class="col-md-6">
+      <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+          name="name" />
+  </div>
+  <div class="col-md-6">
+      <input type="button" (click)="getImage()" value="Get Image">
+
+  </div>
+</div>
+
+
+ <div class="container row">
+  <div class="col-md-12">
+      <div *ngIf=retrievedImage>
+          <img [src]="retrievedImage">
+      </div>
+  </div>
+</div>  -->
 
 
 
@@ -6,8 +53,9 @@
 <div class="cards">
     <div class="card"  *ngFor="let list of lists ">
       <div class="card__image-holder">
-        <img class="card__image"  src="https://st.depositphotos.com/1101017/2544/i/450/depositphotos_25446801-stock-photo-pediatric-icu-with-ecg-monitor.jpg" />
-      </div>
+      <!-- <img class="card__image" [src]="retrievedImage" style="object-fit: cover;" /> -->
+      <img alt="Card image cap" class="card-img-top embed-responsive-item" [src]= "retrievedImage" />
+    </div>
       <div class="card-title">
         <a href="#" class="toggle-info btn">
           <span class="left"></span>

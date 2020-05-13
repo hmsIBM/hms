@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http'
@@ -31,6 +31,7 @@ import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 import { DepartmentAddComponent } from './department-add/department-add.component';
+import { ImagesComponent } from './images/images.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { DepartmentAddComponent } from './department-add/department-add.componen
     LoginComponent,
     OverlapComponent,
     DepartmentComponent,
-    DepartmentAddComponent
+    DepartmentAddComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,

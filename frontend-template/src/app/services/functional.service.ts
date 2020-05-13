@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-const baseUrl = 'http://localhost:8000/api/hospital/'
+const baseUrl = 'http://localhost:8080/api/hospital/'
 const url= '/department'
-const baseurl1='http://localhost:8000/api/appointment'
+const baseurl1='http://localhost:8080/api/appointment'
 @Injectable({
   providedIn: 'root'
 })
