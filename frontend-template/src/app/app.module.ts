@@ -29,6 +29,9 @@ import { TabsComponent } from './tabs/tabs.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+import { PatientComponent } from './patient/patient.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
@@ -37,7 +40,7 @@ import { DepartmentAddComponent } from './department-add/department-add.componen
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 //import { PatientComponent } from './patient/patient.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+//import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 //import { DepartmentAddComponent } from './department-add/department-add.component';
 import { ImagesComponent } from './images/images.component';
@@ -69,6 +72,11 @@ import { ImagesComponent } from './images/images.component';
 
     
     LoginComponent,
+<<<<<<< HEAD
+    DepartmentComponent,
+    PatientComponent,
+    AddPatientComponent
+=======
 
     DepartmentComponent,
   //  PatientComponent,
@@ -79,19 +87,29 @@ import { ImagesComponent } from './images/images.component';
     DepartmentAddComponent,
     ImagesComponent
 
+>>>>>>> efcc24cc3aca94b09ecef7a1e6332a26a8039623
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     ReactiveFormsModule,
     HttpClientModule,
+=======
+<<<<<<< HEAD
+    NgbModule,
+    HttpClientModule
+=======
+
+>>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule
 
+>>>>>>> efcc24cc3aca94b09ecef7a1e6332a26a8039623
   ],
   providers: [],
   bootstrap: [AppComponent]

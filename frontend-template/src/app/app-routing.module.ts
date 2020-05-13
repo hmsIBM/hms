@@ -29,6 +29,8 @@ import { DepartmentComponent } from './department/department.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 
 import { DepartmentAddComponent } from './department-add/department-add.component';
+import { PatientComponent } from './patient/patient.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 const routes: Routes = [
   
@@ -56,7 +58,12 @@ const routes: Routes = [
   { path: 'app-doctor-display' , component: DoctorDisplayComponent},
 
 
+
+ // { path: 'add-patient', component: AddPatientComponent},
+
+
   { path: 'add' , component: DepartmentAddComponent}
+
 ];
 
 @NgModule({
