@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 import { PatientComponent } from './patient/patient.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     
     LoginComponent,
     DepartmentComponent,
-    PatientComponent
+    PatientComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,

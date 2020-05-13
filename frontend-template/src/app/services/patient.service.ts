@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-const pUrl = 'http://localhost:8000/api/hospital/max_hospital'
+import { Patient } from '../models/patient';
+import { Hospital } from '../models/hospital';
+import {Department} from '../models/department'
+
+
+const pUrl = 'http://localhost:8080/api/hospital/max_hospital'
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
   hospitalarr:Array<any>=[]
-  departmentarr:Array<any>=[]
+
   patientarr:Array<any>=[]
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient ) { }
 
-
+  departmentarr:Array<any>=[]
   // fetchAllPatient(){
 
   //   return this.http.get(pUrl);

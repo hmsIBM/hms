@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Patient } from '../models/patient';
 import {PatientService} from '../services/patient.service'
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 // import { DoctorService } from '../services/doctor.service';  
 
 
@@ -32,21 +34,44 @@ export class PatientComponent implements OnInit {
   len:number
 
 
-  patient:Array<any>=[];
+  patients:Array<any>=[];
   departments:Array<any>=[]
   dp:Array<any>=[]
-
+  pp = ["dad", "mom"]
   doctor:Array<any>=[]
+  valuePatients:Array<any>=[]
+
+  a:Array<any>=[];
+  b:Array<any>=[];
+
   constructor(private router: Router, private patientSerivce: PatientService) { }
 
   ngOnInit() {  
     this.patientSerivce.fetchAllPatient()
     .subscribe((res:Array<any>)=> 
     { 
-      this.dp=res;
-      console.log(res);
+      this.patientSerivce.departmentarr=res;
+      // console.log(res);
       console.log("res pulled...");
 
+      
+      for (let entry of this.patientSerivce.departmentarr.department) { 
+
+      // console.log(entry);
+          
+  for (let entry1 of entry.patient) { 
+  
+    // console.log(entry1)
+  
+      this.patients.push(entry1);  
+   }
+        }
+
+        for (let p of this.patients)
+        { this.valuePatients.push(p);
+          
+        }
+        console.log(this.valuePatients)
     })
    
 
