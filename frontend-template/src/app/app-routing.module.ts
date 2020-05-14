@@ -47,12 +47,8 @@ const routes: Routes = [
   { path: 'overlap', component: OverlapComponent },
   { path: 'login' , component: LoginComponent},
   { path: 'department' , component: DepartmentComponent},
-<<<<<<< HEAD
   { path: 'add-patient', component: AddPatientComponent}
 
-=======
-  { path: 'add' , component: DepartmentAddComponent}
->>>>>>> efcc24cc3aca94b09ecef7a1e6332a26a8039623
 ];
 
 @NgModule({

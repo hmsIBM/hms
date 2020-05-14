@@ -31,16 +31,7 @@ export class AddPatientComponent implements OnInit {  currentRate: any;
 
   constructor() { }
 
-  search = (text$: Observable<string>) =>
-    text$
-      .debounceTime(200)
-      .distinctUntilChanged()
-      .map(term => term.length > 1 ? []
-        : states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
 
-  @ViewChild('instance', {static: true}) instance: NgbTypeahead;
-  focus$ = new Subject<string>();
-  click$ = new Subject<string>();
 
   focusSearch = (text$: Observable<string>) =>
     text$

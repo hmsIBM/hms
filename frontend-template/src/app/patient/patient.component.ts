@@ -53,10 +53,8 @@ export class PatientComponent implements OnInit {
       this.patientSerivce.departmentarr=res;
       // console.log(res);
       console.log("res pulled...");
-
       
       for (let entry of this.patientSerivce.departmentarr.department) { 
-
       // console.log(entry);
           
   for (let entry1 of entry.patient) { 
