@@ -31,7 +31,8 @@ import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 import { PatientComponent } from './patient/patient.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
->>>>>>> efcc24cc3aca94b09ecef7a1e6332a26a8039623
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { ImagesComponent } from './images/images.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     CarouselComponent,
     TabsComponent,
     OverlapComponent,
+    ImagesComponent,
 
     
     LoginComponent,
@@ -70,7 +72,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
