@@ -1,28 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 <<<<<<< HEAD
+
+
 const baseUrl="http://localhost:8000/api/hospital/";
+
 =======
-
-
-const baseUrl="http://localhost:8000/api/hospital/doctor";
-
->>>>>>> 45ad4c0c6cf09ed4cd6cd02c12beb2a21dc62e9b
+const baseUrl="http://localhost:8000/api/hospital/";
+>>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
 
 @Injectable({
   providedIn: 'root'
 })
 <<<<<<< HEAD
+=======
 export class DoctorService {
   hospitalarr:Array<any>=[]
   departmentarr:Array<any>=[]
   patientarr:Array<any>=[]
-=======
+>>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
 
-export class DoctorService {
 
  
->>>>>>> 45ad4c0c6cf09ed4cd6cd02c12beb2a21dc62e9b
   constructor(private http:HttpClient) { }
 
 
@@ -30,6 +29,10 @@ export class DoctorService {
     return this.http.get(baseUrl);
   }
 <<<<<<< HEAD
+
+
+=======
+>>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
   fetchAllHospital(){
     return this.http.get(baseUrl);
   }
@@ -37,8 +40,10 @@ export class DoctorService {
   fetchParHospital(hosname:string){
     return this.http.get(baseUrl+hosname);
   }
+<<<<<<< HEAD
+
 =======
->>>>>>> 45ad4c0c6cf09ed4cd6cd02c12beb2a21dc62e9b
+>>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
 
   
   addDoctor(doctor:any){
@@ -51,4 +56,4 @@ export class DoctorService {
 
 
 
->>>>>>> 45ad4c0c6cf09ed4cd6cd02c12beb2a21dc62e9b
+>>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4

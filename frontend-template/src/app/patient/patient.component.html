@@ -1,5 +1,5 @@
-<p>patient works!</p> 
- <button type="button"  (click)="submit()" >Add an Appointment</button>
+<!-- <p>patient works!</p> 
+ <button type="button"  (click)="submit()" >Add an Appointment</button> -->
         
 <h5 class="card-title"> {{PatientName}} {{gender}}</h5>
 
@@ -36,26 +36,16 @@
             </div>
           </ng-template>
           
-          <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+         <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> --> -->
           
-          <hr>
+         <hr>
           
-          <pre>{{ closeResult }}</pre>
+  
           
-          <!-- <code>.table-hover</code> -->
-          <div class="dropdown">
+           <div class="dropdown"> 
 
-            <!--Trigger-->
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">Material dropdown</button>
-          
-            <!--Menu-->
-            <div class="dropdown-menu dropdown-primary">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+            
+        
           </div>
 
         <div class="table-responsive">
@@ -71,12 +61,12 @@
                 
               </tr>
             </thead>
-            <tbody *ngFor="let p of patient">
+            <tbody *ngFor="let p of valuePatients">
               <tr>
                 <td>{{p.id}}</td>
                 <td>{{p.name}}</td>
                 <td>{{p.gender}}</td>
-                <td>{{p.email}}}</td>
+                <td><label>{{p.emailId}}</label></td>
                 <td>
                   <label >{{p.contactNumber}}</label>
                 </td>
@@ -93,61 +83,6 @@
         </div>
       </div>
     </div>
-  </div>        
+  </div>         
 
 
-
-<!-- 
-  <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card" *ngFor="let hos of Hospital">
-        <div class="card" >
-          <div class="card-body">
-            
-            <ngb-carousel>
-              <ng-template ngbSlide>
-                <img src="assets/images/carousel/hospital1.jpg" >
-                <div class="carousel-caption">
-                  <h3>{{hos.name}}</h3>
-                  <h3>{{hos.id}}</h3>
-                  <button class="btn btn-primary" (click)="displaydoctor(hos.name)">display doctor</button>
-                   </div>
-              </ng-template>
-              
-            </ngb-carousel>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<!-- <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
-     <div *ngFor="let d of doc"> 
-    <div class="card-body">
-        <h5 class="card-title">{{d.name}}</h5>
-        
-    </div>   
-    </div>
-</div> -->
-
-<div class="row">
-    <div class="col-lg-6 grid-margin stretch-card" *ngFor="let doc of Doctor">
-        
-        <div class="card" >
-          <div class="card-body">
-            <div *ngFor="let d of doc"> 
-   
-            <ngb-carousel>
-              <ng-template ngbSlide>
-                <img src="assets/images/carousel/doctor2.jpg" >
-                <div class="carousel-caption">
-                  <h3>{{d.name}}</h3>
-                  
-            
-                   </div>
-              </ng-template>
-              
-            </ngb-carousel>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div> 

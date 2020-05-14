@@ -30,7 +30,7 @@ onUpload() {
   console.log("helloooo yeah")
   console.log(uploadImageData)
   //Make a call to the Spring Boot Application to save the image
-  this.httpClient.put('http://localhost:8080/api/test/department/4', uploadImageData, { observe: 'response' })
+  this.httpClient.put('http://localhost:8000/api/test/department/4', uploadImageData, { observe: 'response' })
     .subscribe((response) => {
       console.log("shubbbb")
       if (response.status == 200) {
@@ -46,7 +46,7 @@ onUpload() {
   //Gets called when the user clicks on retieve image button to get the image from back end
   getImage() {
     //Make a call to Sprinf Boot to get the Image Bytes.
-    this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
+    this.httpClient.get('http://localhost:8000/image/get/' + this.imageName)
       .subscribe(
         res => {
           this.retrieveResonse = res;

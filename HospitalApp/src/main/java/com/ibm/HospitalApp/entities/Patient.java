@@ -1,11 +1,9 @@
 package com.ibm.HospitalApp.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Patient {
@@ -18,17 +16,12 @@ public class Patient {
 	private String disease;
 	private String emailId;
 	private long contactNumber;
-	@OneToOne(cascade=CascadeType.ALL)
-	private ImageModel image;
 	
 	public Patient() {
 		super();
 	}
 
-	
-
-	public Patient(int id, String name, String gender, String disease, String emailId, long contactNumber,
-			ImageModel image) {
+	public Patient(int id, String name, String gender, String disease, String emailId, long contactNumber) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -36,10 +29,7 @@ public class Patient {
 		this.disease = disease;
 		this.emailId = emailId;
 		this.contactNumber = contactNumber;
-		this.image = image;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -89,26 +79,11 @@ public class Patient {
 		this.contactNumber = contactNumber;
 	}
 
-
-
-	public ImageModel getImage() {
-		return image;
-	}
-
-
-
-	public void setImage(ImageModel image) {
-		this.image = image;
-	}
-
-
-
 	@Override
 	public String toString() {
 		return "Patient [id=" + id + ", name=" + name + ", gender=" + gender + ", disease=" + disease + ", emailId="
-				+ emailId + ", contactNumber=" + contactNumber + ", image=" + image + "]";
+				+ emailId + ", contactNumber=" + contactNumber + "]";
 	}
-
 
 	
 }
