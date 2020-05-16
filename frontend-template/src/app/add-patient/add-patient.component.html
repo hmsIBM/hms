@@ -122,86 +122,121 @@
 
 
 
- 
+
 
 
 
 <div class="container">
   <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
 
-        <h3 style="text-align:center">
-            <!-- Add Patient -->
-        </h3>
-       <pre> {{this.patientForm.value| json}}</pre>
+    <h3 style="text-align:center">
+      <!-- Add Patient -->
+    </h3>
+    <pre> {{this.patientForm.value| json}}</pre>
+    <div class="form-group">
+      <!-- Username -->
+      <label for="username">Name: <span class="lblError">*</span></label>
+      <div class="controls">
+        <input type="text" id="username" placeholder="Name" class="form-control" formControlName="name">
+      </div>
+    </div>
+
+
+
+    <div class="form-row">
+      <div class="col">
         <div class="form-group">
-              <!-- Username --> 
-              <label for="username">Name: <span class="lblError">*</span></label>
-              <div class="controls">
-                <input type="text" id="username" placeholder="Name" class="form-control" formControlName="name">
-              </div>
-        </div>
-
-
-
-         <div class="form-row">
-          <div class="col">
-            <div class="form-group">
-              <!-- E-mail -->
-              <label for="email">E-mail: <span class="lblError">*</span></label>
-              <div class="controls">
-                <input type="text" id="email" placeholder="E-mail" class="form-control" formControlName="emailId">
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <!-- Mobile -->
-              <label for="phone">Phone <span class="lblError">*</span></label>
-              <div class="controls">
-                <input type="number" id="phone" placeholder="Phone" class="form-control" formControlName="contactNumber">
-              </div>
-            </div>
+          <!-- E-mail -->
+          <label for="email">E-mail: <span class="lblError">*</span></label>
+          <div class="controls">
+            <input type="text" id="email" placeholder="E-mail" class="form-control" formControlName="emailId">
           </div>
         </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <!-- Mobile -->
+          <label for="phone">Phone <span class="lblError">*</span></label>
+          <div class="controls">
+            <input type="number" id="phone" placeholder="Phone" class="form-control" formControlName="contactNumber">
+          </div>
+        </div>
+      </div>
+    </div>
 
-       
 
-      <div class="form-group" >
-        <div class="form-check form-check-inline">
-          
-             <input type="radio" id="genderMale" class="form-check-input" formControlName="gender" value="Male">
-            <label class="form-check-label" for="genderMale">Male</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" id="genderFemale" class="form-check-input" formControlName="gender" value="Female">
-          <label class="form-check-label" for="genderFemale">Female</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" id="genderOthers" class="form-check-input" formControlName="gender" value="Others">
-          <label class="form-check-label" for="genderOthers">Others</label>
-        </div>
-               
-        
-      <div class="form-group"> 
+
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+
+        <input type="radio" id="genderMale" class="form-check-input" formControlName="gender" value="Male">
+        <label class="form-check-label" for="genderMale">Male</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" id="genderFemale" class="form-check-input" formControlName="gender" value="Female">
+        <label class="form-check-label" for="genderFemale">Female</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" id="genderOthers" class="form-check-input" formControlName="gender" value="Others">
+        <label class="form-check-label" for="genderOthers">Others</label>
+      </div>
+
+
+      <div class="form-group">
         <!-- Username -->
         <label for="username">Disease: <span class="lblError">*</span></label>
         <div class="controls">
           <input type="text" id="username" placeholder="Disease" class="form-control" formControlName="disease">
         </div>
-  </div>  
       </div>
+    </div>
 
-      
 
-        <div class="form-group">
-          <button class="btn btn-primary" type="submit" style="width: 15%">
-            Add
-          </button>
-        </div>
+
+  
+
+    <div class="container row">
+      <div class="col-md-6">
+        <label for ="imageupload">Upload Image<span class ="lblError">*</span></label>
+        <input type="file" (change)="onFileChanged($event)">
+
+      </div>
+      <div class="col-md-6">
+        <input type="button" (click)="onUpload()" value="upload">
+      </div>
+    </div>
+    <hr />
+
+    <div class="container row">
+      <div class="col-md-12">
+        <div *ngIf=message>{{message}}</div>
+      </div>
+    </div>
+
+    <div class="container row">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+          name="name" />
+      </div>
+      <div class="col-md-6">
+        <input type="button" (click)="getImage()" value="Get Image">
+
+      </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" style="width: 15%">
+        Add
+      </button>
+    </div>
 
   </form>
 </div>
- 
+
 
 
 
