@@ -26,9 +26,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
-//import { PatientComponent } from './patient/patient.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-//import { AddPatientComponent } from './add-patient/add-patient.component';
 
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
@@ -63,28 +61,13 @@ import { PatientComponent } from './patient/patient.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    
     ImagesComponent,
-
-    
     LoginComponent,
-    PatientComponent,
-    //AddPatientComponent,
     DepartmentComponent,
-   // PatientComponent,
-    //AddPatientComponent,
-
-   // DepartmentComponent,
-  //  PatientComponent,
-
-  //  OverlapComponent,
-    DepartmentComponent,
-
     DepartmentAddComponent,
     ImagesComponent,
     DoctoraddComponent,
     DoctorDisplayComponent,
-
     PatientComponent,
     AddPatientComponent
   ],
@@ -93,14 +76,6 @@ import { PatientComponent } from './patient/patient.component';
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgbModule,
-    HttpClientModule,
-
-    
-    NgbModule,
-    HttpClientModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule
