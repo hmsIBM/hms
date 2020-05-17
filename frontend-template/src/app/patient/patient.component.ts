@@ -44,7 +44,18 @@ export class PatientComponent implements OnInit {
   a:Array<any>=[];
   b:Array<any>=[];
 
-  constructor(private router: Router, private patientSerivce: PatientService) { }
+
+  selectedFile: File;
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+  message: string;
+  imageName: any;
+  imagearr:Array<any>=[];
+  departmentarr: any;
+  department: any;
+
+  constructor(private router: Router, private patientSerivce: PatientService,private httpClient: HttpClient) { }
 
   ngOnInit() {  
     this.patientSerivce.fetchAllPatient()
@@ -54,9 +65,10 @@ export class PatientComponent implements OnInit {
       // console.log(res);
       console.log("res pulled...");
 
-      
-      for (let entry of this.patientSerivce.departmentarr.department) { 
 
+
+
+      for (let entry of this.patientSerivce.departmentarr.department) { 
       // console.log(entry);
           
   for (let entry1 of entry.patient) { 
@@ -69,10 +81,36 @@ export class PatientComponent implements OnInit {
 
         for (let p of this.patients)
         { this.valuePatients.push(p);
-          
+          // this.imagearr.push(p.image.name);
+          console.log("name of images:", p.image.name );
+          this.getImage(p.image.name);
         }
+        console.log(this.valuePatients[1].image.name);
+        // console.log(this.imagearr);
+        console.log("working....")
         console.log(this.valuePatients)
+        console.log(this.imagearr); 
     })
+
+ 
+  }
+
+ 
+    getImage(name:string) {
+      //Make a call to Sprinf Boot to get the Image Bytes.
+      console.log("nameeeeeeeeeeeeeeeeeee:", name)
+      this.httpClient.get('http://localhost:8080/image/get/' +name)
+        .subscribe(
+          res => {
+            console.log("get image started....")
+            this.retrieveResonse = res;
+            this.base64Data = this.retrieveResonse.picByte;
+            this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+            this.imagearr.push(this.retrievedImage);
+            console.log("get image done....")
+          }
+        );
+    }
    
 
 
@@ -124,5 +162,5 @@ export class PatientComponent implements OnInit {
 // }
   
 
-}
+
 }

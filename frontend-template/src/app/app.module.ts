@@ -28,7 +28,7 @@ import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 import { PatientComponent } from './patient/patient.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AddPatientComponent } from './add-patient/add-patient.component';
+//import { AddPatientComponent } from './add-patient/add-patient.component';
 
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
@@ -63,7 +63,7 @@ import { ImagesComponent } from './images/images.component';
     TabsComponent,
     LoginComponent,
     PatientComponent,
-    AddPatientComponent,
+    //AddPatientComponent,
     DepartmentComponent,
     DepartmentAddComponent,
     ImagesComponent,

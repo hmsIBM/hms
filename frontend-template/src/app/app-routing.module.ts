@@ -26,7 +26,7 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 
 import { DepartmentAddComponent } from './department-add/department-add.component';
 import { PatientComponent } from './patient/patient.component';
-import { AddPatientComponent } from './add-patient/add-patient.component';
+//import { AddPatientComponent } from './add-patient/add-patient.component';
 
 const routes: Routes = [
   

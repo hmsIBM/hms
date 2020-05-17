@@ -5,7 +5,7 @@ import { Hospital } from '../models/hospital';
 import {Department} from '../models/department'
 
 
-const pUrl = 'http://localhost:8080/api/hospital/max_hospital'
+const pUrl = 'http://localhost:8080/api/hospital/max hospital'
 @Injectable({
   providedIn: 'root'
 })

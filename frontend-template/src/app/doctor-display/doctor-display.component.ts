@@ -14,6 +14,7 @@ export class DoctorDisplayComponent implements OnInit {
   Department:Array<any>=[]
   HospitalOne:Array<any>=[]
   hosname:string
+  department: string;
   //i:number
   len:number
   constructor(private doctorService: DoctorService) { }
@@ -38,7 +39,7 @@ displaydoctor(hosname:string)
       this.HospitalOne=res;
       console.log("hospital one")
       console.log(this.HospitalOne);
-      this.Department=this.HospitalOne.department;
+      this.Department=this.HospitalOne;
 
       console.log("Department of hospital",this.Department);
       this.len=this.Department.length

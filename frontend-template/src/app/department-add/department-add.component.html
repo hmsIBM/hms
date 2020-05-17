@@ -1,26 +1,20 @@
-<!-- <div id="form-main">
-    <div id="form-div">
-      <form class="form" id="form1">
-        
-        <p class="department name">
-          <input name="department name" type="text"  placeholder="department" formControlName="department"/>
-          <button type="submit" id="login-button" (click)="SaveData()">Add Department</button>
-        </p>
-        </form>
-    </div>
-</div> -->
+
 
 
 <div class="card">
-<div class="wrapper">
-	<div class="container">
-		<h1>ADD DEPARTMENT</h1>
-		
-		<form [formGroup]="myForm">
-			<input type="text" placeholder="Department name" formControlName="department">
-			<button type="submit" id="login-button" (click)="SaveData()">Add Department</button>
-		</form>
-	</div>
-	
+  <div class="wrapper">
+    <div class="container">
+      <h1>ADD DEPARTMENT</h1>
+
+      <form [formGroup]="myForm">
+        <input type="text" placeholder="Department name" formControlName="department">
+        <button type="submit" id="login-button" (click)="SaveData()">Add Department</button>
+        <input type="file" placeholder="image name" (change)="onFileChanged($event)">
+        <button type="submit" id="login-button" (click)="onUpload()">Upload Image</button>
+       
+      </form>
+    </div>
+
+  </div>
 </div>
-</div>
+
