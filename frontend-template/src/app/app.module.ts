@@ -1,12 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http'
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -27,10 +24,21 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
+//import { PatientComponent } from './patient/patient.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+//import { AddPatientComponent } from './add-patient/add-patient.component';
+
+import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
+
 import { DepartmentAddComponent } from './department-add/department-add.component';
+import { DoctoraddComponent } from './doctoradd/doctoradd.component';
+
+import { ImagesComponent } from './images/images.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { PatientComponent } from './patient/patient.component';
 
 
 @NgModule({
@@ -55,23 +63,46 @@ import { DepartmentAddComponent } from './department-add/department-add.componen
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    OverlapComponent,
+    
+    ImagesComponent,
 
     
     LoginComponent,
-    OverlapComponent,
     DepartmentComponent,
-    DepartmentAddComponent
+   // PatientComponent,
+    //AddPatientComponent,
+
+   // DepartmentComponent,
+  //  PatientComponent,
+
+  //  OverlapComponent,
+    DepartmentComponent,
+
+    DepartmentAddComponent,
+    ImagesComponent,
+    DoctoraddComponent,
+    DoctorDisplayComponent,
+
+    PatientComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
+    HttpClientModule,
+
+    
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     NgbModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

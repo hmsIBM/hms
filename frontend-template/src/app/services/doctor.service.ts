@@ -1,28 +1,50 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Doctor } from '../models/doctor';
 
 
-const baseUrl="http://localhost:8000/api/hospital/doctor";
+const baseUrl="http://localhost:8000/api/hospital/";
 
+//const baseUrl="http://localhost:8000/api/hospital/";
+const dUrl = 'http://localhost:8000/api/hospital/max hospital/department/cardiology/doctor/'
+const pUrl = 'http://localhost:8000/api/hospital/max hospital/department/'
+const doc='/doctor/'
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class DoctorService {
+  hospitalarr:Array<any>=[]
+  departmentarr:Array<any>=[]
+  patientarr:Array<any>=[]
+
 
  
   constructor(private http:HttpClient) { }
 
 
-  fetchAllDoctor(){
+  // fetchAllDoctor(){
+  //   return this.http.get(baseUrl);
+  // }
+  fetchAllDepartment()
+  {
+    return this.http.get(pUrl)
+  }
+
+  fetchAllHospital(){
     return this.http.get(baseUrl);
   }
 
-  
-  addDoctor(doctor:any){
-    return this.http.get(baseUrl+doctor);
+  fetchParHospital(hosname:string){
+    return this.http.get(baseUrl+hosname);
   }
+
+
+  addDoctor(dep:any,pat:Doctor ) { 
+    console.log([pat]);
+     return this.http.put(pUrl+dep+doc,
+      pat, { observe: 'response' }); }
+
 }
 
 

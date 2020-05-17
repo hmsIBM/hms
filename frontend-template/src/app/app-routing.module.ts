@@ -17,13 +17,27 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { OverlapComponent } from './overlap/overlap.component';
+
+import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 
+import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
+import { DoctoraddComponent } from './doctoradd/doctoradd.component';
+
+
+import { DepartmentAddComponent } from './department-add/department-add.component';
+//import { PatientComponent } from './patient/patient.component';
+//import { AddPatientComponent } from './add-patient/add-patient.component';
+import { PatientComponent } from './patient/patient.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { ImagesComponent } from './images/images.component';
+
 const routes: Routes = [
+  
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'patient', component: PatientComponent},
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent },
   { path: 'tables', component: TablesComponent },
@@ -39,9 +53,20 @@ const routes: Routes = [
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
   { path: 'tabs', component: TabsComponent },
-  { path: 'overlap', component: OverlapComponent },
   { path: 'login' , component: LoginComponent},
-  { path: 'department' , component: DepartmentComponent}
+  { path: 'department' , component: DepartmentComponent},
+  { path: 'app-doctor-display' , component: DoctorDisplayComponent},
+  
+  { path: 'app-doctoradd' , component: DoctoraddComponent},
+
+
+ // { path: 'add-patient', component: AddPatientComponent},
+
+
+  { path: 'add' , component: DepartmentAddComponent},
+  { path: 'add-patient', component: AddPatientComponent},
+  { path: 'images', component: ImagesComponent}
+
 ];
 
 @NgModule({
