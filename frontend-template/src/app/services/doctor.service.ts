@@ -1,38 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD
+import { Doctor } from '../models/doctor';
 
 
 const baseUrl="http://localhost:8000/api/hospital/";
 
-=======
-const baseUrl="http://localhost:8000/api/hospital/";
->>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
+//const baseUrl="http://localhost:8000/api/hospital/";
+const dUrl = 'http://localhost:8000/api/hospital/max hospital/department/cardiology/doctor/'
+const pUrl = 'http://localhost:8000/api/hospital/max hospital/department/'
+const doc='/doctor/'
 
 @Injectable({
   providedIn: 'root'
 })
-<<<<<<< HEAD
-=======
 export class DoctorService {
   hospitalarr:Array<any>=[]
   departmentarr:Array<any>=[]
   patientarr:Array<any>=[]
->>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
 
 
  
   constructor(private http:HttpClient) { }
 
 
-  fetchAllDoctor(){
-    return this.http.get(baseUrl);
+  // fetchAllDoctor(){
+  //   return this.http.get(baseUrl);
+  // }
+  fetchAllDepartment()
+  {
+    return this.http.get(pUrl)
   }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
   fetchAllHospital(){
     return this.http.get(baseUrl);
   }
@@ -40,20 +38,15 @@ export class DoctorService {
   fetchParHospital(hosname:string){
     return this.http.get(baseUrl+hosname);
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4
 
-  
-  addDoctor(doctor:any){
-    return this.http.get(baseUrl+doctor);
-  }
+  addDoctor(dep:any,pat:Doctor ) { 
+    console.log([pat]);
+     return this.http.put(pUrl+dep+doc,
+      pat, { observe: 'response' }); }
+
 }
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> 3a7ac1f6d6bbc7e96534914e622830b785936bf4

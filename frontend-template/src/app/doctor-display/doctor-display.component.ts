@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../services/doctor.service';
+import { Department } from '../models/department';
 
 @Component({
   selector: 'app-doctor-display',
