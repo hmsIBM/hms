@@ -158,7 +158,7 @@ public class HospitalAppController {
 	public List<Department> findDepartmentInAHospital(@PathVariable("hospital_name") String hospital_name) {
 		return hospitalAppService.findDepartmentInAHospital(hospital_name);
 	}
-
+	
 	@PutMapping("/hospital/{hospital_name}/department")
 	public ResponseEntity<Void> addDepartmentInAHospital(@PathVariable("hospital_name") String hospital_name,
 			@RequestBody Department department) {
