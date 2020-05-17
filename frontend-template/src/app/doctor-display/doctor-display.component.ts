@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from '../services/doctor.service';
+import { Department } from '../models/department';
 
 @Component({
   selector: 'app-doctor-display',
@@ -39,7 +40,9 @@ displaydoctor(hosname:string)
       this.HospitalOne=res;
       console.log("hospital one")
       console.log(this.HospitalOne);
-      this.Department=this.HospitalOne;
+      
+      this.Department=this.HospitalOne.department;
+      
 
       console.log("Department of hospital",this.Department);
       this.len=this.Department.length

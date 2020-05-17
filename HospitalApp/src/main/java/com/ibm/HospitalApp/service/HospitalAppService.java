@@ -6,7 +6,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+//import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ibm.HospitalApp.entities.Appointment;
@@ -46,11 +46,18 @@ public class HospitalAppService {
 	ImageRepository imageRepo;
 	
 	AppointmentRepo appointmentRepo;
-	public List<Appointment> findAllAppointment() {
-		return appointmentRepo.findAll();
+	public List<Appointment> findAllAppointmentsInAHospital(String hospitalName) {
+		System.out.println("inside service");
+		List<Appointment>appointments=appointmentRepo.findAll();
+		return appointments;
 	}
-	public void addAppointment(Appointment appointment) {
-		appointmentRepo.save(appointment);
+	@Transactional
+	public void addAppointmentInAHospital(String hospitalName,Appointment appointment) {
+		Hospital hospital = hospitalRepo.findByName(hospitalName);
+		List<Appointment> appointments = hospital.getAppointments();
+		appointments.add(appointment);
+		hospital.setAppointments(appointments);	
+		//appointmentRepo.save(appointment);
 	}
 	
 	@Transactional
@@ -211,4 +218,27 @@ public class HospitalAppService {
 		img.setPicByte(image.getPicByte());
 		
 	}
+	public List<Integer> findCountInAHospital(String hospital_name) {
+		// TODO Auto-generated method stub
+		Hospital h=hospitalRepo.findByName(hospital_name);
+		List<Integer> result=new ArrayList<>();
+		List<Department> depts=h.getDepartment();
+		List<Patient> patient=new ArrayList<>();
+		List<Doctor> doctor=new ArrayList<>();
+		List<Appointment> appointment=h.getAppointments();
+		for(Department dept:depts) {
+			patient.addAll(dept.getPatient());
+			doctor.addAll(dept.getDoctor());
+		}
+		
+		result.add(patient.size());
+		result.add(doctor.size());
+		result.add(depts.size());
+		result.add(appointment.size());
+		return result;
+	}
+	
+	
+	
+	
 }

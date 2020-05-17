@@ -52,8 +52,6 @@ export class PatientComponent implements OnInit {
   message: string;
   imageName: any;
   imagearr:Array<any>=[];
-  departmentarr: any;
-  department: any;
 
   constructor(private router: Router, private patientSerivce: PatientService,private httpClient: HttpClient) { }
 
@@ -64,10 +62,9 @@ export class PatientComponent implements OnInit {
       this.patientSerivce.departmentarr=res;
       // console.log(res);
       console.log("res pulled...");
-
-
-
-
+      
+      
+      
       for (let entry of this.patientSerivce.departmentarr.department) { 
       // console.log(entry);
           

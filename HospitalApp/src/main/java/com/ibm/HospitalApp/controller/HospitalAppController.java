@@ -53,6 +53,12 @@ public class HospitalAppController {
 				compressBytes(file.getBytes()));
 		hospitalAppService.testPatient(id,img);
 	}
+	
+	@GetMapping("/hospita")
+
+
+	
+	
 	@PutMapping("/test/doctor/{id}")
 	public void testDoctor(@PathVariable("id") int id,@RequestParam("imageFile") MultipartFile file )throws IOException {
 //		int id=39;
@@ -79,6 +85,17 @@ public class HospitalAppController {
 				compressBytes(file.getBytes()));
 		hospitalAppService.testDoctor(id,img);
 	}
+	
+	
+	@GetMapping("/hospital/{hospital_name}/count")
+	public List<Integer> findCountInAHospital(@PathVariable("hospital_name") String hospital_name) {
+		return hospitalAppService.findCountInAHospital(hospital_name);
+	}
+	
+	
+	
+	
+	
 	// compress the image bytes before storing it in the database
 		public static byte[] compressBytes(byte[] data) {
 			Deflater deflater = new Deflater();
@@ -118,20 +135,21 @@ public class HospitalAppController {
 			return outputStream.toByteArray();
 		}
 	
-	@GetMapping("/appointment")
-	public List<Appointment> findAllAppointments() {
-		return hospitalAppService.findAllAppointment();
+	@GetMapping("/{hospital_name}/appointment")
+	public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
+		System.out.println("inside controller");
+		return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
 	}
 
-	@PostMapping("/appointment")
-	public ResponseEntity<Void> addAppointments(@RequestBody Appointment app) {
-		hospitalAppService.addAppointment(app);
+	@PutMapping("/{hospital_name}/appointment")
+	public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
+		hospitalAppService.addAppointmentInAHospital(hospitalName,app);
 		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
 		return re;
 	}
 	
-	@PutMapping("/appointment/{name}")
-	public ResponseEntity<Void> addupdateAppointment(@PathVariable("name") String name,
+	@PutMapping("/{hospital_name}/appointment/{name}")
+	public ResponseEntity<Void> addupdateAppointment(@PathVariable("hospital_name") String hospitalName,@PathVariable("name") String name,
 			@RequestBody Appointment app) {
 		hospitalAppService.addupdateAppointment(name, app);
 		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
