@@ -13,13 +13,14 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String name;
+	private String name;	
 	private String gender;
 	private String disease;
 	private String emailId;
 	private long contactNumber;
 	@OneToOne(cascade=CascadeType.ALL)
 	private ImageModel image;
+	
 	
 	public Patient() {
 		super();
@@ -37,67 +38,101 @@ public class Patient {
 		this.image = image;
 	}
 
+
 	public int getId() {
 		return id;
 	}
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
 	public String getName() {
 		return name;
 	}
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
 	public String getGender() {
 		return gender;
 	}
+
 
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
+
 	public String getDisease() {
 		return disease;
 	}
+
 
 	public void setDisease(String disease) {
 		this.disease = disease;
 	}
 
+
 	public String getEmailId() {
 		return emailId;
 	}
+
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
 
+
 	public long getContactNumber() {
 		return contactNumber;
 	}
+
 
 	public void setContactNumber(long contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354
 	public ImageModel getImage() {
 		return image;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354
 	public void setImage(ImageModel image) {
 		this.image = image;
 	}
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354
 	@Override
 	public String toString() {
 		return "Patient [id=" + id + ", name=" + name + ", gender=" + gender + ", disease=" + disease + ", emailId="
 				+ emailId + ", contactNumber=" + contactNumber + ", image=" + image + "]";
 	}
+<<<<<<< HEAD
 
 		
 }
+=======
+	
+	
+	
+	
+}
+>>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354

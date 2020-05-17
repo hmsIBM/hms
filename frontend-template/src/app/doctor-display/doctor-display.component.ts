@@ -40,6 +40,7 @@ displaydoctor(hosname:string)
       console.log("hospital one")
       console.log(this.HospitalOne);
       this.Department=this.HospitalOne.department;
+      
 
       console.log("Department of hospital",this.Department);
       this.len=this.Department.length

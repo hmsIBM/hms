@@ -32,11 +32,12 @@ onUpload() {
   console.log("helloooo yeah")
   console.log(uploadImageData)
   //Make a call to the Spring Boot Application to save the image
-  this.httpClient.put('http://localhost:8080/api/test/department/4', uploadImageData, { observe: 'response' })
+  this.httpClient.put('http://localhost:8080/api/test/patient/40', uploadImageData, { observe: 'response' })
     .subscribe((response) => {
       console.log("shubbbb")
       if (response.status == 200) {
         this.message = 'Image uploaded successfully';
+        console.log("upload worked.....")
       } else {
         this.message = 'Image not uploaded successfully';
       }
@@ -51,9 +52,11 @@ onUpload() {
     this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
       .subscribe(
         res => {
+          console.log("get image started....")
           this.retrieveResonse = res;
           this.base64Data = this.retrieveResonse.picByte;
           this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          console.log("get image done....")
         }
       );
   }

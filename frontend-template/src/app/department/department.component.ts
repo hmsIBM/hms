@@ -83,10 +83,7 @@ export class DepartmentComponent implements OnInit {
             });
       }
 
-      addDept(){
-        console.log('add department');
-        this.route.navigate(['add'])
-      }
+     
   }
 
 

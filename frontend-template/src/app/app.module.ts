@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -26,7 +24,6 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { OverlapComponent } from './overlap/overlap.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 //import { PatientComponent } from './patient/patient.component';
@@ -39,11 +36,9 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 import { DepartmentAddComponent } from './department-add/department-add.component';
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
-//import { PatientComponent } from './patient/patient.component';
-//import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-//import { DepartmentAddComponent } from './department-add/department-add.component';
 import { ImagesComponent } from './images/images.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { PatientComponent } from './patient/patient.component';
 
 
 @NgModule({
@@ -68,7 +63,8 @@ import { ImagesComponent } from './images/images.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    OverlapComponent,
+    
+    ImagesComponent,
 
     
     LoginComponent,
@@ -79,14 +75,16 @@ import { ImagesComponent } from './images/images.component';
    // DepartmentComponent,
   //  PatientComponent,
 
-    OverlapComponent,
+  //  OverlapComponent,
     DepartmentComponent,
 
     DepartmentAddComponent,
     ImagesComponent,
     DoctoraddComponent,
-    DoctorDisplayComponent
+    DoctorDisplayComponent,
 
+    PatientComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,
@@ -99,6 +97,8 @@ import { ImagesComponent } from './images/images.component';
     HttpClientModule,
 
     
+    NgbModule,
+    HttpClientModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule
