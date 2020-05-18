@@ -126,11 +126,17 @@ public class HospitalAppController {
 		return re;
 	}
 	
-	@PutMapping("/appointment/{name}")
-	public ResponseEntity<Void> addupdateAppointment(@PathVariable("name") String name,
+	@PutMapping("/appointment/{id}")
+	public ResponseEntity<Void> addupdateAppointment(@PathVariable("id") int id,
 			@RequestBody Appointment app) {
-		hospitalAppService.addupdateAppointment(name, app);
+		hospitalAppService.addupdateAppointment(id, app);
 		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return re;
+	}
+	@DeleteMapping("/appointment/{id}")
+	public ResponseEntity<Void> deleteAppointment(@PathVariable("id") int id){
+		hospitalAppService.deleteAppntment(id);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
 		return re;
 	}
 	@GetMapping("/hospital")

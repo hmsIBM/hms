@@ -44,7 +44,7 @@ public class HospitalAppService {
 	
 	@Autowired
 	ImageRepository imageRepo;
-	
+	@Autowired
 	AppointmentRepo appointmentRepo;
 	public List<Appointment> findAllAppointment() {
 		return appointmentRepo.findAll();
@@ -54,8 +54,8 @@ public class HospitalAppService {
 	}
 	
 	@Transactional
-	public void addupdateAppointment(String appointmentName,Appointment d) {
-		Appointment app = appointmentRepo.findByName(appointmentName);
+	public void addupdateAppointment(int appointmentId,Appointment d) {
+		Appointment app = appointmentRepo.findById(appointmentId);
 		
 	           
 	       
@@ -106,7 +106,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Doctor> doctor = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				doctor.addAll(d.getDoctor());
 			}
 		}
@@ -118,7 +118,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Patient> patient = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				patient.addAll(d.getPatient());
 			}
 		}
@@ -132,7 +132,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Doctor> doc = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				doc.addAll(d.getDoctor());
 				doc.add(doctor);
 				d.setDoctor(doc);
@@ -147,7 +147,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Patient> pat = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				pat.addAll(d.getPatient());
 				pat.add(patient);
 				d.setPatient(pat);
@@ -193,6 +193,10 @@ public class HospitalAppService {
 	public void deleteHospital(int id) {
 		hospitalRepo.deleteById(id);
 	}
+	public void deleteAppntment(int id) {
+		appointmentRepo.deleteById(id);
+		
+	}
 	@Transactional
 	public void testPatient(int id,ImageModel image ) {
 		// TODO Auto-generated method stub
@@ -211,4 +215,5 @@ public class HospitalAppService {
 		img.setPicByte(image.getPicByte());
 		
 	}
+	
 }

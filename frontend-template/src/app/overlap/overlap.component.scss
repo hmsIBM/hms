@@ -1,0 +1,70 @@
+.alert-fill-danger {
+    -webkit-animation: cssAnimation 3s forwards; 
+    animation: cssAnimation 3s forwards;
+}
+.alert-fill-success {
+    -webkit-animation: cssAnimation 3s forwards; 
+    animation: cssAnimation 3s forwards;
+}
+.alert-fill-primary {
+    -webkit-animation: cssAnimation 3s forwards; 
+    animation: cssAnimation 3s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+.btn-primary btn-lg{
+    background: linear-gradient(120deg, red, #5983e8);
+}
+body{
+    background-color: #25274d;
+}
+.contact{
+    padding: 4%;
+    height: 400px;
+}
+.col-md-3{
+    background: linear-gradient(120deg, #00e4d0, #5983e8);
+    padding: 4%;
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+// .contact-form button{
+//     background: #25274d00;
+//     color: #000;
+//     font-weight: 600;
+//     // width: 25%;
+// }
+.contact-form button:focus{
+    box-shadow:none;
+}
+P.lblError {
+    color: red;
+    font-size: 0.875rem;
+}

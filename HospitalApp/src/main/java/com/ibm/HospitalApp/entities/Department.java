@@ -17,7 +17,7 @@ public class Department {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
 
-	private String department;
+	private String departmentName;
 	@OneToOne(cascade=CascadeType.ALL)
 	private ImageModel image;
 
@@ -34,10 +34,10 @@ public class Department {
 
 	
 
-	public Department(int id, String department, List<Doctor> doctor, List<Patient> patient, ImageModel image) {
+	public Department(int id, String departmentName, List<Doctor> doctor, List<Patient> patient, ImageModel image) {
 		super();
 		this.id = id;
-		this.department = department;
+		this.departmentName = departmentName;
 		this.doctor = doctor;
 		this.patient = patient;
 		this.image = image;
@@ -53,12 +53,12 @@ public class Department {
 		this.id = id;
 	}
 
-	public String getDepartment() {
-		return department;
+	public String getDepartmentName() {
+		return departmentName;
 	}
 
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
 	}
 
 	public List<Doctor> getDoctor() {
@@ -93,7 +93,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", department=" + department + ", doctor=" + doctor + ", patient=" + patient
+		return "Department [id=" + id + ", department=" + departmentName + ", doctor=" + doctor + ", patient=" + patient
 				+ ", image=" + image + "]";
 	}
 

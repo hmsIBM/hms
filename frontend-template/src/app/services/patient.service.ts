@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-const pUrl = 'http://localhost:8000/api/hospital/max_hospital'
+const pUrl = 'http://localhost:8000/api/hospital/max hospital'
 @Injectable({
   providedIn: 'root'
 })
