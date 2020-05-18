@@ -42,6 +42,9 @@ export class PatientComponent implements OnInit {
   doctor:Array<any>=[]
   valuePatients:Array<any>=[]
 
+  // a:Array<any>=[];
+  // b:Array<any>=[];
+
 
   selectedFile: File;
   retrievedImage: any;
@@ -52,6 +55,8 @@ export class PatientComponent implements OnInit {
   imagearr:Array<any>=[];
 
   constructor(private router: Router, private patientSerivce: PatientService,private httpClient: HttpClient) { }
+
+  // constructor(private router: Router, private patientSerivce: PatientService,private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.patientSerivce.fetchAllPatient()

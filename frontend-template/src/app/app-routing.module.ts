@@ -62,6 +62,7 @@ const routes: Routes = [
   { path: 'app-doctoradd' , component: DoctoraddComponent},
 
   {path: 'overlap' , component:OverlapComponent},
+
  // { path: 'add-patient', component: AddPatientComponent},
 
 

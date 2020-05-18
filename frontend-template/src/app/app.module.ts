@@ -76,6 +76,8 @@ import { OverlapComponent } from './overlap/overlap.component';
     DepartmentAddComponent,
     // DepartmentComponent,
     // DepartmentAddComponent,
+    DepartmentComponent,
+    DepartmentAddComponent,
     ImagesComponent,
     DoctoraddComponent,
     DoctorDisplayComponent,
