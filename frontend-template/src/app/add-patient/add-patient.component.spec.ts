@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverlapComponent } from './overlap.component';
+import { AddPatientComponent } from './add-patient.component';
 
-describe('OverlapComponent', () => {
-  let component: OverlapComponent;
-  let fixture: ComponentFixture<OverlapComponent>;
+describe('AddPatientComponent', () => {
+  let component: AddPatientComponent;
+  let fixture: ComponentFixture<AddPatientComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OverlapComponent ]
+      declarations: [ AddPatientComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OverlapComponent);
+    fixture = TestBed.createComponent(AddPatientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,1 +1,20 @@
-<p>department-add works!</p>
+
+
+
+<div class="card">
+  <div class="wrapper">
+    <div class="container">
+      <h1>ADD DEPARTMENT</h1>
+
+      <form [formGroup]="myForm">
+        <input type="text" placeholder="Department name" formControlName="department">
+        <button type="submit" id="login-button" (click)="SaveData()">Add Department</button>
+        <input type="file" placeholder="image name" (change)="onFileChanged($event)">
+        <button type="submit" id="login-button" (click)="onUpload()">Upload Image</button>
+       
+      </form>
+    </div>
+
+  </div>
+</div>
+

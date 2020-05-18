@@ -31,14 +31,43 @@ import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
 import com.ibm.HospitalApp.service.HospitalAppService;
 
+
+
+@CrossOrigin("*")
 @RestController
-@CrossOrigin
+
 @RequestMapping("/api")
+
 public class HospitalAppController {
 
 	@Autowired
 	HospitalAppService hospitalAppService;
 	
+	@GetMapping("/hospital/{hospital_name}/appointment")
+	public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
+		System.out.println("inside controller");
+		return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
+	}
+
+	@PostMapping("/hospital/{hospital_name}/appointment")
+	public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
+		hospitalAppService.addAppointmentInAHospital(hospitalName,app);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+		return re;
+	}
+	
+	@PutMapping("/hospital/{hospital_name}/appointment/{id}")
+	public ResponseEntity<Void> addupdateAppointment(@PathVariable("id") int id,@RequestBody Appointment app) {
+		hospitalAppService.addupdateAppointment(id, app);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return re;
+	}
+	@DeleteMapping("/hospital/{hospital_name}/appointment/{id}")
+	public ResponseEntity<Void> deleteAppointment(@PathVariable("id") int id){
+		hospitalAppService.deleteAppntment(id);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
+		return re;
+	}
 	
 	
 	@PutMapping("/test/patient/{id}")
@@ -49,6 +78,12 @@ public class HospitalAppController {
 				compressBytes(file.getBytes()));
 		hospitalAppService.testPatient(id,img);
 	}
+	
+	
+
+
+	
+	
 	@PutMapping("/test/doctor/{id}")
 	public void testDoctor(@PathVariable("id") int id,@RequestParam("imageFile") MultipartFile file )throws IOException {
 //		int id=39;
@@ -75,6 +110,17 @@ public class HospitalAppController {
 				compressBytes(file.getBytes()));
 		hospitalAppService.testDoctor(id,img);
 	}
+	
+	
+	@GetMapping("/hospital/{hospital_name}/count")
+	public List<Integer> findCountInAHospital(@PathVariable("hospital_name") String hospital_name) {
+		return hospitalAppService.findCountInAHospital(hospital_name);
+	}
+	
+	
+	
+	
+	
 	// compress the image bytes before storing it in the database
 		public static byte[] compressBytes(byte[] data) {
 			Deflater deflater = new Deflater();
@@ -114,31 +160,7 @@ public class HospitalAppController {
 			return outputStream.toByteArray();
 		}
 	
-	@GetMapping("/appointment")
-	public List<Appointment> findAllAppointments() {
-		return hospitalAppService.findAllAppointment();
-	}
-
-	@PostMapping("/appointment")
-	public ResponseEntity<Void> addAppointments(@RequestBody Appointment app) {
-		hospitalAppService.addAppointment(app);
-		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
-		return re;
-	}
 	
-	@PutMapping("/appointment/{id}")
-	public ResponseEntity<Void> addupdateAppointment(@PathVariable("id") int id,
-			@RequestBody Appointment app) {
-		hospitalAppService.addupdateAppointment(id, app);
-		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
-		return re;
-	}
-	@DeleteMapping("/appointment/{id}")
-	public ResponseEntity<Void> deleteAppointment(@PathVariable("id") int id){
-		hospitalAppService.deleteAppntment(id);
-		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
-		return re;
-	}
 	@GetMapping("/hospital")
 	public List<Hospital> findAllHospital() {
 		return hospitalAppService.findAllHospital();
@@ -160,7 +182,7 @@ public class HospitalAppController {
 	public List<Department> findDepartmentInAHospital(@PathVariable("hospital_name") String hospital_name) {
 		return hospitalAppService.findDepartmentInAHospital(hospital_name);
 	}
-
+	
 	@PutMapping("/hospital/{hospital_name}/department")
 	public ResponseEntity<Void> addDepartmentInAHospital(@PathVariable("hospital_name") String hospital_name,
 			@RequestBody Department department) {

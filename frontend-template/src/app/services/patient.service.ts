@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-const pUrl = 'http://localhost:8000/api/hospital/max hospital'
+import { Patient } from '../models/patient';
+import { Hospital } from '../models/hospital';
+import { Department } from '../models/department'
+
+ 
+const pUrl = 'http://localhost:8080/api/hospital/max hospital'
+const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/patient'
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
-  hospitalarr:Array<any>=[]
-  departmentarr:Array<any>=[]
-  patientarr:Array<any>=[]
-  constructor(private http:HttpClient) { }
+  hospitalarr: Array<any> = []
 
+  patientarr: Array<any> = []
+  constructor(private http: HttpClient) { }
 
+  departmentarr: Array<any> = []
   // fetchAllPatient(){
 
   //   return this.http.get(pUrl);
@@ -21,9 +27,16 @@ export class PatientService {
   //   return this.http.get(pUrl +department+'/patient');
   // }
 
-  fetchAllPatient(){
+  fetchAllPatient() {
     return this.http.get(pUrl);
   }
 
+  // addPatient() {
+  //   return this.http.put(dUrl, {observe: 'response'});
+  // }
 
+  addPatient(pat:Patient ) { 
+    console.log([pat]);
+     return this.http.put(dUrl,
+      pat, { observe: 'response' }); }
 }
