@@ -1,0 +1,332 @@
+<div *ngIf="showMessage" class="alert alert-fill-danger" role="alert">
+  Employee has been deleted successfully!!
+</div>
+<div *ngIf="showMessage1" class="alert alert-fill-primary" role="alert">
+  Employee has been added successfully!!
+</div>
+<div *ngIf="showMessage2" class="alert alert-fill-success" role="alert">
+  Employee has been updated successfully!!
+</div>
+<div class="col-lg-13 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Appointment Sheet</h4>
+      <p class="card-description"></p>
+      <button type="button" (click)="app()" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl" ><i
+          class="mdi mdi-upload"></i>Add an Appointment</button>
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button> -->
+
+      <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="contact-info">
+                    <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+                    <h4><b>Take</b></h4>
+                    <h4><b>An</b></h4>
+                    <h4><b>Appointment</b></h4>
+                    <h4>We would love to cure your disease !</h4>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  
+                  <div class="container">
+                    <div class="modal-header">
+                      <button type="button" #closebutton class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+                      <h3 style="text-align:center">
+                        Sign Up
+                      </h3>
+
+                      <div class="form-group">
+                        <!-- Username -->
+                        <label for="username">Name: <span class="lblError">*</span></label>
+                        <div class="controls">
+                          <input type="text" id="username" placeholder="Name" class="form-control"
+                            formControlName="name">
+                          <p class="lblError" *ngIf="signupForm.get('name').hasError('required')
+                                            && !signupForm.get('name').pristine">
+                            Name is Required
+                          </p>
+                          <p class="lblError"
+                            *ngIf="signupForm.get('name').hasError('invalidName') && !signupForm.get('name').pristine">
+                            Name is Invalid
+                          </p>
+                        </div>
+                      </div>
+                      <!--                 
+                        <div class="form-group">
+                          <div class="form-check form-check-inline">
+                            
+                            <input type="radio" id="emailNotification" class="form-check-input" formControlName="user_notification" value="email">
+                            <label class="form-check-label" for="emailNotification">Email</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input type="radio" id="phoneNotification" class="form-check-input" formControlName="user_notification" value="phone">
+                            <label class="form-check-label" for="phoneNotification">Phone</label>
+                          </div>
+                        </div> -->
+
+                      <div class="form-row">
+                        <div class="col">
+                          <div class="form-group">
+                            <!-- E-mail -->
+                            <label for="email">E-mail: <span class="lblError">*</span></label>
+                            <div class="controls">
+                              <input type="text" id="email" placeholder="E-mail" class="form-control"
+                                formControlName="emailId">
+                              <br>
+                              <p class="lblError"
+                                *ngIf="signupForm.get('emailId').hasError('required') && !signupForm.get('emailId').pristine">
+                                Please provide your E-mail
+                              </p>
+                              <p class="lblError"
+                                *ngIf="signupForm.get('emailId').hasError('email') && !signupForm.get('emailId').pristine">
+                                E-mail is Invalid</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="email">Mobile No: <span class="lblError">*</span></label>
+                            <div class="controls">
+                              <input type="num" id="Mnumber" placeholder="mobile number " class="form-control"
+                                formControlName="contactNumber">
+                              <p class="lblError"
+                                *ngIf="signupForm.get('contactNumber').hasError('required') && !signupForm.get('contactNumber').pristine">
+                                Please provide your Mobile Number
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="timer">Time: <span class="lblError">*</span></label>
+                            <div class="col-sm-10">
+                              <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"
+                                formControlName="appointmentTime">
+                              </ngb-timepicker>
+                              <!-- <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}"
+                                (click)="toggleMeridian()">
+                                Meridian - {{meridian ? "ON" : "OFF"}}
+                              </button> -->
+                              <!-- <hr>
+                                    <pre>Selected time: {{time | json}}</pre> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <label for="email">Date: <span class="lblError">*</span></label>
+                          <div class="form-group">
+                            <div class="input-group">
+                              <input class="form-control" placeholder="yyyy-mm-dd" formControlName="appointmentDate"
+                                [(ngModel)]="model" ngbDatepicker [footerTemplate]="footerTemplate" #d="ngbDatepicker">
+
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" (click)="d.toggle()" type="button"><i
+                                    class="fa fa-edit"></i></button>
+                              </div>
+                              <p class="lblError" *ngIf="signupForm.get('appointmentDate').hasError('required')
+                                            && !signupForm.get('appointmentDate').pristine">
+                                Date is Required
+                              </p>
+                            </div>
+                          </div>
+
+
+                          <ng-template #footerTemplate>
+                            <hr class="my-0">
+                            <button class="btn btn-primary btn-sm m-2 float-left"
+                              (click)="model = today; d.close()">Today</button>
+                            <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Close</button>
+                          </ng-template>
+                        </div>
+                      </div>
+
+
+                      <!--                       
+                      <div class="form-group">
+
+                        <label for="city">Department: <span class="lblError">*</span></label>
+                        <div class="controls">
+                          <select class="btn btn-outline-primary" id="city" formControlName="user_Department" >
+
+                            <option (click)="hello()">Other</option>
+                            <br>
+                            <option *ngFor="let aa of a.department"  (click)="hello()">{{aa.departmentName}} </option>
+
+
+
+                          </select>
+                        </div>
+                      </div> 
+                      <div class="form-group">
+
+                        <label for="Doctor">Doctor: <span class="lblError">*</span></label>
+                        <div class="controls">
+                          <select class="btn btn-outline-primary" id="Doctor" formControlName="user_Doctor" >
+
+                            <option>Other</option>
+                            <br>
+                            <option *ngFor="let abc of b" > {{abc.name}} </option>
+
+
+
+                          </select>
+                        </div>
+                      </div>  -->
+
+                      <div class="form-group">
+
+                        <div class="col-sm-10">
+                          <label class="control-label " for="fname">Department</label>
+                          <div class="template-demo">
+                            <div ngbDropdown class="d-inline-block">
+                              <button class="btn btn-outline-primary" type="button" id="dropdownMenuOutlineButton1"
+                                ngbDropdownToggle>
+                                Department
+                              </button>
+                              <div ngbDropdownMenu aria-labelledby="dropdownMenuOutlineButton1">
+
+                                <div *ngFor="let aa of a.department">
+                                  <a class="dropdown-item" (click)="on(aa.departmentName)">{{aa.departmentName}}</a>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <label type="text" class="form-control">{{bb}}</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+
+                        <div class="col-sm-10">
+                          <label class="control-label " for="Dname">Doctor</label>
+                          <div class="template-demo">
+                            <div ngbDropdown class="d-inline-block">
+                              <button class="btn btn-outline-primary" type="button" id="dropdownMenuOutlineButton1"
+                                ngbDropdownToggle>
+                                Doctor
+                              </button>
+                              <div ngbDropdownMenu aria-labelledby="dropdownMenuOutlineButton1">
+
+                                <div *ngFor="let aa of b">
+                                  <a class="dropdown-item" (click)="hello(aa.name)">{{aa.name}}</a>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <label type="text" class="form-control">{{aa}}</label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label" for="fname">Injury/Disease</label>
+                        <div class="col-sm-10">
+                          <textarea class="form-control" rows="5" id="comment" formControlName="disease"
+                            placeholder="Elaborate about Injury/Disease from which you are suffering."></textarea>
+                          <p class="lblError"
+                            *ngIf="signupForm.get('disease').hasError('required') && !signupForm.get('disease').pristine">
+                            Please provide your Injury/Disease
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <button *ngIf="editMode" type="button" class="btn btn-primary" [disabled]="signupForm.invalid" (click)="updatetheForm()">Update</button>
+                      </div>
+
+
+                      <div class="form-group">
+                        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button> -->
+                        <button *ngIf="!editMode" class="btn btn-primary" type="submit" [disabled]="signupForm.invalid"
+                          style="width: 15%">
+                          Sign Up
+                        </button>
+
+                      </div>
+                      
+
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- <code>.table-hover</code> -->
+
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date</th>
+              <th>Visit time</th>
+              <th>Number</th>
+              <!-- <th>Department</th> -->
+              <th>Doctor</th>
+              <th>Injury</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let a of lists">
+
+              <td>{{a.name}}</td>
+              <td>{{a.emailId}}</td>
+              <td class="text-danger">{{a.appointmentDate}}
+                <i class="mdi mdi-arrow-down"></i>
+              </td>
+              <td>
+                <label>{{a.appointmentTime}}</label>
+              </td>
+              <td>
+                <label>{{a.contactNumber}}</label>
+              </td>
+              <!-- <td>
+                    <label >Phsycology</label>
+                  </td> -->
+              <td>
+                <label>{{a.doctorName}}</label>
+              </td>
+              <td>
+                <label>{{a.disease}}</label>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger icon-btn" (click)="output(a)" data-toggle="modal"
+                  data-target=".bd-example-modal-xl"><i class="mdi mdi-border-color"></i> Edit</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger icon-btn" (click)="delete(a.id)"><i
+                    class="fa fa-times-rectangle"></i> Delete</button>
+              </td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

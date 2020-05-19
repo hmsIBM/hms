@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+// import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {NgbCalendar, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FunctionalService } from '../services/functional.service';
+import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
@@ -11,33 +12,34 @@ import { FunctionalService } from '../services/functional.service';
   encapsulation: ViewEncapsulation.None
 })
 export class TablesComponent implements OnInit {
-  myForm: FormGroup;
+  myform: FormGroup;
   closeResult = '';
   model: NgbDateStruct;
   today = this.calendar.getToday();
-  time = {hour: 13, minute: 30};
+  time = { hour: 13, minute: 30 };
   meridian = true;
-  lists:Array<any>
-  constructor(private modalService: NgbModal,private calendar: NgbCalendar,private fuctionalService: FunctionalService) {
-    this.myForm = new FormGroup({
-      'id': new FormControl('' ,[Validators.required]),
-      'name': new FormControl('' ,[Validators.required]),
-      // 'salary': new FormControl('', Validators.min(10000))
-    'email' : new FormControl('', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")])
-  })
+  lists: Array<any>
+  constructor(private modalService: NgbModal, private calendar: NgbCalendar, private fuctionalService: FunctionalService) {
+
   }
 
   ngOnInit() {
     this.fuctionalService.findAppointment()
-    .subscribe((res:Array<any>)=> {
-      console.log(res);
-      this.lists = res;
-      
-    })
+      .subscribe((res: Array<any>) => {
+        console.log(res);
+        this.lists = res;
+
+      })
     console.log(this.lists);
+    this.myform = new FormGroup({
+      name: new  FormControl(), 
+      email: new FormControl(),
+      Date: new FormControl(),
+      language: new FormControl()
+  });
   }
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -55,7 +57,6 @@ export class TablesComponent implements OnInit {
   }
   toggleMeridian() {
     this.meridian = !this.meridian;
-}
-onSubmit()
-{}
+  }
+  onSubmit() { }
 }

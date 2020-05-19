@@ -27,9 +27,10 @@ onUpload() {
   //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
   const uploadImageData = new FormData();
   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-  console.log("helloooo yeah")
+  console.log("helloooo")
   console.log(uploadImageData)
   //Make a call to the Spring Boot Application to save the image
+ 
   this.httpClient.put('http://localhost:8000/api/test/department/4', uploadImageData, { observe: 'response' })
     .subscribe((response) => {
       console.log("shubbbb")

@@ -6,7 +6,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+//import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ibm.HospitalApp.entities.Appointment;
@@ -44,18 +44,25 @@ public class HospitalAppService {
 	
 	@Autowired
 	ImageRepository imageRepo;
-	
+	@Autowired
 	AppointmentRepo appointmentRepo;
-	public List<Appointment> findAllAppointment() {
-		return appointmentRepo.findAll();
+	public List<Appointment> findAllAppointmentsInAHospital(String hospitalName) {
+		System.out.println("inside service");
+		List<Appointment>appointments=appointmentRepo.findAll();
+		return appointments;
 	}
-	public void addAppointment(Appointment appointment) {
-		appointmentRepo.save(appointment);
+	@Transactional
+	public void addAppointmentInAHospital(String hospitalName,Appointment appointment) {
+		Hospital hospital = hospitalRepo.findByName(hospitalName);
+		List<Appointment> appointments = hospital.getAppointments();
+		appointments.add(appointment);
+		hospital.setAppointments(appointments);	
+		//appointmentRepo.save(appointment);
 	}
 	
 	@Transactional
-	public void addupdateAppointment(String appointmentName,Appointment d) {
-		Appointment app = appointmentRepo.findByName(appointmentName);
+	public void addupdateAppointment(int appointmentId,Appointment d) {
+		Appointment app = appointmentRepo.findById(appointmentId);
 		
 	           
 	       
@@ -106,7 +113,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Doctor> doctor = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				doctor.addAll(d.getDoctor());
 			}
 		}
@@ -118,7 +125,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Patient> patient = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				patient.addAll(d.getPatient());
 			}
 		}
@@ -132,7 +139,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Doctor> doc = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				doc.addAll(d.getDoctor());
 				doc.add(doctor);
 				d.setDoctor(doc);
@@ -147,7 +154,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Patient> pat = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				pat.addAll(d.getPatient());
 				pat.add(patient);
 				d.setPatient(pat);
@@ -193,22 +200,57 @@ public class HospitalAppService {
 	public void deleteHospital(int id) {
 		hospitalRepo.deleteById(id);
 	}
-	@Transactional
-	public void testPatient(int id,ImageModel image ) {
+	
+	public void deleteAppntment(int id) {
+		appointmentRepo.deleteById(id);
+		
+	}
+	
+	public List<Integer> findCountInAHospital(String hospital_name) {
 		// TODO Auto-generated method stub
-		ImageModel img=imageRepo.findById(id);
-		img.setName(image.getName());
-		img.setType(image.getType());
-		img.setPicByte(image.getPicByte());
+		Hospital h=hospitalRepo.findByName(hospital_name);
+		List<Integer> result=new ArrayList<>();
+		List<Department> depts=h.getDepartment();
+		List<Patient> patient=new ArrayList<>();
+		List<Doctor> doctor=new ArrayList<>();
+		List<Appointment> appointment=h.getAppointments();
+		for(Department dept:depts) {
+			patient.addAll(dept.getPatient());
+			doctor.addAll(dept.getDoctor());
+		}
+		
+		result.add(patient.size());
+		result.add(doctor.size());
+		result.add(depts.size());
+		result.add(appointment.size());
+		return result;
+	}
+	@Transactional
+	public void editPatient(int id, Patient patient) {
+		// TODO Auto-generated method stub
+		Patient p=patientRepo.findById(id);
+		p.setContactNumber(patient.getContactNumber());
+		p.setDisease(patient.getDisease());
+		p.setEmailId(patient.getEmailId());
+		p.setGender(patient.getGender());
+		p.setImage(patient.getImage());
+		p.setName(patient.getName());
 		
 	}
 	@Transactional
-	public void testDoctor(int id,ImageModel image ) {
+	public void editDoctor(int id, Doctor doctor) {
 		// TODO Auto-generated method stub
-		ImageModel img=imageRepo.findById(id);
-		img.setName(image.getName());
-		img.setType(image.getType());
-		img.setPicByte(image.getPicByte());
+		Doctor d=doctorRepo.findById(id);
+		d.setContactNumber(doctor.getContactNumber());
+		d.setDesig(doctor.getDesig());
+		d.setEmailId(doctor.getEmailId());
+		d.setImage(doctor.getImage());
+		d.setName(doctor.getName());
+		
 		
 	}
+	
+	
+	
+	
 }

@@ -1,22 +1,3 @@
-<div class="container row">
-  <div class="col-md-12">
-      <h1>Upload Image</h1>
-  </div>
-</div>
-
-
-<div class="container row">
-  <div class="col-md-6">
-      <input type="file" (change)="onFileChanged($event)">
-
-  </div>
-  <div class="col-md-6">
-      <input type="button" (click)="onUpload()" value="upload">
-  </div>
-</div>
-<hr />
-
-
 <!-- <p>doctor-display works!</p>
 <div class="card" style="width: 18rem;" *ngFor="let hos of Hospital">
     <div class="card-body">
@@ -32,12 +13,12 @@
         <h5 class="card-title">{{doc.name}}</h5>
         <h5 class="card-title">{{doc.emailId}}</h5>
         <h5 class="card-title">{{doc.contactNumber}}</h5> -->
-        
-        <!-- <button class="btn btn-primary" (click)="displayquestion(quizzes)">Take Quiz</button>  -->
-    <!-- </div>
+
+<!-- <button class="btn btn-primary" (click)="displayquestion(quizzes)">Take Quiz</button>  -->
+<!-- </div>
 </div> -->
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-6 grid-margin stretch-card" *ngFor="let hos of Hospital">
         <div class="card" >
           <div class="card-body">
@@ -56,7 +37,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 <!-- <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
      <div *ngFor="let d of doc"> 
@@ -96,40 +77,40 @@
     </div>
  -->
 
-
+<!-- 
+ <div class="dropdown">
+  <label for="Department">Department:<span class="lblError">*</span></label>
+  <div>
+<select  class="dropdown-item"[(ngModel)]="selectedgroup" placeholder="choose" (change)="getVal()">
+  <option *ngFor="let group of departmentArr"  [ngValue]="group">{{group.departmentName}}</option>
+</select>
+</div>
+</div> -->
 
  <div *ngIf="showMessage" class="alert alert-fill-primary" role="alert">
   Doctor has been Deleted successfully!!
 </div>
 
 
- <div class="container">
-     <!-- <div class="column"> -->
-         <!-- <div class="row">  -->
-     <div class="column align-items-stretch justify-content-start card-deck"> 
-    <div class="card" style="width: 8rem;" *ngFor="let doc of Doctor ">
-        <div *ngFor="let d of doc "> 
-          <!-- <div *ngFor="let d of doc ;let i=index">  -->
-            <!-- <img [src]="imagearr[i]" class="card-img-top" alt="..."> -->
-        <img src="assets/images/carousel/doctor1.jpg" >
-
-        <!-- <img alt="Card image cap" class="card-img-top embed-responsive-item" [src]= "imagearr[i]" /> -->
+<div class="container">
+  <!-- <div class="column"> -->
+  <!-- <div class="row">  -->
+  <div class="column align-items-stretch justify-content-start card-deck">
+    <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
+      
+        <img src="assets/images/carousel/hospital1.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h1 class="card-title">{{d.name}}</h1>
-          <p class="card-text">{{d.emailId}}</p>
-          <p class="card-text">{{d.contactNumber}}</p>
-          <p class="card-text">{{d.id}}</p>
+          <h1 class="card-title">{{doc.name}}</h1>
+          <p class="card-text">{{doc.emailId}}</p>
+          <p class="card-text">{{doc.contactNumber}}</p>
+          <p class="card-text">{{doc.id}}</p>
          
-          
-          <a class="btn btn-primary">view Doctor</a>
-          <a class="btn btn-primary" (click)="deletedoctor(d.id)">Delete Doctor</a>
+
+          <a href="#" class="btn btn-primary">view Doctor</a>
+          <a class="btn btn-primary" (click)="deletedoctor(doc.id)">Delete Doctor</a>
 
         </div>
-      </div>
-      </div>
-     </div> 
-     </div>
-
-
-  
-
+      
+    </div>
+  </div>
+</div>

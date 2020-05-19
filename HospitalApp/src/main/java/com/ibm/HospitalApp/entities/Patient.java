@@ -98,23 +98,19 @@ public class Patient {
 		this.contactNumber = contactNumber;
 	}
 
-
 	public ImageModel getImage() {
 		return image;
 	}
 
-
 	public void setImage(ImageModel image) {
 		this.image = image;
 	}
-
 
 	@Override
 	public String toString() {
 		return "Patient [id=" + id + ", name=" + name + ", gender=" + gender + ", disease=" + disease + ", emailId="
 				+ emailId + ", contactNumber=" + contactNumber + ", image=" + image + "]";
 	}
-
 
 		
 }

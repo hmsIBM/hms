@@ -27,7 +27,7 @@ public class Appointment {
     @Temporal(TemporalType.DATE)
     @NotNull
     private Date appointmentDate;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="HH:mm")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="HH:mm:ss")
     @Temporal(TemporalType.TIME)
     @NotNull
     private Date appointmentTime;

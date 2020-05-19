@@ -2,65 +2,37 @@ package com.ibm.HospitalApp.entities;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "image_table")
-public class ImageModel {
+import org.hibernate.annotations.GeneratorType;
 
+@Entity
+public class ImageModel {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	int id;
+	String url;
 	public ImageModel() {
 		super();
 	}
-
-	public ImageModel(String name, String type, byte[] picByte) {
-		this.name = name;
-		this.type = type;
-		this.picByte = picByte;
+	public ImageModel(int id, String url) {
+		super();
+		this.id = id;
+		this.url = url;
 	}
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	@Column(name = "name")
-	private String name;
-
-	@Column(name = "type")
-	private String type;
-
-    //image bytes can have large lengths so we specify a value
-    //which is more than the default length for picByte column
-	@Column(name = "picByte", length = 1000)
-	private byte[] picByte;
-
-	public String getName() {
-		return name;
+	public String getUrl() {
+		return url;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setUrl(String url) {
+		this.url = url;
 	}
-
-	public String getType() {
-		return type;
+	@Override
+	public String toString() {
+		return "ImageModel [id=" + id + ", url=" + url + "]";
 	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public byte[] getPicByte() {
-		return picByte;
-	}
-
-	public void setPicByte(byte[] picByte) {
-		this.picByte = picByte;
-	}
+	
 }

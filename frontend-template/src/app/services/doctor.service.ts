@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Doctor } from '../models/doctor';
 
 
-const baseUrl="http://localhost:8000/api/hospital/";
+const baseUrl="http://localhost:8080/api/hospital/";
 
 //const baseUrl="http://localhost:8000/api/hospital/";
-const dUrl = 'http://localhost:8000/api/hospital/max hospital/department/cardiology/doctor/'
-const pUrl = 'http://localhost:8000/api/hospital/max hospital/department/'
-const delUrl = 'http://localhost:8000/api/hospital/doctor/'
+const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/doctor/'
+const pUrl = 'http://localhost:8080/api/hospital/max hospital/department/'
+const delUrl = 'http://localhost:8080/api/hospital/doctor/'
 
 const doc='/doctor/'
 
@@ -32,7 +32,6 @@ export class DoctorService {
   {
     return this.http.get(pUrl)
   }
-
   fetchAllHospital(){
     return this.http.get(baseUrl);
   }
@@ -47,7 +46,6 @@ export class DoctorService {
   fetchParHospital(hosname:string){
     return this.http.get(baseUrl+hosname);
   }
-
 
   addDoctor(dep:any,pat:Doctor ) { 
     console.log([pat]);
