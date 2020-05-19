@@ -47,6 +47,5 @@ export class FunctionalService {
     
   }
 
-
   
 }

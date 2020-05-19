@@ -8,6 +8,7 @@ import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -73,47 +74,6 @@ public class HospitalAppController {
 	}
 	
 	
-	@PutMapping("/test/patient/{id}")
-	public void testPatient(@PathVariable("id") int id,@RequestParam("imageFile") MultipartFile file )throws IOException {
-//		int id=39;
-		System.out.println("inside test");
-		ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),
-				compressBytes(file.getBytes()));
-		hospitalAppService.testPatient(id,img);
-	}
-	
-	
-	// @GetMapping("/hospita")
-
-
-	
-	
-	@PutMapping("/test/doctor/{id}")
-	public void testDoctor(@PathVariable("id") int id,@RequestParam("imageFile") MultipartFile file )throws IOException {
-//		int id=39;
-		System.out.println("inside test");
-		ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),
-				compressBytes(file.getBytes()));
-		hospitalAppService.testDoctor(id,img);
-	}
-	
-	@PutMapping("/test/department/{id}")
-	public void testDepartment(@PathVariable("id") int id,@RequestParam("imageFile") MultipartFile file )throws IOException {
-//		int id=39;
-		System.out.println("inside test");
-		ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),
-				compressBytes(file.getBytes()));
-		hospitalAppService.testDoctor(id,img);
-	}
-	
-	@PutMapping("/test/hospital/{id}")
-	public void testHospital(@PathVariable("id") int id,@RequestParam("imageFile") MultipartFile file )throws IOException {
-//		int id=39;
-		System.out.println("inside test");
-		ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),
-				compressBytes(file.getBytes()));
-		hospitalAppService.testDoctor(id,img);
-	}
 	
 	
 	@GetMapping("/hospital/{hospital_name}/count")
@@ -121,70 +81,26 @@ public class HospitalAppController {
 		return hospitalAppService.findCountInAHospital(hospital_name);
 	}
 	
-	
-	
-	
-	
-	// compress the image bytes before storing it in the database
-		public static byte[] compressBytes(byte[] data) {
-			Deflater deflater = new Deflater();
-			deflater.setInput(data);
-			deflater.finish();
+	// @GetMapping("/{hospital_name}/appointment")
+	// public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
+	// 	System.out.println("inside controller");
+	// 	return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
+	// }
 
-			ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
-			byte[] buffer = new byte[1024];
-			while (!deflater.finished()) {
-				int count = deflater.deflate(buffer);
-				outputStream.write(buffer, 0, count);
-			}
-			try {
-				outputStream.close();
-			} catch (IOException e) {
-			}
-			System.out.println("Compressed Image Byte Size - " + outputStream.toByteArray().length);
-
-			return outputStream.toByteArray();
-		}
-
-		// uncompress the image bytes before returning it to the angular application
-		public static byte[] decompressBytes(byte[] data) {
-			Inflater inflater = new Inflater();
-			inflater.setInput(data);
-			ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
-			byte[] buffer = new byte[1024];
-			try {
-				while (!inflater.finished()) {
-					int count = inflater.inflate(buffer);
-					outputStream.write(buffer, 0, count);
-				}
-				outputStream.close();
-			} catch (IOException ioe) {
-			} catch (DataFormatException e) {
-			}
-			return outputStream.toByteArray();
-		}
+	// @PutMapping("/{hospital_name}/appointment")
+	// public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
+	// 	hospitalAppService.addAppointmentInAHospital(hospitalName,app);
+	// 	ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+	// 	return re;
+	// }
 	
-	
-	@GetMapping("/{hospital_name}/appointment")
-	public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
-		System.out.println("inside controller");
-		return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
-	}
-
-	@PutMapping("/{hospital_name}/appointment")
-	public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
-		hospitalAppService.addAppointmentInAHospital(hospitalName,app);
-		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
-		return re;
-	}
-	
-	@PutMapping("/{hospital_name}/appointment/{name}")
-	public ResponseEntity<Void> addupdateAppointment(@PathVariable("hospital_name") String hospitalName,@PathVariable("name") String name,
-			@RequestBody Appointment app) {
-		hospitalAppService.addupdateAppointment(name, app);
-		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
-		return re;
-	}
+	// @PutMapping("/{hospital_name}/appointment/{name}")
+	// public ResponseEntity<Void> addupdateAppointment(@PathVariable("hospital_name") String hospitalName,@PathVariable("name") String name,
+	// 		@RequestBody Appointment app) {
+	// 	hospitalAppService.addupdateAppointment(name, app);
+	// 	ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+	// 	return re;
+	// }
 	@GetMapping("/hospital")
 	public List<Hospital> findAllHospital() {
 		return hospitalAppService.findAllHospital();
@@ -270,8 +186,15 @@ public class HospitalAppController {
 	
 	@DeleteMapping("/hospital/doctor/{id}")
 	public ResponseEntity<Void> deleteDoctor(@PathVariable("id") int id){
-		hospitalAppService.deleteDoctor(id);
-		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
+		
+		ResponseEntity<Void> re =null;
+		try {
+				hospitalAppService.deleteDoctor(id);
+				re=new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch(EmptyResultDataAccessException e){
+			re = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 		return re;
 	}
 	
@@ -288,5 +211,18 @@ public class HospitalAppController {
 		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
 		return re;
 	}
+	@PutMapping("/hospital/patient/id/{id}")
+	public ResponseEntity<Void> editPatient(@PathVariable("id") int id, @RequestBody Patient patient) {
+		hospitalAppService.editPatient(id, patient);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return re;
+	}
+	@PutMapping("/hospital/doctor/id/{id}")
+	public ResponseEntity<Void> editDoctor(@PathVariable("id") int id, @RequestBody Doctor doctor) {
+		hospitalAppService.editDoctor(id, doctor);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return re;
+	}
+	
 
 }

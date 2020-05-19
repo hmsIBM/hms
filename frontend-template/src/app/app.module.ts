@@ -36,12 +36,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 
-import { DepartmentAddComponent } from './department-add/department-add.component';
+//import { DepartmentAddComponent } from './department-add/department-add.component';
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 import { ImagesComponent } from './images/images.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientComponent } from './patient/patient.component';
+import { ChartsModule } from 'ng2-charts';
 
 import { OverlapComponent } from './overlap/overlap.component';
 
@@ -75,11 +76,11 @@ import { LandingComponent } from './landing/landing.component';
     PatientComponent,
     OverlapComponent,
     DepartmentComponent,
-    DepartmentAddComponent,
+    //DepartmentAddComponent,
     // DepartmentComponent,
     // DepartmentAddComponent,
     DepartmentComponent,
-    DepartmentAddComponent,
+   // DepartmentAddComponent,
     ImagesComponent,
     DoctoraddComponent,
     DoctorDisplayComponent,
@@ -94,6 +95,7 @@ import { LandingComponent } from './landing/landing.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ChartsModule, 
     NgbModule
 
   ],

@@ -36,7 +36,7 @@ export class PatientComponent implements OnInit {
 
 
   patients:Array<any>=[];
-  departments:Array<any>=[]
+  departments:any;
   dp:Array<any>=[]
   pp = ["dad", "mom"]
   doctor:Array<any>=[]
@@ -67,6 +67,7 @@ export class PatientComponent implements OnInit {
       console.log("res pulled...");
       
 
+      
 
       for (let entry of this.patientSerivce.departmentarr.department) { 
       // console.log(entry);
