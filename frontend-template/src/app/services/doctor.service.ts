@@ -8,6 +8,8 @@ const baseUrl="http://localhost:8000/api/hospital/";
 //const baseUrl="http://localhost:8000/api/hospital/";
 const dUrl = 'http://localhost:8000/api/hospital/max hospital/department/cardiology/doctor/'
 const pUrl = 'http://localhost:8000/api/hospital/max hospital/department/'
+const delUrl = 'http://localhost:8000/api/hospital/doctor/'
+
 const doc='/doctor/'
 
 @Injectable({
@@ -33,6 +35,13 @@ export class DoctorService {
 
   fetchAllHospital(){
     return this.http.get(baseUrl);
+  }
+  
+  deletedoctor(dele:number){
+    console.log(dele);
+    console.log("delete in service method started")
+    console.log(delUrl+dele)
+   return this.http.delete(delUrl+dele,{ observe: 'response' });
   }
 
   fetchParHospital(hosname:string){
