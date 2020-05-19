@@ -30,7 +30,9 @@ export class PatientService {
   fetchAllPatient() {
     return this.http.get(pUrl);
   }
-
+  fetchAllHospital(){
+    return this.http.get('http://localhost:8080/api/hospital');
+  }
   // addPatient() {
   //   return this.http.put(dUrl, {observe: 'response'});
   // }
