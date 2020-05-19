@@ -26,7 +26,7 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 
-import { DepartmentAddComponent } from './department-add/department-add.component';
+//import { DepartmentAddComponent } from './department-add/department-add.component';
 //import { PatientComponent } from './patient/patient.component';
 //import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientComponent } from './patient/patient.component';
@@ -71,7 +71,7 @@ const routes: Routes = [
  // { path: 'add-patient', component: AddPatientComponent},
 
 
-  { path: 'add' , component: DepartmentAddComponent},
+  //{ path: 'add' , component: DepartmentAddComponent},
   { path: 'add-patient', component: AddPatientComponent},
   { path: 'images', component: ImagesComponent}
 

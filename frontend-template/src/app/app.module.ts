@@ -36,7 +36,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 
-import { DepartmentAddComponent } from './department-add/department-add.component';
+//import { DepartmentAddComponent } from './department-add/department-add.component';
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 import { ImagesComponent } from './images/images.component';
@@ -75,11 +75,11 @@ import { LandingComponent } from './landing/landing.component';
     PatientComponent,
     OverlapComponent,
     DepartmentComponent,
-    DepartmentAddComponent,
+    //DepartmentAddComponent,
     // DepartmentComponent,
     // DepartmentAddComponent,
     DepartmentComponent,
-    DepartmentAddComponent,
+   // DepartmentAddComponent,
     ImagesComponent,
     DoctoraddComponent,
     DoctorDisplayComponent,

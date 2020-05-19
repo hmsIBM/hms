@@ -16,7 +16,7 @@ export class DoctorDisplayComponent implements OnInit {
   Department:Array<any>=[]
   HospitalOne:Array<any>=[]
   hosname:string
-  department: any;
+  department: Array<any>= [];
   //i:number
   len:number
   constructor(private doctorService: DoctorService,private patientService: PatientService) { }
@@ -29,7 +29,7 @@ export class DoctorDisplayComponent implements OnInit {
       console.log("res pulled...");
     //  console.log(this.a);
      
-    
+
      for (let entry of this.Hospital.department) { 
       // console.log(entry);
           
