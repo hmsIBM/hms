@@ -47,11 +47,6 @@ export class FunctionalService {
     
   }
 
-  addDept(hospitalname2: any){
-    console.log(hospitalname2);
-    return this.http.put('http://localhost:8080/api/hospital/max hospital/department', hospitalname2, {observe : 'response'});
-    
-  }
 
   
 }

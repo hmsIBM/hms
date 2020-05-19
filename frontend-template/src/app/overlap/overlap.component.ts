@@ -19,7 +19,7 @@ export class OverlapComponent implements OnInit {
   showMessage1 : boolean = false;
   showMessage2 : boolean = false;
   editMode : boolean = false;
-  @ViewChild('closebutton') closebutton;
+  @ViewChild('closebutton',null) closebutton;
   invalidNamesArr: string[] = ['Hello', 'Angular'];
   signupForm: FormGroup;
   a:Array<any>=[]

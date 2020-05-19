@@ -1,6 +1,3 @@
-
-
-
 <!-- <p>doctor-display works!</p>
 <div class="card" style="width: 18rem;" *ngFor="let hos of Hospital">
     <div class="card-body">
@@ -16,12 +13,12 @@
         <h5 class="card-title">{{doc.name}}</h5>
         <h5 class="card-title">{{doc.emailId}}</h5>
         <h5 class="card-title">{{doc.contactNumber}}</h5> -->
-        
-        <!-- <button class="btn btn-primary" (click)="displayquestion(quizzes)">Take Quiz</button>  -->
-    <!-- </div>
+
+<!-- <button class="btn btn-primary" (click)="displayquestion(quizzes)">Take Quiz</button>  -->
+<!-- </div>
 </div> -->
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-6 grid-margin stretch-card" *ngFor="let hos of Hospital">
         <div class="card" >
           <div class="card-body">
@@ -40,7 +37,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 <!-- <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
      <div *ngFor="let d of doc"> 
@@ -80,37 +77,33 @@
     </div>
  -->
 
-
+<!-- 
  <div class="dropdown">
   <label for="Department">Department:<span class="lblError">*</span></label>
   <div>
 <select  class="dropdown-item"[(ngModel)]="selectedgroup" placeholder="choose" (change)="getVal()">
-  <option *ngFor="let group of departmentArr"  [ngValue]="group">{{group.department}}</option>
+  <option *ngFor="let group of departmentArr"  [ngValue]="group">{{group.departmentName}}</option>
 </select>
 </div>
-</div>
+</div> -->
 
 
 
- <div class="container">
-     <!-- <div class="column"> -->
-         <!-- <div class="row">  -->
-     <div class="column align-items-stretch justify-content-start card-deck"> 
+<div class="container">
+  <!-- <div class="column"> -->
+  <!-- <div class="row">  -->
+  <div class="column align-items-stretch justify-content-start card-deck">
     <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
-        <div *ngFor="let d of doc"> 
+      
         <img src="assets/images/carousel/hospital1.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h1 class="card-title">{{d.name}}</h1>
-          <p class="card-text">{{d.emailId}}</p>
-          <p class="card-text">{{d.contactNumber}}</p>
-          
+          <h1 class="card-title">{{doc.name}}</h1>
+          <p class="card-text">{{doc.emailId}}</p>
+          <p class="card-text">{{doc.contactNumber}}</p>
+
           <a href="#" class="btn btn-primary">view Doctor</a>
         </div>
-      </div>
-      </div>
-     </div> 
-     </div>
-
-
-  
-
+      
+    </div>
+  </div>
+</div>
