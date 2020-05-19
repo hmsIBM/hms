@@ -113,7 +113,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Doctor> doctor = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				doctor.addAll(d.getDoctor());
 			}
 		}
@@ -125,7 +125,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Patient> patient = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				patient.addAll(d.getPatient());
 			}
 		}
@@ -139,7 +139,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Doctor> doc = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				doc.addAll(d.getDoctor());
 				doc.add(doctor);
 				d.setDoctor(doc);
@@ -154,7 +154,7 @@ public class HospitalAppService {
 		List<Department> department = hospital.getDepartment();
 		List<Patient> pat = new ArrayList<>();
 		for(Department d:department) {
-			if(d.getDepartment().equals(department_name)) {
+			if(d.getDepartmentName().equals(department_name)) {
 				pat.addAll(d.getPatient());
 				pat.add(patient);
 				d.setPatient(pat);
@@ -200,24 +200,7 @@ public class HospitalAppService {
 	public void deleteHospital(int id) {
 		hospitalRepo.deleteById(id);
 	}
-	@Transactional
-	public void testPatient(int id,ImageModel image ) {
-		// TODO Auto-generated method stub
-		ImageModel img=imageRepo.findById(id);
-		img.setName(image.getName());
-		img.setType(image.getType());
-		img.setPicByte(image.getPicByte());
-		
-	}
-	@Transactional
-	public void testDoctor(int id,ImageModel image ) {
-		// TODO Auto-generated method stub
-		ImageModel img=imageRepo.findById(id);
-		img.setName(image.getName());
-		img.setType(image.getType());
-		img.setPicByte(image.getPicByte());
-		
-	}
+	
 	public List<Integer> findCountInAHospital(String hospital_name) {
 		// TODO Auto-generated method stub
 		Hospital h=hospitalRepo.findByName(hospital_name);
@@ -236,6 +219,30 @@ public class HospitalAppService {
 		result.add(depts.size());
 		result.add(appointment.size());
 		return result;
+	}
+	@Transactional
+	public void editPatient(int id, Patient patient) {
+		// TODO Auto-generated method stub
+		Patient p=patientRepo.findById(id);
+		p.setContactNumber(patient.getContactNumber());
+		p.setDisease(patient.getDisease());
+		p.setEmailId(patient.getEmailId());
+		p.setGender(patient.getGender());
+		p.setImage(patient.getImage());
+		p.setName(patient.getName());
+		
+	}
+	@Transactional
+	public void editDoctor(int id, Doctor doctor) {
+		// TODO Auto-generated method stub
+		Doctor d=doctorRepo.findById(id);
+		d.setContactNumber(doctor.getContactNumber());
+		d.setDesig(doctor.getDesig());
+		d.setEmailId(doctor.getEmailId());
+		d.setImage(doctor.getImage());
+		d.setName(doctor.getName());
+		
+		
 	}
 	
 	

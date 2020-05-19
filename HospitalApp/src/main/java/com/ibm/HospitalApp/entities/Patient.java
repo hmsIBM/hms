@@ -98,41 +98,21 @@ public class Patient {
 		this.contactNumber = contactNumber;
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354
 	public ImageModel getImage() {
 		return image;
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354
 	public void setImage(ImageModel image) {
 		this.image = image;
 	}
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354
 	@Override
 	public String toString() {
 		return "Patient [id=" + id + ", name=" + name + ", gender=" + gender + ", disease=" + disease + ", emailId="
 				+ emailId + ", contactNumber=" + contactNumber + ", image=" + image + "]";
 	}
-<<<<<<< HEAD
+	
+	
+	
 
-		
 }
-=======
-	
-	
-	
-	
-}
->>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354

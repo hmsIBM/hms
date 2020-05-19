@@ -39,7 +39,7 @@ import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 import { ImagesComponent } from './images/images.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientComponent } from './patient/patient.component';
-
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -93,14 +93,7 @@ import { PatientComponent } from './patient/patient.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule,
-    HttpClientModule,
-
-    
-    NgbModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    ChartsModule, 
     NgbModule
 
   ],

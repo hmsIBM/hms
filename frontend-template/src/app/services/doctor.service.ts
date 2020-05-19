@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Doctor } from '../models/doctor';
 
 
-const baseUrl="http://localhost:8000/api/hospital/";
+const baseUrl="http://localhost:8080/api/hospital/";
 
 //const baseUrl="http://localhost:8000/api/hospital/";
-const dUrl = 'http://localhost:8000/api/hospital/max hospital/department/cardiology/doctor/'
-const pUrl = 'http://localhost:8000/api/hospital/max hospital/department/'
+const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/doctor/'
+const pUrl = 'http://localhost:8080/api/hospital/max hospital/department/'
 const doc='/doctor/'
 
 @Injectable({

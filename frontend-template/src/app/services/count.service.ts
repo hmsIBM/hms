@@ -19,6 +19,12 @@ export class CountService {
     console.log("inside service");
     return this.http.get(baseUrl+"max hospital/count");
   }
+ 
+  loadData(){
+    console.log("inside loadData service");
+    return this.http.get(baseUrl+"max hospital/department");
+  }
+  
 
 
 }

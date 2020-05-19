@@ -33,6 +33,7 @@ import { PatientComponent } from './patient/patient.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ImagesComponent } from './images/images.component';
 
+
 const routes: Routes = [
   
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

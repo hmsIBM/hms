@@ -39,6 +39,7 @@ displaydoctor(hosname:string)
       this.HospitalOne=res;
       console.log("hospital one")
       console.log(this.HospitalOne);
+      
       this.Department=this.HospitalOne.department;
       
 
