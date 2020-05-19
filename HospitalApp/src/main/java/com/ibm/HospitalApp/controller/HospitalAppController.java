@@ -32,7 +32,10 @@ import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
 import com.ibm.HospitalApp.service.HospitalAppService;
 
+
+
 @CrossOrigin("*")
+// @CrossOrigin("*")
 
 
 @RestController
@@ -44,32 +47,60 @@ public class HospitalAppController {
 	@Autowired
 	HospitalAppService hospitalAppService;
 	
-	
-	@GetMapping("/hospital/{hospital_name}/count")
-	public List<Integer> findCountInAHospital(@PathVariable("hospital_name") String hospital_name) {
-		return hospitalAppService.findCountInAHospital(hospital_name);
-	}
-	
-	@GetMapping("/{hospital_name}/appointment")
+	@GetMapping("/hospital/{hospital_name}/appointment")
 	public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
 		System.out.println("inside controller");
 		return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
 	}
 
-	@PutMapping("/{hospital_name}/appointment")
+	@PostMapping("/hospital/{hospital_name}/appointment")
 	public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
 		hospitalAppService.addAppointmentInAHospital(hospitalName,app);
 		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
 		return re;
 	}
 	
-	@PutMapping("/{hospital_name}/appointment/{name}")
-	public ResponseEntity<Void> addupdateAppointment(@PathVariable("hospital_name") String hospitalName,@PathVariable("name") String name,
-			@RequestBody Appointment app) {
-		hospitalAppService.addupdateAppointment(name, app);
+	@PutMapping("/hospital/{hospital_name}/appointment/{id}")
+	public ResponseEntity<Void> addupdateAppointment(@PathVariable("id") int id,@RequestBody Appointment app) {
+		hospitalAppService.addupdateAppointment(id, app);
 		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 		return re;
 	}
+	@DeleteMapping("/hospital/{hospital_name}/appointment/{id}")
+	public ResponseEntity<Void> deleteAppointment(@PathVariable("id") int id){
+		hospitalAppService.deleteAppntment(id);
+		ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.OK);
+		return re;
+	}
+	
+	
+	
+	
+	@GetMapping("/hospital/{hospital_name}/count")
+	public List<Integer> findCountInAHospital(@PathVariable("hospital_name") String hospital_name) {
+		return hospitalAppService.findCountInAHospital(hospital_name);
+	}
+	
+	// @GetMapping("/{hospital_name}/appointment")
+	// public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
+	// 	System.out.println("inside controller");
+	// 	return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
+	// }
+
+	// @PutMapping("/{hospital_name}/appointment")
+	// public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
+	// 	hospitalAppService.addAppointmentInAHospital(hospitalName,app);
+	// 	ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+	// 	return re;
+	// }
+	
+	// @PutMapping("/{hospital_name}/appointment/{name}")
+	// public ResponseEntity<Void> addupdateAppointment(@PathVariable("hospital_name") String hospitalName,@PathVariable("name") String name,
+	// 		@RequestBody Appointment app) {
+	// 	hospitalAppService.addupdateAppointment(name, app);
+	// 	ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+	// 	return re;
+	// }
 	@GetMapping("/hospital")
 	public List<Hospital> findAllHospital() {
 		return hospitalAppService.findAllHospital();
@@ -91,7 +122,7 @@ public class HospitalAppController {
 	public List<Department> findDepartmentInAHospital(@PathVariable("hospital_name") String hospital_name) {
 		return hospitalAppService.findDepartmentInAHospital(hospital_name);
 	}
-
+	
 	@PutMapping("/hospital/{hospital_name}/department")
 	public ResponseEntity<Void> addDepartmentInAHospital(@PathVariable("hospital_name") String hospital_name,
 			@RequestBody Department department) {

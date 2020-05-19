@@ -30,7 +30,6 @@ export class DoctorService {
   {
     return this.http.get(pUrl)
   }
-
   fetchAllHospital(){
     return this.http.get(baseUrl);
   }
@@ -38,7 +37,6 @@ export class DoctorService {
   fetchParHospital(hosname:string){
     return this.http.get(baseUrl+hosname);
   }
-
 
   addDoctor(dep:any,pat:Doctor ) { 
     console.log([pat]);

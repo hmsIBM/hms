@@ -38,13 +38,14 @@ public class Department {
 
 
 
-	public Department(int id, String departmentName, ImageModel image, List<Doctor> doctor, List<Patient> patient) {
+	
+	public Department(int id, String departmentName, List<Doctor> doctor, List<Patient> patient, ImageModel image) {
 		super();
 		this.id = id;
 		this.departmentName = departmentName;
-		this.image = image;
 		this.doctor = doctor;
 		this.patient = patient;
+		this.image = image;
 	}
 
 
@@ -62,6 +63,13 @@ public class Department {
 	}
 
 	
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
 
 	public List<Doctor> getDoctor() {
 		return doctor;
@@ -97,21 +105,6 @@ public class Department {
 
 
 
-	public String getDepartmentName() {
-		return departmentName;
-	}
-
-
-
-
-
-
-
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
-
-
 
 
 
@@ -121,6 +114,7 @@ public class Department {
 	public String toString() {
 		return "Department [id=" + id + ", departmentName=" + departmentName + ", image=" + image + ", doctor=" + doctor
 				+ ", patient=" + patient + "]";
+		
 	}
 
 

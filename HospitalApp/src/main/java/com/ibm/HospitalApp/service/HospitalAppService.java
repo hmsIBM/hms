@@ -44,7 +44,7 @@ public class HospitalAppService {
 	
 	@Autowired
 	ImageRepository imageRepo;
-	
+	@Autowired
 	AppointmentRepo appointmentRepo;
 	public List<Appointment> findAllAppointmentsInAHospital(String hospitalName) {
 		System.out.println("inside service");
@@ -61,8 +61,8 @@ public class HospitalAppService {
 	}
 	
 	@Transactional
-	public void addupdateAppointment(String appointmentName,Appointment d) {
-		Appointment app = appointmentRepo.findByName(appointmentName);
+	public void addupdateAppointment(int appointmentId,Appointment d) {
+		Appointment app = appointmentRepo.findById(appointmentId);
 		
 	           
 	       
@@ -199,6 +199,11 @@ public class HospitalAppService {
 	
 	public void deleteHospital(int id) {
 		hospitalRepo.deleteById(id);
+	}
+	
+	public void deleteAppntment(int id) {
+		appointmentRepo.deleteById(id);
+		
 	}
 	
 	public List<Integer> findCountInAHospital(String hospital_name) {

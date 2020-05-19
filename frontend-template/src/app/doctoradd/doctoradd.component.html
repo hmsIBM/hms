@@ -25,7 +25,7 @@
   <label for="Department">Department:<span class="lblError">*</span></label>
   <div>
 <select  class="dropdown-item"[(ngModel)]="selectedgroup" placeholder="choose" (change)="getVal()">
-  <option *ngFor="let group of departmentArr"  [ngValue]="group">{{group.department}}</option>
+  <option *ngFor="let group of departmentArr"  [ngValue]="group">{{group.departmentName}}</option>
 </select>
 </div>
 </div>

@@ -6,6 +6,8 @@
 
 .dropdown-item {
   display: none;
+  color: darken($color: #000000, $amount: 0);
+  
 //   position: absolute;
 //   background-color: #f9f9f9;
 //   min-width: 160px;
@@ -26,6 +28,7 @@ position: relative;
 //       margin: 0px !important;
 //     }
 //   }
+
 .dropdown:hover .dropdown-item {
   display: block;
 }

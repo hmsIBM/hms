@@ -18,7 +18,6 @@ import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
 
-import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 
@@ -26,18 +25,25 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 
-import { DepartmentAddComponent } from './department-add/department-add.component';
+//import { DepartmentAddComponent } from './department-add/department-add.component';
 //import { PatientComponent } from './patient/patient.component';
 //import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientComponent } from './patient/patient.component';
+//import { AddPatientComponent } from './add-patient/add-patient.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ImagesComponent } from './images/images.component';
+import { OverlapComponent } from './overlap/overlap.component';
+import { LandingComponent } from './landing/landing.component';
 
 
+import { AppComponent } from './app.component';
 const routes: Routes = [
+  {path: '', redirectTo: '/landing', pathMatch: 'full'},
+  // { path: '', redirectTo: '/landing', pathMatch: 'full' },
   
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'landing', component: LandingComponent },
+  { path: 'App', component: AppComponent },
   { path: 'patient', component: PatientComponent},
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent },
@@ -60,11 +66,12 @@ const routes: Routes = [
   
   { path: 'app-doctoradd' , component: DoctoraddComponent},
 
+  {path: 'overlap' , component:OverlapComponent},
 
  // { path: 'add-patient', component: AddPatientComponent},
 
 
-  { path: 'add' , component: DepartmentAddComponent},
+  //{ path: 'add' , component: DepartmentAddComponent},
   { path: 'add-patient', component: AddPatientComponent},
   { path: 'images', component: ImagesComponent}
 

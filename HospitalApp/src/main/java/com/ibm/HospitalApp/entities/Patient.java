@@ -111,8 +111,13 @@ public class Patient {
 		return "Patient [id=" + id + ", name=" + name + ", gender=" + gender + ", disease=" + disease + ", emailId="
 				+ emailId + ", contactNumber=" + contactNumber + ", image=" + image + "]";
 	}
+
+		
+}
+
+	
 	
 	
 	
 
-}
+
