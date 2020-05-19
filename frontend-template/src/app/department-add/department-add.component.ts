@@ -23,7 +23,7 @@ export class DepartmentAddComponent implements OnInit {
 
 
   myForm: FormGroup;
-  department: any;
+  departmentName: any;
   hospitalN: any;
   hosp: any;
   hospitalname: any;
@@ -33,7 +33,7 @@ export class DepartmentAddComponent implements OnInit {
   constructor(private functionalService: FunctionalService, private fb: FormBuilder, private route: ActivatedRoute, private httpClient: HttpClient) {
 
       this.myForm = new FormGroup({
-     'department': new FormControl('' ,[Validators.required])
+     'departmentName': new FormControl('' ,[Validators.required])
      
       })
   }
@@ -76,7 +76,7 @@ public onFileChanged(event) {
   addForm() {
    
     this.myForm =  this.fb.group({    
-      department : [' '],
+      departmentName : [' '],
       image: this.fb.group({
         name: [''],
         type: [''],

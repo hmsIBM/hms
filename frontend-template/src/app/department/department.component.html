@@ -1,6 +1,46 @@
-<!-- <div class="col-sm-6 col-md-4 col-lg-3"> <i class="toggle-info btn"></i>DEPARTMENT</div> -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl"> <i class="mdi mdi-upload"> Department</i>
- </button>
+<button type="button" (click)="addForm()" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl" ><i
+  class="mdi mdi-upload"></i>Add a Department</button>
+
+  <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="contact-info">
+              <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+              <h4><b>Add</b></h4>
+              <h4><b>A</b></h4>
+              <h4><b>Department</b></h4>
+              <h4>Welcome to our safe space!</h4>
+            </div>
+          </div>
+          <div class="col-md-9">
+            
+            <div class="container">
+              <div class="modal-header">
+                <button type="button" #closebutton class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <form [formGroup]="myForm" >
+                <label>
+                <i class="mdi mdi-account-plus"></i>
+                <input type="text" placeholder="Department name" formControlName="departmentName">
+              </label>
+                <button type="submit" id="login-button" (click)="SaveData()">
+                 Add Department</button> 
+
+
+                <input type="file" placeholder="image name" (change)="onFileChanged($event)">
+                <button type="submit" id="login-button" (click)="onUpload()">Upload Image</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
 <!-- <div class="container row">
@@ -54,14 +94,16 @@
     <div class="card"  *ngFor="let list of lists ">
       <div class="card__image-holder">
       <!-- <img class="card__image" [src]="retrievedImage" style="object-fit: cover;" /> -->
-      <img alt="Card image cap" class="card-img-top embed-responsive-item" [src]= "retrievedImage" />
+      <!-- <img alt="Card image cap" class="card-img-top embed-responsive-item" [src]= "assets/images/samples/carousel/doc1.jpg" /> -->
+      <img src="assets/images/carousel/doc1.jpg" class="card-img-top" alt="...">
     </div>
       <div class="card-title">
         <a href="#" class="toggle-info btn">
           <span class="left"></span>
           <span class="right"></span>
         </a>
-        <h2> {{list.department}}</h2>
+        <h2> {{list.departmentName}}</h2>
+        <small>You can trust us</small>
       </div>
     </div>
 
@@ -71,7 +113,7 @@
         <img class="card__image" src="https://st4.depositphotos.com/8174188/25057/i/450/depositphotos_250570008-stock-photo-woman-having-teeth-examined-at.jpg" alt="beach" />
       </div>
       <div class="card-title">
-        <a href="#" class="toggle-info btn">
+        <a class="toggle-info btn">
           <span class="left"></span>
           <span class="right"></span>
         </a>
@@ -121,6 +163,15 @@
   
    
   </div>
+
+
+
+
+
+
+
+  
+  
   
   
   

@@ -29,6 +29,7 @@ export class OverlapComponent implements OnInit {
   closeResult = '';
   model: NgbDateStruct;
   today = this.calendar.getToday();
+  department: Array<any>=[]
   
   time = { hour: 13, minute: 30 };
   meridian = true;

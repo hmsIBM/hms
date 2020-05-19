@@ -1,7 +1,51 @@
 
+ <button type="button" (click)="addForm()" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl" ><i
+  class="mdi mdi-upload"></i>Add a Department</button>
+
+  <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="contact-info">
+              <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+              <h4><b>Add</b></h4>
+              <h4><b>A</b></h4>
+              <h4><b>Department</b></h4>
+              <h4>Welcome to our safe space!</h4>
+            </div>
+          </div>
+          <div class="col-md-9">
+            
+            <div class="container">
+              <div class="modal-header">
+                <button type="button" #closebutton class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <form [formGroup]="myForm" >
+                <label>
+                <i class="mdi mdi-account-plus"></i>
+                <input type="text" placeholder="Department name" formControlName="departmentName">
+              </label>
+                <button type="submit" id="login-button" (click)="SaveData()">
+                 Add Department</button> 
 
 
-<div class="card">
+                <input type="file" placeholder="image name" (change)="onFileChanged($event)">
+                <button type="submit" id="login-button" (click)="onUpload()">Upload Image</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+<!-- <div class="card">
   <div class="wrapper">
     <div class="container">
       <h1>ADD DEPARTMENT</h1>
@@ -16,5 +60,5 @@
     </div>
 
   </div>
-</div>
+</div> -->
 
