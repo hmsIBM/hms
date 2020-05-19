@@ -45,6 +45,8 @@ import { PatientComponent } from './patient/patient.component';
 
 import { OverlapComponent } from './overlap/overlap.component';
 
+import { LandingComponent } from './landing/landing.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +84,8 @@ import { OverlapComponent } from './overlap/overlap.component';
     DoctoraddComponent,
     DoctorDisplayComponent,
     PatientComponent,
-    AddPatientComponent
+    AddPatientComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

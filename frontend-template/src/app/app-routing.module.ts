@@ -34,11 +34,16 @@ import { PatientComponent } from './patient/patient.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ImagesComponent } from './images/images.component';
 import { OverlapComponent } from './overlap/overlap.component';
+import { LandingComponent } from './landing/landing.component';
 
+import { AppComponent } from './app.component';
 const routes: Routes = [
+  {path: '', redirectTo: '/landing', pathMatch: 'full'},
+  // { path: '', redirectTo: '/landing', pathMatch: 'full' },
   
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'landing', component: LandingComponent },
+  { path: 'App', component: AppComponent },
   { path: 'patient', component: PatientComponent},
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent },
