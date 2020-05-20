@@ -1,9 +1,7 @@
 sudo: required
 language: java
-jdk: 
-    - openjdk11
-env:
-        - NODE_VERSION=12 CC=clang CXX=clang++
+jdk: oraclejdk8
+ 
 services:
     - docker
 branches:
@@ -11,13 +9,17 @@ branches:
     - master
     except:
     - dev 
-# env:
-#     global:
-#       - SHA=$(git rev-parse HEAD)
+env:
+    global:
+      - SHA=$(git rev-parse HEAD)
  
-before_install:   
-    - nvm install $NODE_VERSION  
+before_install:     
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+script:
+- ./mvnw clean install -B
+ 
+after_success:
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
     # - cd dit-spring-boot-project
 
 before_script:
