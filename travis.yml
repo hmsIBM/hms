@@ -3,8 +3,7 @@ sudo: required
 language: java
 jdk: oraclejdk8
  
-services:
-    - docker
+
 branches:
     only:
     - minor
@@ -15,20 +14,11 @@ env:
       - SHA=$(git rev-parse HEAD)
  
 before_install:     
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-script:
-- ./mvnw clean install -B
- 
-after_success:
-- docker login -u $DOCKER_USER -p $DOCKER_PASS
-    # - cd dit-spring-boot-project
-
-before_script:
-    - cd my-spa-app
-    - npm install 
-    - npm run build --prod 
-    - cd .. 
-    - mv my-spa-app/dist/my-spa-app/* dit-spring-boot-project/src/main/resources/static 
-    - cd dit-spring-boot-project
+      - mv frontend-template/dist/* HospitalApp/src/main/resources/static
+      - cd HospitalApp
 script:
 - mvn clean install -DskipTests
+ 
+
+
+
