@@ -1,0 +1,28 @@
+sudo: required
+
+language: java
+
+
+jdk: 
+    - openjdk8
+
+branches:
+    only:
+    - minor
+    except:
+    - dev 
+env:
+    global:
+      - SHA=$(git rev-parse HEAD)
+ 
+    
+ 
+ 
+ before_install:
+  
+  - mv frontend-template/dist/* HospitalApp/src/main/resources/static
+  - cd HospitalApp
+   
+   
+script:
+- mvn clean install -DskipTests
