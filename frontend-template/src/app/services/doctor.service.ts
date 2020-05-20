@@ -6,9 +6,9 @@ import { Doctor } from '../models/doctor';
 const baseUrl="http://localhost:8080/api/hospital/";
 
 //const baseUrl="http://localhost:8000/api/hospital/";
-const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/doctor/'
-const pUrl = 'http://localhost:8080/api/hospital/max hospital/department/'
-const doc='/doctor/'
+// const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/doctor/'
+// const pUrl = 'http://localhost:8080/api/hospital/max hospital/department/'
+// const doc='/doctor/'
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,10 @@ export class DoctorService {
   hospitalarr:Array<any>=[]
   departmentarr:Array<any>=[]
   patientarr:Array<any>=[]
-
-
- 
+  name:string=''
+  // dUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/doctor/'
+  // pUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/'
+  const doc='/doctor/'
   constructor(private http:HttpClient) { }
 
 
@@ -28,6 +29,7 @@ export class DoctorService {
   // }
   fetchAllDepartment()
   {
+    let pUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/'
     return this.http.get(pUrl)
   }
   fetchAllHospital(){
@@ -40,7 +42,8 @@ export class DoctorService {
 
   addDoctor(dep:any,pat:Doctor ) { 
     console.log([pat]);
-     return this.http.put(pUrl+dep+doc,
+   let pUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/'
+     return this.http.put(pUrl+dep+this.doc,
       pat, { observe: 'response' }); }
 
 }

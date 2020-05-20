@@ -15,14 +15,14 @@ export class CountService {
   constructor(private http:HttpClient) { }
 
 
-  fetchCount(){
+  fetchCount(value:any){
     console.log("inside service");
-    return this.http.get(baseUrl+"max hospital/count");
+    return this.http.get(baseUrl+value+"/count");
   }
  
-  loadData(){
+  loadData(value:any){
     console.log("inside loadData service");
-    return this.http.get(baseUrl+"max hospital/department");
+    return this.http.get(baseUrl+value+"/department");
   }
   
 

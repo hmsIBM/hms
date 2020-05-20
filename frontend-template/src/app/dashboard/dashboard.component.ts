@@ -18,6 +18,10 @@ import 'rxjs/add/operator/map';
 import { IntervalObservable } from "rxjs/observable/IntervalObservable";
 import 'rxjs/add/operator/share';
 import * as moment from 'moment';
+import { ActivatedRoute } from '@angular/router';
+import { DoctorService } from '../services/doctor.service';
+import { FunctionalService } from '../services/functional.service';
+import { PatientService } from '../services/patient.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -28,7 +32,7 @@ import * as moment from 'moment';
 
 
 export class DashboardComponent implements OnInit ,AfterViewInit, OnDestroy{
-   @ViewChild('charts') public chartEl: ElementRef;
+   @ViewChild('charts',null) public chartEl: ElementRef;
  
 
   count:Array<any>=[];
@@ -42,21 +46,35 @@ export class DashboardComponent implements OnInit ,AfterViewInit, OnDestroy{
   others:number=0;
   date1:any;
   date:Date;
+  param:any;
   public pieChartLabels:string[] = [];
   public pieChartData:number[] = [];
   public pieChartType:string = '';
-
   
+  constructor(private hcs: HighchartsService,private patientService:PatientService,private doctorService:DoctorService,private functionalService:FunctionalService , private changeDetectionRef: ChangeDetectorRef,private cs:CountService,private route: ActivatedRoute) {
+    setInterval(() =>{
+      const currentDate = new Date();
+      this.date = currentDate.toLocaleTimeString();
+       }, 1000);
+  
+  }
   
   ngOnInit() 
   {
+    this.route.paramMap.subscribe(params => {
+      console.log('***', params.get('name'));
+this.param=params.get('name')
+this.doctorService.name=params.get('name')
+this.functionalService.name=params.get('name')
+this.patientService.name=params.get('name')
+    })
     this.date1=new Date();
     console.log(this.date1);
    
 
 
 
-    this.cs.fetchCount()
+    this.cs.fetchCount(this.param)
     .subscribe((res:any)=>{
       console.log("fdjhjd")
       this.count=res;
@@ -107,13 +125,7 @@ export class DashboardComponent implements OnInit ,AfterViewInit, OnDestroy{
 
   chartsList;
  
-  constructor(private hcs: HighchartsService, private changeDetectionRef: ChangeDetectorRef,private cs:CountService) {
-    setInterval(() =>{
-      const currentDate = new Date();
-      this.date = currentDate.toLocaleTimeString();
-       }, 1000);
-  
-  }
+ 
 
   public ngAfterViewInit() {
   }
@@ -154,7 +166,7 @@ export class DashboardComponent implements OnInit ,AfterViewInit, OnDestroy{
  
 
 loadData(){
-  this.cs.loadData()
+  this.cs.loadData(this.param)
   .subscribe((res:Array<any>)=>{
     this.depts=res;
     console.log("DEpartments"+this.depts);

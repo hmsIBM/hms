@@ -80,7 +80,13 @@ export class DoctoraddComponent implements OnInit {
     })
   
   }
-
+  getVal() {
+    console.log("get value working");
+    console.log(this.selectedgroup); 
+    console.log(this.selectedgroup.department)
+    this.departmentPar=this.selectedgroup.department;
+    console.log("ok final",this.departmentPar);
+}
     onSubmit() {
       console.log(this.doctorForm);
       console.log(this.doctorForm.get('name').value);
@@ -92,12 +98,6 @@ export class DoctoraddComponent implements OnInit {
         })
         console.log("working......")
       }
-      getVal() {
-        console.log("get value working");
-        console.log(this.selectedgroup); 
-        console.log(this.selectedgroup.department)
-        this.departmentPar=this.selectedgroup.department;
-        console.log("ok final",this.departmentPar);
-    }
+     
     
 }

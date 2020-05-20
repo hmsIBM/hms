@@ -39,14 +39,9 @@ export class DepartmentComponent implements OnInit {
    }
 
   ngOnInit() {
-         this.functionalService.hospitalByName(this.hospitalname)
-         .subscribe((res:Array<any>)=> {
-         console.log(res);
         
-         this.hos=res[0].name;
-         console.log(this.hos);
          
-         this.functionalService.findDept(this.hos)
+         this.functionalService.findDept()
          .subscribe((res:Array<any>)=> {
           console.log(res);
           this.lists = res;
@@ -55,7 +50,7 @@ export class DepartmentComponent implements OnInit {
          //this.getImage();
          this.addForm();
          })
-       })
+       
       }
 
       // getImage() {

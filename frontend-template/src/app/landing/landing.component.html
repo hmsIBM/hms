@@ -52,7 +52,83 @@
                                 <button type="button" #closebutton class="close"
                                     data-dismiss="modal">&times;</button>
                             </div>
+                            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                                <h3 style="text-align:center">
+                                    Sign Up
+                                  </h3>
+                                  <div class="form-group">
+                                    <!-- Username -->
+                                    <label for="username">Name: <span class="lblError">*</span></label>
+                                    <div class="controls">
+                                      <input type="text" id="username" placeholder="Name" class="form-control"
+                                        formControlName="name">
+                                      <p class="lblError" *ngIf="signupForm.get('name').hasError('required')
+                                                        && !signupForm.get('name').pristine">
+                                        Name is Required
+                                      </p>
+                                      <p class="lblError"
+                                        *ngIf="signupForm.get('name').hasError('invalidName') && !signupForm.get('name').pristine">
+                                        Name is Invalid
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="form-row">
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <!-- E-mail -->
+                                        <label for="email">E-mail: <span class="lblError">*</span></label>
+                                        <div class="controls">
+                                          <input type="text" id="email" placeholder="E-mail" class="form-control"
+                                            formControlName="emailId">
+                                          <br>
+                                          <p class="lblError"
+                                            *ngIf="signupForm.get('emailId').hasError('required') && !signupForm.get('emailId').pristine">
+                                            Please provide your E-mail
+                                          </p>
+                                          <p class="lblError"
+                                            *ngIf="signupForm.get('emailId').hasError('email') && !signupForm.get('emailId').pristine">
+                                            E-mail is Invalid</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <label for="email">Mobile No: <span class="lblError">*</span></label>
+                                        <div class="controls">
+                                          <input type="num" id="Mnumber" placeholder="mobile number " class="form-control"
+                                            formControlName="contactNo">
+                                          <p class="lblError"
+                                            *ngIf="signupForm.get('contactNo').hasError('required') && !signupForm.get('contactNo').pristine">
+                                            Please provide your Mobile Number
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div *ngIf="currentFileUpload" class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped"
+                                      role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                                      aria-valuemin="0" aria-valuemax="100"
+                                      [ngStyle]="{width:progress.percentage+'%'}">
+                                      {{progress.percentage}}%</div>
+                                  </div>
+                                   
+                                  <label class="btn btn-default"> <input type="file"
+                                    (change)="selectFile($event)">
+                                  </label>
+                                   
+                                  <button class="btn btn-success" [disabled]="!selectedFiles"
+                                    (click)="upload()">Upload</button>
 
+                                   <div class="form-group">
+                        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button> -->
+                        <button *ngIf="!editMode" class="btn btn-primary" type="submit" [disabled]="signupForm.invalid"
+                          style="width: 15%">
+                          Sign Up
+                        </button>
+
+                      </div>
+                            </form>
                         </div>
 
                     </div>
@@ -200,8 +276,8 @@
                         <div class="services-content mt-30">
                             <h4 class="services-title"><a href="#">hello {{p.name}}</a></h4>
                             <p class="text">Email:-{{p.email}}</p>
-                            <a class="more" (click)="route()">Contact No:- {{p.contactNo}} <i
-                                    class="lni-chevron-right"></i></a>
+                            <button class="more" (click)="route(p.name)">Contact No:- {{p.contactNo}} <i
+                                    class="lni-chevron-right"></i></button>
                         </div>
                     </div> <!-- single services -->
                 </div>

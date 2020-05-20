@@ -5,12 +5,16 @@ import { Hospital } from '../models/hospital';
 import { Department } from '../models/department'
 
  
-const pUrl = 'http://localhost:8080/api/hospital/max hospital'
-const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/patient'
+// const pUrl = 'http://localhost:8080/api/hospital/max hospital'
+// const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/patient'
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
+  name:string=''
+  
+  // dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/patient'
+  
   hospitalarr: Array<any> = []
 
   patientarr: Array<any> = []
@@ -26,10 +30,15 @@ export class PatientService {
   // {
   //   return this.http.get(pUrl +department+'/patient');
   // }
-
+  sendAppointment(value: any) {
+    return this.http.post('http://localhost:8080/api/hospital',value);
+  }
+  
   fetchAllPatient() {
+    let pUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/'
     return this.http.get(pUrl);
   }
+  
   fetchAllHospital(){
     return this.http.get('http://localhost:8080/api/hospital');
   }
@@ -38,6 +47,7 @@ export class PatientService {
   // }
 
   addPatient(pat:Patient ) { 
+    let dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/patient'
     console.log([pat]);
      return this.http.put(dUrl,
       pat, { observe: 'response' }); }
