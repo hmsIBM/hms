@@ -87,6 +87,9 @@
 </div>
 </div> -->
 
+ <div *ngIf="showMessage" class="alert alert-fill-primary" role="alert">
+  Doctor has been Deleted successfully!!
+</div>
 
 
 <div class="container">
@@ -100,8 +103,12 @@
           <h1 class="card-title">{{doc.name}}</h1>
           <p class="card-text">{{doc.emailId}}</p>
           <p class="card-text">{{doc.contactNumber}}</p>
+          <p class="card-text">{{doc.id}}</p>
+         
 
           <a href="#" class="btn btn-primary">view Doctor</a>
+          <a class="btn btn-primary" (click)="deletedoctor(doc.id)">Delete Doctor</a>
+
         </div>
 
       </div>

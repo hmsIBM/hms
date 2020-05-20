@@ -100,12 +100,6 @@ export class DoctoraddComponent implements OnInit {
         console.log("working......")
         this.showMessage=true;
       }
-      getVal() {
-        console.log("get value working");
-        console.log(this.selectedgroup); 
-        console.log(this.selectedgroup.departmentName)
-        this.departmentPar=this.selectedgroup.departmentName;
-        console.log("ok final",this.departmentPar);
-    }
+     
     
 }

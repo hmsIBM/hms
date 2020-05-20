@@ -1,18 +1,6 @@
-<!-- <div class="btn-group" mdbDropdown>
-  <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
-    mdbWavesEffect>
-    Department
-  </button>
-
-  <div class="dropdown-menu dropdown-primary" >
-   <div *ngfor="let dep of departmentArr">
-    <a class="dropdown-item" href="#">{{dep.department}}</a>
-  
-    
-  </div>
+<div *ngIf="showMessage" class="alert alert-fill-primary" role="alert">
+  Doctor has been added successfully!!
 </div>
-</div> -->
-
 
 <!-- <div>
   <select [(ngModel)]="selectedgroup">
@@ -41,8 +29,13 @@
           <div class="form-group">
                 <!-- Username --> 
                 <label for="username">Name: <span class="lblError">*</span></label>
+                <div class="input-group ">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                  </div>
                 <div class="controls">
                   <input type="text" id="username" placeholder="Name" class="form-control" formControlName="name">
+                </div>
                 </div>
           </div>
   
@@ -107,10 +100,10 @@
   
     </form>
   </div>
-  <div class="card" style="width: 18rem;" *ngFor="let hos of departmentArr">
+  <!-- <div class="card" style="width: 18rem;" *ngFor="let hos of departmentArr">
     <div class="card-body">
         <h5 class="card-title">{{hos.id}}</h5>
         <h5 class="card-title">{{hos.department}}</h5>
         
              </div>
-</div> 
+</div>  -->

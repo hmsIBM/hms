@@ -35,6 +35,13 @@ export class DoctorService {
   fetchAllHospital(){
     return this.http.get(baseUrl);
   }
+  
+  deletedoctor(dele:number){
+    console.log(dele);
+    console.log("delete in service method started")
+    console.log(delUrl+dele)
+   return this.http.delete(delUrl+dele,{ observe: 'response' });
+  }
 
   fetchParHospital(hosname:string){
     return this.http.get(baseUrl+hosname);
