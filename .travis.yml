@@ -15,11 +15,12 @@ env:
       - SHA=$(git rev-parse HEAD)
  
 before_install:
-      - chmod +x mvnw
+      
       - mv frontend-template/dist/* HospitalApp/src/main/resources/static
       - cd HospitalApp
 script:
-- mvn clean install -DskipTests
+- mvn -N io.takari:maven:wrapper -Dmaven=3.3.9
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
  
 
 
