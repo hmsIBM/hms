@@ -20,7 +20,7 @@ before_install:
       - cd HospitalApp
 script:
 
-- mvn test
+- mvn clean install -DskipTests
  
 
 
