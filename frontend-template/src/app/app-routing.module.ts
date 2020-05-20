@@ -28,6 +28,7 @@ import { DepartmentAddComponent } from './department-add/department-add.componen
 import { PatientComponent } from './patient/patient.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ImagesComponent } from './images/images.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   
@@ -52,7 +53,8 @@ const routes: Routes = [
   { path: 'login' , component: LoginComponent},
   { path: 'department' , component: DepartmentComponent},
   { path: 'add-patient', component: AddPatientComponent},
-  { path: 'images', component: ImagesComponent}
+  { path: 'images', component: ImagesComponent},
+  { path: 'homepage', component:HomepageComponent}
 
 ];
 

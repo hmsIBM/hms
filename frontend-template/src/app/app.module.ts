@@ -37,6 +37,7 @@ import { DepartmentAddComponent } from './department-add/department-add.componen
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 import { ImagesComponent } from './images/images.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { ImagesComponent } from './images/images.component';
     LoginComponent,
     DepartmentComponent,
     PatientComponent,
-    AddPatientComponent
+    AddPatientComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

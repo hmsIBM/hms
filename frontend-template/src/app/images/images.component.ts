@@ -32,7 +32,7 @@ onUpload() {
   console.log("helloooo yeah")
   console.log(uploadImageData)
   //Make a call to the Spring Boot Application to save the image
-  this.httpClient.put('http://localhost:8080/api/test/patient/40', uploadImageData, { observe: 'response' })
+  this.httpClient.put('http://localhost:8080/api/test/patient/58', uploadImageData, { observe: 'response' })
     .subscribe((response) => {
       console.log("shubbbb")
       if (response.status == 200) {

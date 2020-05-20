@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Patient } from '../models/patient';
 import {PatientService} from '../services/patient.service'
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+// import {Homepage} from '../homepage/homepage.component'
 
 // import { DoctorService } from '../services/doctor.service';  
 
@@ -52,8 +53,8 @@ export class PatientComponent implements OnInit {
   message: string;
   imageName: any;
   imagearr:Array<any>=[];
-
-  constructor(private router: Router, private patientSerivce: PatientService,private httpClient: HttpClient) { }
+  @Input() public parentData;
+  constructor(private router: Router, private patientSerivce: PatientService, private httpClient: HttpClient) { }
 
   ngOnInit() {  
     this.patientSerivce.fetchAllPatient()
@@ -62,8 +63,7 @@ export class PatientComponent implements OnInit {
       this.patientSerivce.departmentarr=res;
       // console.log(res);
       console.log("res pulled...");
-      
-      
+
       for (let entry of this.patientSerivce.departmentarr.department) { 
       // console.log(entry);
           

@@ -29,9 +29,10 @@ import com.ibm.HospitalApp.entities.Hospital;
 import com.ibm.HospitalApp.entities.ImageModel;
 import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
+import com.ibm.HospitalApp.repos.ImageRepository;
 import com.ibm.HospitalApp.service.HospitalAppService;
 
-@CrossOrigin("*")
+	@CrossOrigin("*")
 
 
 @RestController
@@ -43,6 +44,9 @@ public class HospitalAppController {
 	@Autowired
 	HospitalAppService hospitalAppService;
 	
+	@Autowired
+	ImageRepository imageRepository;
+	
 	
 	
 	@PutMapping("/test/patient/{id}")
@@ -53,6 +57,18 @@ public class HospitalAppController {
 				compressBytes(file.getBytes()));
 		hospitalAppService.testPatient(id,img);
 	}
+	
+	@PostMapping("/test/upload")
+	public void testUpload(@RequestParam("imageFile") MultipartFile file)throws IOException {
+//		int id=39;
+		System.out.println("inside test");
+		ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),
+				compressBytes(file.getBytes()));
+		imageRepository.save(img);
+
+//		hospitalAppService.testUpload(img);
+	}
+	
 	@PutMapping("/test/doctor/{id}")
 	public void testDoctor(@PathVariable("id") int id,@RequestParam("imageFile") MultipartFile file )throws IOException {
 //		int id=39;

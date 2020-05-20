@@ -12,7 +12,7 @@ export class DoctorDisplayComponent implements OnInit {
   DoctorDep:Array<any>=[]
   AllDoctor:Array<any>=[]
   Department:Array<any>=[]
-  HospitalOne:Array<any>=[]
+  HospitalOne:any;
   hosname:string
   //i:number
   len:number

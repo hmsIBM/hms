@@ -6,7 +6,7 @@ import { Department } from '../models/department'
 
  
 const pUrl = 'http://localhost:8080/api/hospital/max hospital'
-const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/patient'
+const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology2/patient'
 @Injectable({
   providedIn: 'root'
 })
@@ -15,8 +15,8 @@ export class PatientService {
 
   patientarr: Array<any> = []
   constructor(private http: HttpClient) { }
-
-  departmentarr: Array<any> = []
+  departmentarr: any;
+  // departmentarr: Array<any> = []
   // fetchAllPatient(){
 
   //   return this.http.get(pUrl);

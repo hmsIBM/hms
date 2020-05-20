@@ -211,4 +211,8 @@ public class HospitalAppService {
 		img.setPicByte(image.getPicByte());
 		
 	}
+	public void testUpload(ImageModel img) {
+		// TODO Auto-generated method stub
+		
+	}
 }
