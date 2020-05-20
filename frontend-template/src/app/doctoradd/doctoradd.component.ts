@@ -45,6 +45,7 @@ export class DoctoraddComponent implements OnInit {
   departmentArr:Array<Department>;
   selectedgroup:any;
   departmentPar:any;
+  showMessage:boolean= false;
 
   constructor(private doctorService:DoctorService, private fb: FormBuilder, private route: ActivatedRoute) {
 
@@ -97,7 +98,14 @@ export class DoctoraddComponent implements OnInit {
         console.log("final data",res)
         })
         console.log("working......")
+        this.showMessage=true;
       }
-     
+      getVal() {
+        console.log("get value working");
+        console.log(this.selectedgroup); 
+        console.log(this.selectedgroup.departmentName)
+        this.departmentPar=this.selectedgroup.departmentName;
+        console.log("ok final",this.departmentPar);
+    }
     
 }
