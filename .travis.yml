@@ -1,28 +1,31 @@
 sudo: required
-
 language: java
-
-
 jdk: 
-    - openjdk8
-
+    - openjdk11
+env:
+        - NODE_VERSION=12 CC=clang CXX=clang++
+services:
+    - docker
 branches:
     only:
-    - minor
+    - master
     except:
     - dev 
-env:
-    global:
-      - SHA=$(git rev-parse HEAD)
+# env:
+#     global:
+#       - SHA=$(git rev-parse HEAD)
  
-    
- 
- 
- before_install:
-  
-  - mv frontend-template/dist/* HospitalApp/src/main/resources/static
-  - cd HospitalApp
-   
-   
+before_install:   
+    - nvm install $NODE_VERSION  
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    # - cd dit-spring-boot-project
+
+before_script:
+    - cd my-spa-app
+    - npm install 
+    - npm run build --prod 
+    - cd .. 
+    - mv my-spa-app/dist/my-spa-app/* dit-spring-boot-project/src/main/resources/static 
+    - cd dit-spring-boot-project
 script:
 - mvn clean install -DskipTests
