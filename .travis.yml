@@ -14,7 +14,8 @@ env:
     global:
       - SHA=$(git rev-parse HEAD)
  
-before_install:     
+before_install:  
+      - chmod +x mvnw
       - mv frontend-template/dist/* HospitalApp/src/main/resources/static
       - cd HospitalApp
 script:
