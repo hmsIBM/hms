@@ -12,8 +12,7 @@ branches:
     except:
     - dev 
 env:
-    global:
-      - SHA=$(git rev-parse HEAD)
+
  
     
  
