@@ -1,4 +1,5 @@
 sudo: required
+
 language: java
 jdk: oraclejdk8
  
@@ -6,7 +7,7 @@ services:
     - docker
 branches:
     only:
-    - master
+    - minor
     except:
     - dev 
 env:
