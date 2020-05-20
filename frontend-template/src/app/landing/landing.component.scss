@@ -1,41 +1,43 @@
-// .contact{
-//     padding: 4%;
-//     height: 400px;
-// }
-.col-md-3{
-    background: linear-gradient(120deg, #00e4d0, #5983e8);
-    padding: 4%;
-    border-top-left-radius: 0.2rem;
-    border-bottom-left-radius: 0.2rem;
-}
-.contact-info{
-    margin-top:10%;
-}
-.contact-info img{
-    margin-bottom: 15%;
-}
-.contact-info h2{
-    margin-bottom: 10%;
-}
-.col-md-9{
-    background: #fff;
-    padding: 3%;
-    border-top-right-radius: 0.2rem;
-    border-bottom-right-radius: 0.2rem;
-}
-.contact-form label{
-    font-weight:600;
-}
-// .contact-form button{
-//     background: #25274d00;
-//     color: #000;
-//     font-weight: 600;
-//     // width: 25%;
-// }
-.contact-form button:focus{
-    box-shadow:none;
-}
-P.lblError {
-    color: red;
-    font-size: 0.875rem;
-}
+// .column {
+//     float: left;
+//     width: 33.3%;
+//     margin-bottom: 16px;
+//     padding: 0 8px;
+//   }
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+//   /* Display the columns below each other instead of side by side on small screens */
+//   @media screen and (max-width: 650px) {
+//     .column {
+//       width: 100%;
+//       display: block;
+//     }
+//   }
+  
+  /* Add some shadows to create a card effect */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Some left and right padding inside the container */
+  .container {
+    padding: 0 16px;
+  }
+  
+//   /* Clear floats */
+//   .container::after, .row::after {
+//     content: "";
+//     clear: both;
+//     display: table;
+//   }
