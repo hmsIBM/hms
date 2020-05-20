@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 // import {HttpClientModule} from '@angular/common/http'
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+ 
+import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -42,14 +45,24 @@ import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 import { ImagesComponent } from './images/images.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientComponent } from './patient/patient.component';
+import { ChartsModule } from 'ng2-charts';
 
 import { OverlapComponent } from './overlap/overlap.component';
 
 import { LandingComponent } from './landing/landing.component';
 
+import { UploadFileService } from './upload/upload-file.service';
+
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    FormUploadComponent,
+    ListUploadComponent,
+    DetailsUploadComponent,
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
@@ -85,7 +98,8 @@ import { LandingComponent } from './landing/landing.component';
     DoctorDisplayComponent,
     PatientComponent,
     AddPatientComponent,
-    LandingComponent
+    LandingComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -94,10 +108,13 @@ import { LandingComponent } from './landing/landing.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    ChartsModule, 
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, 
 
   ],
-  providers: [],
+  providers: [UploadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

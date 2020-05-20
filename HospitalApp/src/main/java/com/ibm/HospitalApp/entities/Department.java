@@ -34,6 +34,11 @@ public class Department {
 
 	
 
+	
+
+
+
+	
 	public Department(int id, String departmentName, List<Doctor> doctor, List<Patient> patient, ImageModel image) {
 		super();
 		this.id = id;
@@ -45,6 +50,10 @@ public class Department {
 
 
 
+
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -53,6 +62,7 @@ public class Department {
 		this.id = id;
 	}
 
+	
 	public String getDepartmentName() {
 		return departmentName;
 	}
@@ -91,11 +101,23 @@ public class Department {
 
 
 
+
+
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", department=" + departmentName + ", doctor=" + doctor + ", patient=" + patient
-				+ ", image=" + image + "]";
+		return "Department [id=" + id + ", departmentName=" + departmentName + ", image=" + image + ", doctor=" + doctor
+				+ ", patient=" + patient + "]";
+		
 	}
+
+
 
 	
 

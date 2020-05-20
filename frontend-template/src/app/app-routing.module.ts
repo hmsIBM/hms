@@ -18,7 +18,6 @@ import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
 
-import { DoctorComponent } from './doctor/doctor.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 
@@ -35,12 +34,13 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ImagesComponent } from './images/images.component';
 import { OverlapComponent } from './overlap/overlap.component';
 import { LandingComponent } from './landing/landing.component';
+import {FormUploadComponent} from './upload/form-upload/form-upload.component'
 
 import { AppComponent } from './app.component';
 const routes: Routes = [
   {path: '', redirectTo: '/landing', pathMatch: 'full'},
   // { path: '', redirectTo: '/landing', pathMatch: 'full' },
-  
+  { path: 'upload', component: FormUploadComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'App', component: AppComponent },

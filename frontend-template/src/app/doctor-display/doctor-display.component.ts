@@ -9,17 +9,19 @@ import { PatientService } from '../services/patient.service';
   styleUrls: ['./doctor-display.component.scss']
 })
 export class DoctorDisplayComponent implements OnInit {
-  Doctor:Array<any>=[]
-  Hospital:Array<any>=[]
+  Doctor:Array<any>=[];
+  Hospital:Array<any>=[];
   DoctorDep:Array<any>=[]
   AllDoctor:Array<any>=[]
   Department:Array<any>=[]
-  HospitalOne:Array<any>=[]
+  HospitalOne:any
   hosname:string
   department: Array<any>= [];
+  showMessage:boolean=false;
+
   //i:number
   len:number
-  constructor(private doctorService: DoctorService,private patientService: PatientService) { }
+  constructor(private patientService: PatientService) { }
 
   ngOnInit() {
     this.patientService.fetchAllPatient()
@@ -30,18 +32,36 @@ export class DoctorDisplayComponent implements OnInit {
     //  console.log(this.a);
      
 
+    
      for (let entry of this.Hospital.department) { 
-      // console.log(entry);
+      console.log(entry);
           
   for (let entry1 of entry.doctor) { 
   
-    // console.log(entry1)
+    console.log(entry1)
   
       this.Doctor.push(entry1);  
    }
         }
     });
+  }
   
+    deletedoctor(dd:number)
+    {   console.log(dd);
+        console.log("delete function started")
+        this.doctorService.deletedoctor(dd)
+        .subscribe((res:any)=>
+      {
+        console.log(res);
+        if(res.status == 200){
+         // this.showMessage = true;
+          this.Doctor = this.Doctor.filter((Doctor)=> Doctor.id!=dd)
+        }
+        this.showMessage=true;
+      
+      });
+      //this.lists = this.lists.filter((lists)=> lists.id!=aid)
+    }
     
   }
 
@@ -50,4 +70,4 @@ export class DoctorDisplayComponent implements OnInit {
 
   
 
-}
+
