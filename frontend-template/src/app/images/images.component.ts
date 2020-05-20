@@ -49,7 +49,7 @@ onUpload() {
   //Gets called when the user clicks on retieve image button to get the image from back end
   getImage() {
     //Make a call to Sprinf Boot to get the Image Bytes.
-    this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
+    this.httpClient.get('http://localhost:8000/image/get/' + this.imageName)
       .subscribe(
         res => {
           console.log("get image started....")

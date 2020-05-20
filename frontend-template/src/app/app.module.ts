@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+// import {HttpClientModule} from '@angular/common/http'
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+ 
+import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -26,23 +31,42 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
-import { PatientComponent } from './patient/patient.component';
+// import { PatientComponent } from './patient/patient.component';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { DepartmentAddComponent } from './department-add/department-add.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AddPatientComponent } from './add-patient/add-patient.component';
 
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 
-import { DepartmentAddComponent } from './department-add/department-add.component';
+//import { DepartmentAddComponent } from './department-add/department-add.component';
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 import { ImagesComponent } from './images/images.component';
+<<<<<<< HEAD
 import { HomepageComponent } from './homepage/homepage.component';
+=======
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { PatientComponent } from './patient/patient.component';
+import { ChartsModule } from 'ng2-charts';
 
+import { OverlapComponent } from './overlap/overlap.component';
+>>>>>>> ba72703a7d965ebeb17f275fe2507e6cf724eb9f
+
+import { LandingComponent } from './landing/landing.component';
+
+import { UploadFileService } from './upload/upload-file.service';
+
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FormUploadComponent,
+    ListUploadComponent,
+    DetailsUploadComponent,
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
@@ -62,29 +86,44 @@ import { HomepageComponent } from './homepage/homepage.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    
     ImagesComponent,
-
-    
     LoginComponent,
     DepartmentComponent,
     PatientComponent,
+<<<<<<< HEAD
     AddPatientComponent,
     HomepageComponent
+=======
+    OverlapComponent,
+    DepartmentComponent,
+    //DepartmentAddComponent,
+    // DepartmentComponent,
+    // DepartmentAddComponent,
+    DepartmentComponent,
+   // DepartmentAddComponent,
+    ImagesComponent,
+    DoctoraddComponent,
+    DoctorDisplayComponent,
+    PatientComponent,
+    AddPatientComponent,
+    LandingComponent,
+    
+>>>>>>> ba72703a7d965ebeb17f275fe2507e6cf724eb9f
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule,
-    HttpClientModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    ChartsModule, 
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, 
 
   ],
-  providers: [],
+  providers: [UploadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

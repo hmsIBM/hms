@@ -11,6 +11,10 @@ const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiol
   providedIn: 'root'
 })
 export class PatientService {
+  name:string=''
+  
+  // dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/patient'
+  
   hospitalarr: Array<any> = []
 
   patientarr: Array<any> = []
@@ -26,16 +30,24 @@ export class PatientService {
   // {
   //   return this.http.get(pUrl +department+'/patient');
   // }
-
+  sendAppointment(value: any) {
+    return this.http.post('http://localhost:8080/api/hospital',value);
+  }
+  
   fetchAllPatient() {
+    let pUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/'
     return this.http.get(pUrl);
   }
-
+  
+  fetchAllHospital(){
+    return this.http.get('http://localhost:8080/api/hospital');
+  }
   // addPatient() {
   //   return this.http.put(dUrl, {observe: 'response'});
   // }
 
   addPatient(pat:Patient ) { 
+    let dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/patient'
     console.log([pat]);
      return this.http.put(dUrl,
       pat, { observe: 'response' }); }

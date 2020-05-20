@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Patient } from '../models/patient';
-import {PatientService} from '../services/patient.service'
+import { PatientService } from '../services/patient.service'
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 // import {Homepage} from '../homepage/homepage.component'
@@ -15,35 +15,36 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./patient.component.scss']
 })
 export class PatientComponent implements OnInit {
+  a: Array<any> = [];
+  b: Array<any> = [];
+  hospitalName: string
+  contactNumber: any
+  disease: string
+  email: string = null
+  gender: string
+  id: Int16Array
+  name: string
 
-  hospitalName:string
-  contactNumber:any
-  disease:string
-  email:string=null
-  gender:string
-  id:Int16Array
-  name:string
-
-  Doctor:Array<any>=[]
-  Hospital:Array<any>=[]
-  DoctorDep:Array<any>=[]
-  AllDoctor:Array<any>=[]
-  Department:Array<any>=[]
-  HospitalOne:Array<any>=[]
-  hosname:string
+  Doctor: Array<any> = []
+  Hospital: Array<any> = []
+  DoctorDep: Array<any> = []
+  AllDoctor: Array<any> = []
+  Department: Array<any> = []
+  HospitalOne: Array<any> = []
+  hosname: string
   //i:number
-  len:number
+  len: number
 
 
   patients:Array<any>=[];
-  departments:Array<any>=[]
+  departments:any;
   dp:Array<any>=[]
   pp = ["dad", "mom"]
   doctor:Array<any>=[]
   valuePatients:Array<any>=[]
 
-  a:Array<any>=[];
-  b:Array<any>=[];
+  // a:Array<any>=[];
+  // b:Array<any>=[];
 
 
   selectedFile: File;
@@ -56,13 +57,18 @@ export class PatientComponent implements OnInit {
   @Input() public parentData;
   constructor(private router: Router, private patientSerivce: PatientService, private httpClient: HttpClient) { }
 
-  ngOnInit() {  
+  // constructor(private router: Router, private patientSerivce: PatientService,private httpClient: HttpClient) { }
+
+  ngOnInit() {
     this.patientSerivce.fetchAllPatient()
     .subscribe((res:Array<any>)=> 
     { 
       this.patientSerivce.departmentarr=res;
       // console.log(res);
       console.log("res pulled...");
+      
+
+      
 
       for (let entry of this.patientSerivce.departmentarr.department) { 
       // console.log(entry);
