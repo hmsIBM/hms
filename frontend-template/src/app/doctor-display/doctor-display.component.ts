@@ -14,11 +14,7 @@ export class DoctorDisplayComponent implements OnInit {
   DoctorDep:Array<any>=[]
   AllDoctor:Array<any>=[]
   Department:Array<any>=[]
-<<<<<<< HEAD
-  HospitalOne:any;
-=======
   HospitalOne:any
->>>>>>> ba72703a7d965ebeb17f275fe2507e6cf724eb9f
   hosname:string
   department: Array<any>= [];
   showMessage:boolean=false;

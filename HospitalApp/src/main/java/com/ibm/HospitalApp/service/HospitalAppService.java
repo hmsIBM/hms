@@ -249,15 +249,14 @@ public class HospitalAppService {
 		
 		
 	}
-<<<<<<< HEAD
+
 	public void testUpload(ImageModel img) {
 		// TODO Auto-generated method stub
 		
 	}
-=======
+
 	
 	
 	
 	
->>>>>>> ba72703a7d965ebeb17f275fe2507e6cf724eb9f
 }

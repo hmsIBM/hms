@@ -37,6 +37,7 @@ import { LandingComponent } from './landing/landing.component';
 import {FormUploadComponent} from './upload/form-upload/form-upload.component'
 
 import { AppComponent } from './app.component';
+import { HomepageComponent } from './homepage/homepage.component';
 const routes: Routes = [
   {path: '', redirectTo: '/landing', pathMatch: 'full'},
   // { path: '', redirectTo: '/landing', pathMatch: 'full' },

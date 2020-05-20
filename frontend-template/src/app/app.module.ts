@@ -43,15 +43,11 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 
 import { ImagesComponent } from './images/images.component';
-<<<<<<< HEAD
-import { HomepageComponent } from './homepage/homepage.component';
-=======
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { PatientComponent } from './patient/patient.component';
 import { ChartsModule } from 'ng2-charts';
 
 import { OverlapComponent } from './overlap/overlap.component';
->>>>>>> ba72703a7d965ebeb17f275fe2507e6cf724eb9f
 
 import { LandingComponent } from './landing/landing.component';
 
@@ -90,10 +86,6 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
     LoginComponent,
     DepartmentComponent,
     PatientComponent,
-<<<<<<< HEAD
-    AddPatientComponent,
-    HomepageComponent
-=======
     OverlapComponent,
     DepartmentComponent,
     //DepartmentAddComponent,
@@ -104,11 +96,10 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
     ImagesComponent,
     DoctoraddComponent,
     DoctorDisplayComponent,
-    PatientComponent,
-    AddPatientComponent,
     LandingComponent,
+    PatientComponent,
+    AddPatientComponent
     
->>>>>>> ba72703a7d965ebeb17f275fe2507e6cf724eb9f
   ],
   imports: [
     BrowserModule,
