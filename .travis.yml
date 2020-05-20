@@ -20,7 +20,7 @@ before_install:
       - cd HospitalApp
 script:
 
-- ./mvnw spring-boot:run
+- mvn -N io.takari:maven:wrapper
  
 
 
