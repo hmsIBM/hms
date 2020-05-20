@@ -164,27 +164,27 @@ public class HospitalAppController {
 			return outputStream.toByteArray();
 		}
 	
-	
-	@GetMapping("/{hospital_name}/appointment")
-	public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
-		System.out.println("inside controller");
-		return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
-	}
-
-	@PutMapping("/{hospital_name}/appointment")
-	public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
-		hospitalAppService.addAppointmentInAHospital(hospitalName,app);
-		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
-		return re;
-	}
-	
-	@PutMapping("/{hospital_name}/appointment/{name}")
-	public ResponseEntity<Void> addupdateAppointment(@PathVariable("hospital_name") String hospitalName,@PathVariable("name") String name,
-			@RequestBody Appointment app) {
-		hospitalAppService.addupdateAppointment(name, app);
-		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
-		return re;
-	}
+//	
+//	@GetMapping("/{hospital_name}/appointment")
+//	public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
+//		System.out.println("inside controller");
+//		return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
+//	}
+//
+//	@PutMapping("/{hospital_name}/appointment")
+//	public ResponseEntity<Void> addAppointmentToAHospital(@PathVariable("hospital_name") String hospitalName,@RequestBody Appointment app) {
+//		hospitalAppService.addAppointmentInAHospital(hospitalName,app);
+//		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+//		return re;
+//	}
+//	
+//	@PutMapping("/{hospital_name}/appointment/{name}")
+//	public ResponseEntity<Void> addupdateAppointment(@PathVariable("hospital_name") String hospitalName,@PathVariable("name") String name,
+//			@RequestBody Appointment app) {
+//		hospitalAppService.addupdateAppointment(name, app);
+//		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+//		return re;
+//	}
 	@GetMapping("/hospital")
 	public List<Hospital> findAllHospital() {
 		return hospitalAppService.findAllHospital();
