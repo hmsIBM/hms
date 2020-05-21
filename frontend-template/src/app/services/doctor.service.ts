@@ -4,7 +4,7 @@ import { Doctor } from '../models/doctor';
 
 
 const baseUrl="http://localhost:8080/api/hospital/";
-
+const doc='/doctor/'
 //const baseUrl="http://localhost:8000/api/hospital/";
 // const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/doctor/'
 // const pUrl = 'http://localhost:8080/api/hospital/max hospital/department/'
@@ -20,7 +20,7 @@ export class DoctorService {
   name:string=''
   // dUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/doctor/'
   // pUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/'
-  const doc='/doctor/'
+  
   constructor(private http:HttpClient) { }
 
 
@@ -36,7 +36,8 @@ export class DoctorService {
     return this.http.get(baseUrl);
   }
   
-  deletedoctor(dele:number){
+  deletethedoctor(dele:number){
+    let delUrl:string='http://localhost:8080/api/hospital/doctor/'
     console.log(dele);
     console.log("delete in service method started")
     console.log(delUrl+dele)
@@ -50,7 +51,7 @@ export class DoctorService {
   addDoctor(dep:any,pat:Doctor ) { 
     console.log([pat]);
    let pUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/'
-     return this.http.put(pUrl+dep+this.doc,
+     return this.http.put(pUrl+dep+doc,
       pat, { observe: 'response' }); }
 
 }

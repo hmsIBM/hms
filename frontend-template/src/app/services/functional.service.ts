@@ -15,12 +15,16 @@ const url = '/department'
 
 
 export class FunctionalService {
+ 
   name:string=''
   // baseurl1:string=  'http://localhost:8080/api/hospital/'+this.name+'/appointment/'
   // baseUrl:string = 'http://localhost:8080/api/hospital/'
   // baseUr2:string = 'http://localhost:8080/api/hospital/'+this.name+'/department'
   constructor(private http: HttpClient) { }
-  
+  deleteDepartment(aid: number) {
+    let baseurl3:string=  'http://localhost:8080/api/hospital/department/'
+    return this.http.delete(baseurl3 + aid, { observe: 'response' })
+  }
   findAppointment() {
     let baseurl1:string=  'http://localhost:8080/api/hospital/'+this.name+'/appointment/'
     return this.http.get(baseurl1);

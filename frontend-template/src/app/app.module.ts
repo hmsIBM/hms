@@ -56,6 +56,7 @@ import { UploadFileService } from './upload/upload-file.service';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
     DoctorDisplayComponent,
     LandingComponent,
     PatientComponent,
-    AddPatientComponent
+    AddPatientComponent,
+    HomepageComponent
     
   ],
   imports: [

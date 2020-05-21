@@ -12,7 +12,9 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { PatientService } from '../services/patient.service';
 import { HttpClient, HttpEventType } from '@angular/common/http';
-
+import { UploadFileService } from '../upload/upload-file.service';
+import { FileUpload } from '../upload/fileupload';
+import { FunctionalService } from '../services/functional.service';
 
 
 @Component({
@@ -23,10 +25,12 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 
 export class AddPatientComponent implements OnInit {
   patientForm:FormGroup;
-  image: FormGroup;
 
+  selectedFiles: FileList;
 
-  constructor(private patientService:PatientService, private fb: FormBuilder, private route: ActivatedRoute, private httpClient: HttpClient) 
+  currentFileUpload: FileUpload;
+  progress: { percentage: number } = { percentage: 0 };
+  constructor(private patientService:PatientService,private fuctionalService: FunctionalService,private uploadService: UploadFileService, private fb: FormBuilder, private route: ActivatedRoute, private httpClient: HttpClient) 
   {
 
   }
@@ -35,124 +39,98 @@ export class AddPatientComponent implements OnInit {
   base64Data: any;
   retrieveResonse: any;
   message: string;
-
-
+  bb:string=''
+  lists: Array<any>
  
 
 
   ngOnInit(): void {
     // this.onUpload();
+    this.fuctionalService.findAppointment()
+    .subscribe((res: Array<any>) => {
+      console.log(res);
+      this.lists = res;
+    })
+    this.patientService.fetchAllPatient()
+    .subscribe((res: Array<any>) => {
+      this.a = res;
+      console.log(res);
+      console.log("res pulled...");
+     console.log(this.a);
+     
+    })
+
+
     this.patientForm = this.fb.group({
       name: [''],
-      gender: ['Male'],
+     
+      gender: [''],
       disease: [''],
-      emailId: ['lkshkarki@gmail.com'],
-      contactNumber: ['7087627436'],
-      // const uploadImageData = new FormData();
+      emailId: [''],
+      contactNumber: [''],
+      departmentName:[''],
+     
       image: this.fb.group({
-          name:[''],
-          type:[''],
-          picByte:['']
+          url:['']
+         
       })
     })
    
   }
-
-  public onFileChanged(event) {
-    //Select File
-    this.selectedFile = event.target.files[0];
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.image.patchValue({
-        // fileSource: this.selectedFile\
-      // fileSource:this.selectedFile
-        name: this.selectedFile.name,
-        type: this.selectedFile.type,
-        
-        picByte: this.selectedFile.size
-
-      });
-      
-    }
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
-
-
-  // onUpload() {
-  //   console.log(this.selectedFile);
-  //   console.log("ready to upload")
-  //   // FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-  //   const uploadImageData = new FormData();
-  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-
-//     uploadImageData.forEach((value,key) => {
-//       console.log(key+" space "+value)
-//       console.log("in for loop")
-// });
-//     var outputLog = {}, iterator = uploadImageData.entries(), end = false;
-// while(end == false) {
-//    var item = iterator.next();
-//    if(item.value!=undefined) {
-//        outputLog[item.value[0]] = item.value[1];
-//    } else if(item.done==true) {
-//        end = true;
-//    }
-//     }
-// console.log(outputLog);
-
-    // console.log("image appended");
-    // console.log(uploadImageData)
-    // // Make a call to the Spring Boot Application to save the image
-    // this.httpClient.post('http://localhost:8080/api/test/upload', uploadImageData, { observe: 'response' })
-    //   .subscribe((response) => {
-    //     console.log("image upload response")
-    //     if (response.status == 200) {
-    //       this.message = 'Image uploaded successfully';
-    //       console.log("Image upload worked.....");
-    //     } else {
-    //       this.message = 'Image not uploaded successfully';
-    //     }
-    //   }
-    //   );
   
+  upload() {
+    
+    const file = this.selectedFiles.item(0);
+    this.selectedFiles = undefined;
   
-  // }
+    this.currentFileUpload = new FileUpload(file);
+    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress);
+    
+    
+    console.log(this.uploadService.a)
+  
+  }
+  
+
 
 
 
     onSubmit() {
-      console.log("selected file data",this.selectedFile);
-      console.log("ready to upload")
-      //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-      const uploadImageData = new FormData();
-      //  uploadImageData.append('imageFile', this.image.get('fileSource').value);
-       uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-      
-      //  uploadImageData.append(this.image.get('this.name').value, this.image.get('this.type').value, this.image.get('this.picByte').value );
+      let a
+      a=this.patientForm.get('departmentName').value
 
-
-      console.log("image appended");
-      this.httpClient.post('http://localhost:8080/api/test/upload', uploadImageData, { observe: 'response' })
-      .subscribe((response) => {
-        console.log("image upload response")
-        if (response.status == 200) {
-          this.message = 'Image uploaded successfully';
-          console.log("Image upload worked.....");
-        } else {
-          this.message = 'Image not uploaded successfully';
-        }
-      }
-      );
-
-
+      console.log(this.uploadService.a)
+      this.patientForm.get('image').get('url').setValue(this.uploadService.a)
 
       console.log(this.patientForm.value);
-      console.log(this.image.value);
-         this.patientService.addPatient(this.patientForm.value)
+   
+         this.patientService.addPatient(a,this.patientForm.value)
       .subscribe(res=>
         {
         console.log(res)
         })
+        this.patientForm.controls['name'].setValue(null);
+        this.patientForm.controls['departmentName'].setValue(null);
+        this.patientForm.controls['gender'].setValue(null);
+        this.patientForm.controls['disease'].setValue(null);
+        this.patientForm.controls['emailId'].setValue(null);
+        this.patientForm.controls['contactNumber'].setValue(null);
+        this.patientForm.get('image').get('url').setValue(null);
+    
         console.log("working......")
+        
       }
+
+      on(Depart:string){
+    
+        console.log("hellllllllllllllo")
+        this.bb=Depart
+        this.patientForm.get('departmentName').setValue(Depart)
+    
+   
+      }  
    
 }

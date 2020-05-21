@@ -9,63 +9,80 @@
   </div>
 <input type="button" (click)="getVal()" value="submit"/> -->
 <div class="container">
-<div class="dropdown">
-  <label for="Department">Department:<span class="lblError">*</span></label>
-  <div>
-<select  class="dropdown-item"[(ngModel)]="selectedgroup" placeholder="choose" (change)="getVal()">
-  <option *ngFor="let group of departmentArr"  [ngValue]="group">{{group.departmentName}}</option>
-</select>
-</div>
-</div>
+  <div class="form-group">
 
+    <div class="col-sm-10">
+      <label class="control-label " for="fname">Department</label>
+      <div class="template-demo">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" type="button" id="dropdownMenuOutlineButton1"
+            ngbDropdownToggle>
+            Department
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownMenuOutlineButton1">
 
-
-    <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
-  
-          <h3 style="text-align:center">
-              <!-- Add Patient -->
-          </h3>
-         <!-- <pre> {{this.doctorForm.value| json}}</pre> -->
-          <div class="form-group">
-                <!-- Username --> 
-                <label for="username">Name: <span class="lblError">*</span></label>
-                <div class="input-group ">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">@</div>
-                  </div>
-                <div class="controls">
-                  <input type="text" id="username" placeholder="Name" class="form-control" formControlName="name">
-                </div>
-                </div>
-          </div>
-  
-  
-  
-           <div class="form-row">
-            <div class="col">
-              <div class="form-group">
-                <!-- E-mail -->
-                <label for="email">E-mail: <span class="lblError">*</span></label>
-                <div class="controls">
-                  <input type="text" id="email" placeholder="E-mail" class="form-control" formControlName="emailId">
-                </div>
-              </div>
+            <div *ngFor="let aa of a.department">
+              <a class="dropdown-item" (click)="on(aa.departmentName)">{{aa.departmentName}}</a>
             </div>
-            <div class="col">
-              <div class="form-group">
-                <!-- Mobile -->
-                <label for="phone">Phone <span class="lblError">*</span></label>
-                <div class="controls">
-                  <input type="number" id="phone" placeholder="Phone" class="form-control" formControlName="contactNumber">
-                </div>
-              </div>
-            </div>
+
           </div>
-  
-         
-  
-        <div class="form-group" >
-          <!-- <div class="form-check form-check-inline">
+        </div>
+
+      </div>
+
+      <label type="text" class="form-control">{{bb}}</label>
+    </div>
+  </div>
+
+
+
+
+  <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+
+    <h3 style="text-align:center">
+      <!-- Add Patient -->
+    </h3>
+    <!-- <pre> {{this.doctorForm.value| json}}</pre> -->
+    <div class="form-group">
+      <!-- Username -->
+      <label for="username">Name: <span class="lblError">*</span></label>
+      <div class="input-group ">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <div class="controls">
+          <input type="text" id="username" placeholder="Name" class="form-control" formControlName="name">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <!-- E-mail -->
+          <label for="email">E-mail: <span class="lblError">*</span></label>
+          <div class="controls">
+            <input type="text" id="email" placeholder="E-mail" class="form-control" formControlName="emailId">
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <!-- Mobile -->
+          <label for="phone">Phone <span class="lblError">*</span></label>
+          <div class="controls">
+            <input type="number" id="phone" placeholder="Phone" class="form-control" formControlName="contactNumber">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <!-- <div class="form-check form-check-inline">
             
                <input type="radio" id="genderMale" class="form-check-input" formControlName="gender" value="Male">
               <label class="form-check-label" for="genderMale">Male</label>
@@ -78,29 +95,42 @@
             <input type="radio" id="genderOthers" class="form-check-input" formControlName="gender" value="Others">
             <label class="form-check-label" for="genderOthers">Others</label>
           </div> -->
-    
-                 
-          
-        <div class="form-group"> 
-          <!-- Username -->
-          <label for="username">Designation: <span class="lblError">*</span></label>
-          <div class="controls">
-            <input type="text" id="username" placeholder="Designation" class="form-control" formControlName="desig">
-          </div>
-    </div>  
+
+
+
+      <div class="form-group">
+        <!-- Username -->
+        <label for="username">Designation: <span class="lblError">*</span></label>
+        <div class="controls">
+          <input type="text" id="username" placeholder="Designation" class="form-control" formControlName="desig">
         </div>
-  
-        
-  
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit" style="width: 15%">
-              Add
-            </button>
-          </div>
-  
-    </form>
+      </div>
+    </div>
+    <div *ngIf="currentFileUpload" class="progress">
+      <div class="progress-bar progress-bar-info progress-bar-striped"
+          role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+          aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{width:progress.percentage+'%'}">
+          {{progress.percentage}}%</div>
   </div>
-  <!-- <div class="card" style="width: 18rem;" *ngFor="let hos of departmentArr">
+
+  <label class="btn btn-default"> <input type="file" (change)="selectFile($event)">
+  </label>
+
+  <button class="btn btn-success" [disabled]="!selectedFiles"
+      (click)="upload()">Upload</button>
+
+
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" style="width: 15%">
+        Add
+      </button>
+    </div>
+
+  </form>
+</div>
+<!-- <div class="card" style="width: 18rem;" *ngFor="let hos of departmentArr">
     <div class="card-body">
         <h5 class="card-title">{{hos.id}}</h5>
         <h5 class="card-title">{{hos.department}}</h5>

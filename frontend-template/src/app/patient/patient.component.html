@@ -10,77 +10,40 @@
     <div class="card-body">
       <h2 class="card-title">Patient Sheet</h2>
       <p class="card-description"></p>
-      <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm"><i class="mdi mdi-upload"></i>Add an Appointment</button> -->
-      <ng-template #content let-modal>
-        <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="dateOfBirth">Date of birth</label>
-              <div class="input-group">
-                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
-                  #dp="ngbDatepicker">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-        </div>
-      </ng-template>
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm"><i class="mdi mdi-upload"></i>Add Patient</button>
+      
 
-      <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> --> -->
+      <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> --> 
 
       <hr>
 
 
-
-      <div class="dropdown">\
-        <p>{{parentData}}</p>
-
-        <!-- <div class="container row">
-          <div class="col-md-12">
-            <div *ngIf=retrievedImage>
-              <img [src]="retrievedImage">
-            </div>
-          </div>
-        </div> -->
-
-      </div>
 
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
             <tr>
               <th>Image</th>
-              <th>Id</th>
+              
               <th>Name</th>
               <th>Gender</th>
               <th>Email</th>
               <th>Contact</th>
               <th>Disease</th>
-              <th>Editing</th>
+              
               <th>Delete</th>
               
 
             </tr>
           </thead>
           
-          <tbody *ngFor="let p of valuePatients; let i=index" >
+          <tbody *ngFor="let p of patients; let i=index" >
             <tr>
               <td>
                 <!-- {{getImage()}} -->
-                <img [src]="imagearr[i]">
+                <img [src]=p.image.url>
               </td>
-              <td>{{p.id}}</td>
+              
               <td>{{p.name}}</td>
               <td>{{p.gender}}</td>
               <td><label>{{p.emailId}}</label></td>
@@ -90,11 +53,11 @@
               <td>
                 <label>{{p.disease}}</label>
               </td>
+              <!-- <td>
+                <button type="button" class="btn btn-danger icon-btn" (click)="Del(p.id)"><i class="mdi mdi-border-color" ></i> Edit</button>
+              </td> -->
               <td>
-                <button type="button" class="btn btn-danger icon-btn"><i class="mdi mdi-border-color"></i> Edit</button>
-              </td>
-              <td>
-                <button>Delete</button>
+                <button class="btn btn-danger icon-btn" (click)="Del(p.id)"><i class="mdi mdi-border-color" ></i>Delete</button>
               </td>
              
             </tr>

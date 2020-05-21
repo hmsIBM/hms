@@ -11,6 +11,7 @@ const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiol
   providedIn: 'root'
 })
 export class PatientService {
+ 
   name:string=''
   
   // dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/patient'
@@ -33,7 +34,11 @@ export class PatientService {
   sendAppointment(value: any) {
     return this.http.post('http://localhost:8080/api/hospital',value);
   }
-  
+  deletePatient(aid: number) {
+    let pUrl:string = 'http://localhost:8080/api/hospital/patient/'
+    
+    return this.http.delete(pUrl+aid, { observe: 'response' })
+  }
   fetchAllPatient() {
     let pUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/'
     return this.http.get(pUrl);
@@ -46,8 +51,8 @@ export class PatientService {
   //   return this.http.put(dUrl, {observe: 'response'});
   // }
 
-  addPatient(pat:Patient ) { 
-    let dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/patient'
+  addPatient(a:string,pat:Patient ) { 
+    let dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/'+a+'/patient'
     console.log([pat]);
      return this.http.put(dUrl,
       pat, { observe: 'response' }); }

@@ -27,12 +27,23 @@
                 <i class="mdi mdi-account-plus"></i>
                 <input type="text" placeholder="Department name" formControlName="departmentName">
               </label>
-                <button type="submit" id="login-button" (click)="SaveData()">
-                 Add Department</button> 
+              <div *ngIf="currentFileUpload" class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped"
+                    role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                    aria-valuemin="0" aria-valuemax="100"
+                    [ngStyle]="{width:progress.percentage+'%'}">
+                    {{progress.percentage}}%</div>
+            </div>
+
+            <label class="btn btn-default"> <input type="file" (change)="selectFile($event)">
+            </label>
+
+            <button class="btn btn-success" [disabled]="!selectedFiles"
+                (click)="upload()">Upload</button>
 
 
-                <input type="file" placeholder="image name" (change)="onFileChanged($event)">
-                <button type="submit" id="login-button" (click)="onUpload()">Upload Image</button>
+              <button type="submit" id="login-button" (click)="SaveData()">
+                Add Department</button> 
               </form>
             </div>
           </div>
@@ -95,71 +106,17 @@
       <div class="card__image-holder">
       <!-- <img class="card__image" [src]="retrievedImage" style="object-fit: cover;" /> -->
       <!-- <img alt="Card image cap" class="card-img-top embed-responsive-item" [src]= "assets/images/samples/carousel/doc1.jpg" /> -->
-      <img src="assets/images/carousel/doc1.jpg" class="card-img-top" alt="...">
+      <img [src]=list.image.url class="card-img-top" alt="...">
     </div>
       <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
+        <button (click)="Del(list.id)">Delete</button>
+        <!-- <h2> {{list.image.url}}</h2> -->
         <h2> {{list.departmentName}}</h2>
         <small>You can trust us</small>
       </div>
     </div>
 
   
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://st4.depositphotos.com/8174188/25057/i/450/depositphotos_250570008-stock-photo-woman-having-teeth-examined-at.jpg" alt="beach" />
-      </div>
-      <div class="card-title">
-        <a class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Dentistry
-            <small>Trust us wth your teeth</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-            Dental anesthesiology is the discipline in dentistry that manages pain and anxiety through the use of local anesthesia, sedation, and general anesthesia.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://st3.depositphotos.com/3261171/15023/i/450/depositphotos_150239788-stock-photo-handsome-confident-oncologist-thinking-about.jpg" alt="field" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Neurology
-            <small>Mental health is important</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-            Neurology is the branch of medicine that deals with disorders of the nervous system, which include the brain, blood vessels, muscles and nerves.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div> 
   
    
   </div>

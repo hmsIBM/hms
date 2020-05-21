@@ -132,7 +132,7 @@
     <h3 style="text-align:center">
       <!-- Add Patient -->
     </h3>
-    <pre> {{this.patientForm.value| json}}</pre>
+    
     <div class="form-group">
       <!-- Username -->
       <label for="username">Name: <span class="lblError">*</span></label>
@@ -163,7 +163,30 @@
         </div>
       </div>
     </div>
+    <div class="form-group">
 
+      <div class="col-sm-10">
+        <label class="control-label " for="fname">Department</label>
+        <div class="template-demo">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" type="button" id="dropdownMenuOutlineButton1"
+              ngbDropdownToggle>
+              Department
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownMenuOutlineButton1">
+
+              <div *ngFor="let aa of a.department">
+                <a class="dropdown-item" (click)="on(aa.departmentName)">{{aa.departmentName}}</a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <label type="text" class="form-control">{{bb}}</label>
+      </div>
+    </div>
 
 
     <div class="form-group">
@@ -192,19 +215,20 @@
     </div>
 
 
+    <div *ngIf="currentFileUpload" class="progress">
+      <div class="progress-bar progress-bar-info progress-bar-striped"
+          role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+          aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{width:progress.percentage+'%'}">
+          {{progress.percentage}}%</div>
+  </div>
 
+  <label class="btn btn-default"> <input type="file" (change)="selectFile($event)">
+  </label>
 
-    <div class="form-group">
-      <div class="col-md-6">
-        <label for="imageupload">Upload Image<span class="lblError">*</span></label>
-        <input type="file" (change)="onFileChanged($event)" class="form-control">
+  <button class="btn btn-success" [disabled]="!selectedFiles"
+      (click)="upload()">Upload</button>
 
-      </div>
-      <div class="col-md-6">
-        <input type="button" (click)="onUpload()" value="upload" >
-      </div>
-    </div>
-    <hr />
 
     <!-- <div class="container row">
   <div class="col-md-12">
@@ -356,7 +380,6 @@
             </div>
            
          
-<<<<<<< HEAD
             <!-- <div class="row"> -->
               <!-- <div class="col-md-6">
                 <div class="form-group row">
@@ -394,9 +417,7 @@
               </div> -->
             <!-- </div> -->
             <!-- <div class="row">
-=======
             <div class="row">
->>>>>>> d3d87cf563ea4c4390d9481473c834fb923e6354
               <div class="col-md-6">
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label">Email</label>

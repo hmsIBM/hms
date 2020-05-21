@@ -21,7 +21,7 @@ export class DoctorDisplayComponent implements OnInit {
 
   //i:number
   len:number
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService,private doctorService: DoctorService) { }
 
   ngOnInit() {
     this.patientService.fetchAllPatient()
@@ -49,7 +49,7 @@ export class DoctorDisplayComponent implements OnInit {
     deletedoctor(dd:number)
     {   console.log(dd);
         console.log("delete function started")
-        this.doctorService.deletedoctor(dd)
+        this.doctorService.deletethedoctor(dd)
         .subscribe((res:any)=>
       {
         console.log(res);
