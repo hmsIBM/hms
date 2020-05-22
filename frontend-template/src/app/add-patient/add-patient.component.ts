@@ -41,7 +41,7 @@ export class AddPatientComponent implements OnInit {
   message: string;
   bb:string=''
   lists: Array<any>
- 
+  a: Array<any>
 
 
   ngOnInit(): void {
