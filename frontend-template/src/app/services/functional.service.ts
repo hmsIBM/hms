@@ -16,7 +16,7 @@ const url = '/department'
 
 export class FunctionalService {
  
-  name:string=''
+  name:string=localStorage.getItem('name')
   // baseurl1:string=  'http://localhost:8080/api/hospital/'+this.name+'/appointment/'
   // baseUrl:string = 'http://localhost:8080/api/hospital/'
   // baseUr2:string = 'http://localhost:8080/api/hospital/'+this.name+'/department'

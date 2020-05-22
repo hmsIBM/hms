@@ -12,7 +12,7 @@ const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiol
 })
 export class PatientService {
  
-  name:string=''
+  name:string=localStorage.getItem('name')
   
   // dUrl:string = 'http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/patient'
   

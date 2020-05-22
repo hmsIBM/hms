@@ -17,6 +17,7 @@ export class CountService {
 
   fetchCount(value:any){
     console.log("inside service");
+    console.log(baseUrl+value+"/count")
     return this.http.get(baseUrl+value+"/count");
   }
  
