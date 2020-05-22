@@ -52,24 +52,25 @@ export class HighchartsService {
   ]
   }
 
-  
+  opts:any;
   createChart(container,options?: Object) {
     // this.count=c;
     console.log(this.count)
-    let opts = !!options ? options : this.defaultOptions;
+    this.opts = !!options ? options : this.defaultOptions;
     let e = document.createElement("div");
     
     container.appendChild(e);
     
-    if(!!opts.chart) {
-      opts.chart['renderTo'] = e;
+
+    if(!!this.opts.chart) {
+      this.opts.chart['renderTo'] = e;
     }
     else {
-      opts.chart = {
+      this.opts.chart = {
         'renderTo': e
       }
     }
-    this.charts.push(new Highcharts.Chart(opts));
+    this.charts.push(new Highcharts.Chart(this.opts));
   }
   
   removeFirst() {
