@@ -26,7 +26,7 @@ export class DepartmentComponent implements OnInit {
   hos: any;
   hospitalname: Array<any> = []
   imageId: any;
-
+b:any
 
   myForm: FormGroup;
   departmentName: any;

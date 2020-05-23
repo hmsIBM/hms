@@ -62,17 +62,12 @@ export class DashboardComponent implements OnInit ,AfterViewInit, OnDestroy{
   
   ngOnInit() 
   {
-    this.route.paramMap.subscribe(params => {
-      console.log('***', params.get('name'));
-this.param=params.get('name')
-this.doctorService.name=params.get('name')
-this.functionalService.name=params.get('name')
-this.patientService.name=params.get('name')
-    })
+    this.param=localStorage.getItem('name')
+console.log(this.param)
+   
     this.date1=new Date();
     console.log(this.date1);
    
-
 
 
     this.cs.fetchCount(this.param)

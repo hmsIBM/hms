@@ -18,7 +18,7 @@ export class DoctorService {
   hospitalarr:Array<any>=[]
   departmentarr:Array<any>=[]
   patientarr:Array<any>=[]
-  name:string=''
+  name:string=localStorage.getItem('name')
   // dUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/doctor/'
   // pUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/'
  // const doc='/doctor/'

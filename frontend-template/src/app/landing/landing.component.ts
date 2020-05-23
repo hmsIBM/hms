@@ -27,7 +27,7 @@ showMessage1 : boolean = false;
   constructor(private router:Router,private patientSerivce: PatientService,private modalService: NgbModal,private uploadService: UploadFileService) { }
 
   ngOnInit() {
-
+localStorage.clear();
     this.patientSerivce.fetchAllHospital()
     .subscribe((res:Array<any>)=> 
     { 
@@ -65,8 +65,11 @@ showMessage1 : boolean = false;
   
   }
 route(v:any){
-  this.router.navigate(['/dashboard',{"name":v}])
+   localStorage.clear();
+    localStorage.setItem('name',v);
 
+  this.router.navigate(['/dashboard'])
+ 
 }
 scroll(el: HTMLElement) {
   el.scrollIntoView({behavior:"smooth"});
@@ -102,7 +105,7 @@ onSubmit() {
   console.log(this.signupForm);
 
   console.log(this.signupForm.value);
-  this.patientSerivce.sendAppointment(this.signupForm.value).subscribe(res=>{
+  this.patientSerivce.sendAppointment(this.signupForm.value).subscribe((res:any)=>{
     console.log(res)
     if(res.status == 201){
       this.showMessage1 = true;

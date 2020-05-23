@@ -10,7 +10,7 @@ import { PatientService } from '../services/patient.service';
 })
 export class DoctorDisplayComponent implements OnInit {
   Doctor:Array<any>=[];
-  Hospital: any;
+  Hospital:any
   DoctorDep:Array<any>=[]
   AllDoctor:Array<any>=[]
   Department:Array<any>=[]

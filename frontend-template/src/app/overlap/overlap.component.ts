@@ -22,7 +22,7 @@ export class OverlapComponent implements OnInit {
   @ViewChild('closebutton',null) closebutton;
   invalidNamesArr: string[] = ['Hello', 'Angular'];
   signupForm: FormGroup;
-  a:Array<any>=[]
+  a:any
   bb:string=''
   aa:string=''
   b:Array<any>=[]

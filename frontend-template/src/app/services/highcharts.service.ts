@@ -52,16 +52,16 @@ export class HighchartsService {
   ]
   }
 
-  opts:any;
+  opts:any
   createChart(container,options?: Object) {
     // this.count=c;
+    
     console.log(this.count)
     this.opts = !!options ? options : this.defaultOptions;
     let e = document.createElement("div");
     
     container.appendChild(e);
     
-
     if(!!this.opts.chart) {
       this.opts.chart['renderTo'] = e;
     }
