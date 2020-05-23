@@ -1,12 +1,8 @@
 package com.ibm.HospitalApp.controller;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.List;
-import java.util.zip.DataFormatException;
-import java.util.zip.Deflater;
-import java.util.zip.Inflater;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -23,34 +19,46 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ibm.HospitalApp.HospitalAppApplication;
 import com.ibm.HospitalApp.entities.Appointment;
 import com.ibm.HospitalApp.entities.Department;
 import com.ibm.HospitalApp.entities.Doctor;
+import com.ibm.HospitalApp.entities.Feedback;
 import com.ibm.HospitalApp.entities.Hospital;
 import com.ibm.HospitalApp.entities.ImageModel;
 import com.ibm.HospitalApp.entities.Patient;
 import com.ibm.HospitalApp.entities.RelationBetweenDoctorAndPatient;
-import com.ibm.HospitalApp.repos.ImageRepository;
+import com.ibm.HospitalApp.proxy.FeedbackProxy;
 import com.ibm.HospitalApp.service.HospitalAppService;
 
 
-
 @CrossOrigin("*")
-// @CrossOrigin("*")
-
-
 @RestController
-
 @RequestMapping("/api")
-
 public class HospitalAppController {
 
+	Logger log = LoggerFactory.getLogger(HospitalAppApplication.class);
+	
 	@Autowired
 	HospitalAppService hospitalAppService;
+
+	@Autowired
+	FeedbackProxy feedbackProxy;
+	
+	@PostMapping("/addFeedback")
+	public ResponseEntity<Void> addFeedback(@RequestBody Feedback feedback) {
+		feedbackProxy.addFeedback(feedback);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+		return re;
+	}
+	
+	@GetMapping("/addFeedback")
+	public List<Feedback> getAllFeedback(){
+		return feedbackProxy.getAllFeedback();
+	}
 	
 	@GetMapping("/hospital/{hospital_name}/appointment")
 	public List<Appointment> findAllAppointmentsInAHospital(@PathVariable("hospital_name") String hospitalName) {
-		System.out.println("inside controller");
 		return hospitalAppService.findAllAppointmentsInAHospital(hospitalName);
 	}
 
@@ -104,6 +112,7 @@ public class HospitalAppController {
 	// }
 	@GetMapping("/hospital")
 	public List<Hospital> findAllHospital() {
+		log.info("/hospital");
 		return hospitalAppService.findAllHospital();
 	}
 
