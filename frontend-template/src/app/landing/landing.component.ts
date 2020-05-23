@@ -27,6 +27,7 @@ showMessage1 : boolean = false;
   constructor(private router:Router,private patientSerivce: PatientService,private modalService: NgbModal,private uploadService: UploadFileService) { }
 
   ngOnInit() {
+    console.log("Hello bois")
 localStorage.clear();
     this.patientSerivce.fetchAllHospital()
     .subscribe((res:Array<any>)=> 
@@ -109,9 +110,13 @@ onSubmit() {
     console.log(res)
     if(res.status == 201){
       this.showMessage1 = true;
-    }
+      this.abc.push(this.signupForm.value);
     this.ngOnInit();
+    }
+    
+    
   });
+  
   this.closebutton.nativeElement.click();
 }
 

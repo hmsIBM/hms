@@ -1,4 +1,4 @@
-<button type="button" (click)="addForm()" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl" ><i
+<!-- <button type="button" (click)="addForm()" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl" ><i
   class="mdi mdi-upload"></i>Add a Department</button>
 
   <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
@@ -51,85 +51,38 @@
       </div>
     </div>
   </div>
+  </div> -->
+
+
+ 
+ 
+  <div *ngIf="showMessage" class="alert alert-fill-danger" role="alert">
+    Doctor has been Deleted successfully!!
   </div>
-
-
-<!-- <div class="container row">
-  <div class="col-md-12">
-      <h1>Upload Image</h1>
-  </div>
-</div>
-
-
-<div class="container row">
-  <div class="col-md-6">
-      <input type="file" (change)="onFileChanged($event)">
-
-  </div>
-  <div class="col-md-6">
-      <input type="button" (click)="onUpload()" value="upload">
-  </div>
-</div>
-<hr />
-
-<div class="container row">
-  <div class="col-md-12">
-      <div *ngIf=message>{{message}}</div>
-  </div>
-</div>
-
-<div class="container row">
-  <div class="col-md-6">
-      <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
-          name="name" />
-  </div>
-  <div class="col-md-6">
-      <input type="button" (click)="getImage()" value="Get Image">
-
-  </div>
-</div>
-
-
- <div class="container row">
-  <div class="col-md-12">
-      <div *ngIf=retrievedImage>
-          <img [src]="retrievedImage">
-      </div>
-  </div>
-</div>  -->
-
-
-
-<!-- integration with backend -->
-<div class="cards">
-    <div class="card"  *ngFor="let list of lists ">
+  <div class="cards">
+    <div class="card"  *ngFor="let doc of lists ">
       <div class="card__image-holder">
-      <!-- <img class="card__image" [src]="retrievedImage" style="object-fit: cover;" /> -->
-      <!-- <img alt="Card image cap" class="card-img-top embed-responsive-item" [src]= "assets/images/samples/carousel/doc1.jpg" /> -->
-      <img [src]=list.image.url class="card-img-top" alt="...">
+      <img [src]=doc.image.url class="card-img-top" alt="...">
     </div>
       <div class="card-title">
-        <button (click)="Del(list.id)">Delete</button>
-        <!-- <h2> {{list.image.url}}</h2> -->
-        <h2> {{list.departmentName}}</h2>
-        <small>You can trust us</small>
+        <a >
+          <span class="left"></span>
+          <span class="right"></span>
+        </a>
+        <h2 style="text-align:center;display:block;"> {{doc.departmentName}}</h2>
+        
+        <a href="#" class="btn btn-primary" style="text-align:center;margin-bottom:5px;display:block;">view Department</a>
+      
+        <a class="btn btn-danger" style="text-align:center;display:block;" (click)="Del(doc.id)">Delete Department</a>
+  
       </div>
     </div>
-
-  
-  
-   
   </div>
-
-
-
-
-
-
-
   
   
   
   
   
   
+    
+    

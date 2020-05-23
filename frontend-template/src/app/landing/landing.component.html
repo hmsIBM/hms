@@ -1,6 +1,8 @@
 <body>
 
-
+    <div *ngIf="showMessage" class="alert alert-fill-danger" role="alert">
+        Employee has been deleted successfully!!
+      </div>
 
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -38,10 +40,10 @@
                         <div class="col-md-3">
                             <div class="contact-info">
                                 <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
-                                <h4><b>Take</b></h4>
-                                <h4><b>An</b></h4>
-                                <h4><b>Appointment</b></h4>
-                                <h4>We would love to cure your disease !</h4>
+                                <h4><b>Register</b></h4>
+                                <h4><b>Your</b></h4>
+                                <h4><b>Hospital</b></h4>
+                                <h4>We would love to add you to our family !</h4>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -122,7 +124,7 @@
                                         <!-- <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button> -->
                                         <button *ngIf="!editMode" class="btn btn-primary" type="submit"
                                             [disabled]="signupForm.invalid" style="width: 15%">
-                                            Sign Up
+                                            Get Started
                                         </button>
 
                                     </div>
@@ -170,15 +172,15 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="/landing#team">Team</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="page-scroll" href="/landing#blog">Blog</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div> <!-- navbar collapse -->
 
-                            <div class="navbar-btn d-none d-sm-inline-block">
+                            <!-- <div class="navbar-btn d-none d-sm-inline-block">
                                 <a class="main-btn" data-scroll-nav="0" href="/landing#pricing">Free Trial</a>
-                            </div>
+                            </div> -->
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -267,10 +269,10 @@
                     <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s"
                         data-wow-delay="0.2s">
                         <div class="services-icon">
-                        <img class="shape-1" src="assets/images/services-shape-1.svg" alt="shape">
+                        <!-- <img class="shape-1" [src]=p.image.url alt="shape"> -->
                             <img class="shape" [src]=p.image.url alt="shape">
                             
-                            <i class="lni-baloon"></i>
+                            <!-- <i class="lni-baloon"></i> -->
                         </div>
                         <div class="services-content mt-30">
                             <h4 class="services-title"><a href="#">hello {{p.name}}</a></h4>

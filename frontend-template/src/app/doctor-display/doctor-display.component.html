@@ -1,119 +1,25 @@
-<!-- <p>doctor-display works!</p>
-<div class="card" style="width: 18rem;" *ngFor="let hos of Hospital">
-    <div class="card-body">
-        <h5 class="card-title">{{hos.id}}</h5>
-        <h5 class="card-title">{{hos.name}}</h5>
-        
-         <button class="btn btn-primary" (click)="displaydoctor(hos.name)">display doctor</button>  
-    </div>
-</div> -->
-<!-- 
-<div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
-    <div class="card-body">
-        <h5 class="card-title">{{doc.name}}</h5>
-        <h5 class="card-title">{{doc.emailId}}</h5>
-        <h5 class="card-title">{{doc.contactNumber}}</h5> -->
 
-<!-- <button class="btn btn-primary" (click)="displayquestion(quizzes)">Take Quiz</button>  -->
-<!-- </div>
-</div> -->
-
-<!-- <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card" *ngFor="let hos of Hospital">
-        <div class="card" >
-          <div class="card-body">
-            
-            <ngb-carousel>
-              <ng-template ngbSlide>
-                <img src="assets/images/carousel/hospital1.jpg" >
-                <div class="carousel-caption">
-                  <h3>{{hos.name}}</h3>
-                  <h3>{{hos.id}}</h3>
-                  <button class="btn btn-primary" (click)="displaydoctor(hos.name)">display doctor</button>
-                   </div>
-              </ng-template>
-              
-            </ngb-carousel>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-<!-- <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
-     <div *ngFor="let d of doc"> 
-    <div class="card-body">
-        <h5 class="card-title">{{d.name}}</h5>
-        
-    </div>   
-    </div>
-</div> -->
-
-<!-- <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card" *ngFor="let doc of Doctor">
-        
-        <div class="card" >
-          <div class="card-body">
-            <div *ngFor="let d of doc"> 
-   
-            <ngb-carousel>
-              <ng-template ngbSlide>
-                <img src="assets/images/carousel/hospital1.jpg" >
-                <div class="carousel-caption">
-                    <h3>{{d.name}}</h3>
-                    <h6>{{d.emailId}}</h6>
-                    <h6>{{d.contactNumber}}</h6>
-                  
-                  <button class="btn btn-primary" (click)="displaydoctor(hos.name)">View doctor</button>
-
-                   </div>
-              </ng-template>
-              
-            </ngb-carousel>
-            <hr>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
- -->
-
-<!-- 
- <div class="dropdown">
-  <label for="Department">Department:<span class="lblError">*</span></label>
-  <div>
-<select  class="dropdown-item"[(ngModel)]="selectedgroup" placeholder="choose" (change)="getVal()">
-  <option *ngFor="let group of departmentArr"  [ngValue]="group">{{group.departmentName}}</option>
-</select>
-</div>
-</div> -->
-
- <div *ngIf="showMessage" class="alert alert-fill-primary" role="alert">
+ 
+ 
+<div *ngIf="showMessage" class="alert alert-fill-danger" role="alert">
   Doctor has been Deleted successfully!!
 </div>
+<div class="cards">
+  <div class="card"  *ngFor="let doc of Doctor ">
+    <div class="card__image-holder">
+    <img [src]=doc.image.url class="card-img-top" alt="...">
+  </div>
+    <div class="card-title">
+      <a >
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2 style="text-align:center;display:block;"> {{doc.name}}</h2>
+      <small style="text-align:center;display:block;">{{doc.emailId}}<br>{{doc.contactNumber}}<br>{{doc.desig}}</small>
+      <a href="#" class="btn btn-primary" style="text-align:center;margin-bottom:5px;display:block;">view Doctor</a>
+    
+      <a class="btn btn-danger" style="text-align:center;display:block;" (click)="deletedoctor(doc.id)">Delete Doctor</a>
 
-
-<div class="container">
-
-  <div class="row">
-    <div class="column align-items-stretch justify-content-start card-deck">
-      <div class="card" style="width: 18rem;" *ngFor="let doc of Doctor">
-
-        <img [src]=doc.image.url class="card-img-top" alt="...">
-        <div class="card-body">
-          <h1 class="card-title">{{doc.name}}</h1>
-          <p class="card-text">{{doc.emailId}}</p>
-          <p class="card-text">{{doc.contactNumber}}</p>
-          
-         
-
-          <a href="#" class="btn btn-primary">view Doctor</a>
-          <a class="btn btn-primary" (click)="deletedoctor(doc.id)">Delete Doctor</a>
-
-        </div>
-
-      </div>
     </div>
   </div>
-
-
-
+</div>

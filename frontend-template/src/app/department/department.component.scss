@@ -1,308 +1,180 @@
+.card-title i:hover{
+  transform: scale(1.25) rotate(100deg); 
+  color:#18d4ca;
+  
+}
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+}
+.card-text{
+  height:50px;  
+}
+
+
+.card::before, .card::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale3d(0, 0, 1);
+  transition: transform .3s ease-out 0s;
+  background: rgba(255, 255, 255, 0.1);
+  content: '';
+  pointer-events: none;
+}
+.card::before {
+  transform-origin: left top;
+}
+.card::after {
+  transform-origin: right bottom;
+}
+.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+  transform: scale3d(1, 1, 1);
+}
+
+
 
 
 
 @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 200;
-    src: local('Source Sans Pro ExtraLight'), local('SourceSansPro-ExtraLight'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i94_wlxdr.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 600;
-    src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdr.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 900;
-    src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdr.ttf) format('truetype');
-  }
-  body {
-   // background: #dce1df;
-    // background-image: url(D:/HMS/xyz.jpg);
-    //color: #4f585e;
-    // font-family: 'Source Sans Pro', sans-serif;
-    text-rendering: optimizeLegibility;
-  }
-  a.btn {
-    background: #0096a0;
-    border-radius: 4px;
-    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
-    color: #ffffff;
-    display: inline-block;
-    padding: 6px 30px 8px;
-    position: relative;
-    text-decoration: none;
-    -webkit-transition: all 0.1s 0s ease-out;
-    transition: all 0.1s 0s ease-out;
-  }
-  .no-touch a.btn:hover {
-    background: #00a2ad;
-    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
-    -webkit-transform: translateY(-2px);
-            transform: translateY(-2px);
-    -webkit-transition: all 0.25s 0s ease-out;
-    transition: all 0.25s 0s ease-out;
-  }
-  .no-touch a.btn:active,
-  a.btn:active {
-    background: #008a93;
-    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.979);
-    -webkit-transform: translate3d(0, 1px, 0);
-            transform: translate3d(0, 1px, 0);
-    -webkit-transition: all 0.025s 0s ease-out;
-    transition: all 0.025s 0s ease-out;
-  }
-  div.cards {
-    margin: 80px auto;
-    max-width: 960px;
-    text-align: center;
-  }
-  .card-img-top {
-    height: 15rem;
-    object-fit: cover;
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 200;
+src: local('Source Sans Pro ExtraLight'), local('SourceSansPro-ExtraLight'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i94_wlxdr.ttf) format('truetype');
 }
-  div.card {
-    background: #ffffff;
-    display: inline-block;
-    margin: 8px;
-    max-width: 300px;
-    -webkit-perspective: 1000;
-            perspective: 1000;
-    position: relative;
-    text-align: left;
-    -webkit-transition: all 0.3s 0s ease-in;
-    transition: all 0.3s 0s ease-in;
-    width: 300px;
-    z-index: 1;
-  }
-  div.card img {
-    max-width: 300px;
-  }
-  div.card .card__image-holder {
-    background: rgba(0, 0, 0, 0.1);
-    height: 0;
-    padding-bottom: 70%;
-  }
-  div.card div.card-title {
-    background: #ffffff;
-    padding: 6px 15px 10px;
-    position: relative;
-    z-index: 0;
-  }
-  div.card div.card-title a.toggle-info {
-    border-radius: 32px;
-    height: 32px;
-    padding: 0;
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    width: 32px;
-  }
-  div.card div.card-title a.toggle-info span {
-    background: #ffffff;
-    display: block;
-    height: 2px;
-    position: absolute;
-    top: 16px;
-    -webkit-transition: all 0.15s 0s ease-out;
-    transition: all 0.15s 0s ease-out;
-    width: 12px;
-  }
-  div.card div.card-title a.toggle-info span.left {
-    right: 14px;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-  }
-  div.card div.card-title a.toggle-info span.right {
-    left: 14px;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-  }
-  div.card div.card-title h2 {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    margin: 0;
-    padding: 0;
-  }
-  div.card div.card-title h2 small {
-    display: block;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.025em;
-  }
-  div.card div.card-description {
-    padding: 0 15px 10px;
-    position: relative;
-    font-size: 14px;
-  }
-  div.card div.card-actions {
-    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
-    padding: 10px 15px 20px;
-    text-align: center;
-  }
-  div.card div.card-flap {
-    background: #d9d9d9;
-    position: absolute;
-    width: 100%;
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    -webkit-transform: rotateX(-90deg);
-            transform: rotateX(-90deg);
-  }
-  div.card div.flap1 {
-    -webkit-transition: all 0.3s 0.3s ease-out;
-    transition: all 0.3s 0.3s ease-out;
-    z-index: -1;
-  }
-  div.card div.flap2 {
-    -webkit-transition: all 0.3s 0s ease-out;
-    transition: all 0.3s 0s ease-out;
-    z-index: -2;
-  }
-  div.cards.showing div.card {
-    cursor: pointer;
-    opacity: 0.6;
-    -webkit-transform: scale(0.88);
-            transform: scale(0.88);
-  }
-  .no-touch div.cards.showing div.card:hover {
-    opacity: 0.94;
-    -webkit-transform: scale(0.92);
-            transform: scale(0.92);
-  }
-  div.card.show {
-    opacity: 1 !important;
-    -webkit-transform: scale(1) !important;
-            transform: scale(1) !important;
-  }
-  div.card.show div.card-title a.toggle-info {
-    background: #ff6666 !important;
-  }
-  div.card.show div.card-title a.toggle-info span {
-    top: 15px;
-  }
-  div.card.show div.card-title a.toggle-info span.left {
-    right: 10px;
-  }
-  div.card.show div.card-title a.toggle-info span.right {
-    left: 10px;
-  }
-  div.card.show div.card-flap {
-    background: #ffffff;
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
-  div.card.show div.flap1 {
-    -webkit-transition: all 0.3s 0s ease-out;
-    transition: all 0.3s 0s ease-out;
-  }
-  div.card.show div.flap2 {
-    -webkit-transition: all 0.3s 0.2s ease-out;
-    transition: all 0.3s 0.2s ease-out;
-  }
-
-
-
-
-
-
-  .alert-fill-danger {
-    -webkit-animation: cssAnimation 3s forwards; 
-    animation: cssAnimation 3s forwards;
-  }
-  .alert-fill-success {
-    -webkit-animation: cssAnimation 3s forwards; 
-    animation: cssAnimation 3s forwards;
-  }
-  .alert-fill-primary {
-    -webkit-animation: cssAnimation 3s forwards; 
-    animation: cssAnimation 3s forwards;
-  }
-  @keyframes cssAnimation {
-    0%   {opacity: 1;}
-    90%  {opacity: 1;}
-    100% {opacity: 0;}
-  }
-  
-  @-webkit-keyframes cssAnimation {
-    0%   {opacity: 1;}
-    90%  {opacity: 1;}
-    100% {opacity: 0;}
-  }
-  .btn-primary btn-lg{
-    background: linear-gradient(120deg, red, #5983e8);
-  }
-  body{
-    background-color: #25274d;
-  }
-  .contact{
-    padding: 4%;
-    height: 400px;
-  }
-  .col-md-3{
-    background: linear-gradient(120deg, #00e4d0, #5983e8);
-    padding: 4%;
-    border-top-left-radius: 0.2rem;
-    border-bottom-left-radius: 0.2rem;
-  }
-  .contact-info{
-    margin-top:10%;
-  }
-  .contact-info img{
-    margin-bottom: 15%;
-  }
-  .contact-info h2{
-    margin-bottom: 10%;
-  }
-  .col-md-9{
-    background: #fff;
-    padding: 10%;
-    border-top-right-radius: 0.9rem;
-    border-bottom-right-radius: 0.9rem;
-  }
-  .contact-form label{
-    font-weight:600;
-  }
-  // .contact-form button{
-  //     background: #25274d00;
-  //     color: #000;
-  //     font-weight: 600;
-  //     // width: 25%;
-  // }
-  .contact-form button:focus{
-    box-shadow:none;
-  }
-  P.lblError {
-    color: red;
-    font-size: 0.875rem;
-  }
-  
-  .rounded-input {
-    padding:10px;
-    border-radius:10px;
-  }
-  
-  
-  
+@font-face {
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 300;
+src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+@font-face {
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 400;
+src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype');
+}
+@font-face {
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 600;
+src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype');
+}
+@font-face {
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 700;
+src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdr.ttf) format('truetype');
+}
+@font-face {
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 900;
+src: local('Source Sans Pro Black'), 
+local('SourceSansPro-Black'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdr.ttf) format('truetype');
+}
+body {
+// background: #dce1df;
+// background-image: url(D:/HMS/xyz.jpg);
+//color: #4f585e;
+// font-family: 'Source Sans Pro', sans-serif;
+text-rendering: optimizeLegibility;
+}
+a.btn {
+//background: #0096a0;
+border-radius: 4px;
+box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.25);
+color: #ffffff;
+display: inline-block;
+padding: 6px 30px 8px;
+position: relative;
+text-decoration: none;
+//-webkit-transition: all 0.1s 0s ease-out;
+//transition: all 0.1s 0s ease-out;
+}
+div.cards {
+margin: 80px auto;
+max-width: 960px;
+text-align: center;
+}
+.card-img-top {
+height: 15rem;
+object-fit: cover;
+}
+div.card {
+background: #ffffff;
+display: inline-block;
+margin: 20px;
+max-width: 300px;
+// -webkit-perspective: 1000;
+//         perspective: 1000;
+position: relative;
+text-align: left;
+//-webkit-transition: all 0.3s 0s ease-in;
+transition: all 0.3s 0s ease-in;
+width: 300px;
+z-index: 1;
+}
+div.card img {
+max-width: 300px;
+}
+div.card .card__image-holder {
+background: rgba(0, 0, 0, 0.1);
+height: 0;
+padding-bottom: 70%;
+}
+div.card div.card-title {
+background: #ffffff;
+padding: 6px 15px 10px;
+position: relative;
+z-index: 0;
+}
+.btn-primary btn-lg{
+  background: linear-gradient(120deg, red, #5983e8);
+}
+body{
+  background-color: #25274d;
+}
+.contact{
+  padding: 4%;
+  height: 400px;
+}
+.col-md-3{
+  background: linear-gradient(120deg, #00e4d0, #5983e8);
+  padding: 4%;
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+}
+.contact-info{
+  margin-top:10%;
+}
+.contact-info img{
+  margin-bottom: 15%;
+}
+.contact-info h2{
+  margin-bottom: 10%;
+}
+.col-md-9{
+  background: #fff;
+  padding: 3%;
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+}
+.contact-form label{
+  font-weight:600;
+}
+// .contact-form button{
+//     background: #25274d00;
+//     color: #000;
+//     font-weight: 600;
+//     // width: 25%;
+// }
+.contact-form button:focus{
+  box-shadow:none;
+}
+P.lblError {
+  color: red;
+  font-size: 0.875rem;
+}
