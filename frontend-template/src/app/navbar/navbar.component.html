@@ -10,12 +10,12 @@
   <div class="navbar-menu-wrapper d-flex align-items-center">
     <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
       <li class="nav-item">
-        <a href="#" class="nav-link">Schedule
+        <a class="nav-link" routerLink="/overlap" routerLinkActive="active">Appointment
           <span class="badge badge-primary ml-1">New</span>
         </a>
       </li>
       <li class="nav-item active">
-        <a href="#" class="nav-link">
+        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
           <i class="mdi mdi-elevation-rise"></i>Reports</a>
       </li>
       <li class="nav-item">
@@ -23,7 +23,7 @@
           <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
       </li>
     </ul>
-    <ul class="navbar-nav navbar-nav-right">
+    <!-- <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" ngbDropdownToggle>
           <i class="mdi mdi-file-document-box"></i>
@@ -167,7 +167,7 @@
           </a>
         </div>
       </li>
-    </ul>
+    </ul> -->
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" (click)="toggleOffcanvas()">
       <span class="mdi mdi-menu"></span>
     </button>

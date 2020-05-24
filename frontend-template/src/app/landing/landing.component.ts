@@ -22,7 +22,7 @@ abc:Array<any>=[]
 closeResult = '';
 signupForm: FormGroup;
 invalidNamesArr: string[] = ['Hello', 'Angular'];
-showMessage1 : boolean = false;
+showMessage : boolean = false;
 @ViewChild('closebutton',null) closebutton;
   constructor(private router:Router,private patientSerivce: PatientService,private modalService: NgbModal,private uploadService: UploadFileService) { }
 
@@ -30,17 +30,17 @@ showMessage1 : boolean = false;
     console.log("Hello bois")
 localStorage.clear();
     this.patientSerivce.fetchAllHospital()
-    .subscribe((res:Array<any>)=> 
+    .subscribe((res1:Array<any>)=> 
     { 
-      this.abc=res;
-      console.log(res);
-      console.log("res pulled...");
+      this.abc=res1;
+      console.log(res1);
+      console.log("res1 pulled...");
       // console.log(this.abc[0][1])
     })
     this.signupForm = new FormGroup({
       id:new FormControl,
       name: new FormControl(null, [Validators.required, this.invalidNameValidation.bind(this)]),
-      emailId: new FormControl(null, [Validators.email, Validators.required]),
+      email: new FormControl(null, [Validators.email, Validators.required]),
       contactNo: new FormControl(null,[Validators.required]),
       image:new FormGroup({
         url:new FormControl
@@ -48,6 +48,28 @@ localStorage.clear();
       })
     
     });
+  }
+  onSubmit() {
+    console.log(this.uploadService.a)
+    this.signupForm.get('image').get('url').setValue(this.uploadService.a)
+    let a
+    a=this.signupForm.value
+    console.log(this.signupForm);
+  
+    console.log(this.signupForm.value);
+    this.patientSerivce.sendAppointment(this.signupForm.value).subscribe((res:any)=>{
+      console.log(res)
+      if(res.status == 201){
+        this.showMessage = true;
+        this.abc.push(this.signupForm.value);
+    console.log(this.abc)
+  this.ngOnInit();
+      }
+      
+      
+    });
+   
+    this.closebutton.nativeElement.click();
   }
   selectFile(event) {
     this.selectedFiles = event.target.files;
@@ -98,26 +120,21 @@ invalidNameValidation(control: AbstractControl): {[key: string]: boolean} {
   }
   return null;
 }
-onSubmit() {
-  console.log(this.uploadService.a)
-  this.signupForm.get('image').get('url').setValue(this.uploadService.a)
-  let a
-  a=this.signupForm.value
-  console.log(this.signupForm);
 
-  console.log(this.signupForm.value);
-  this.patientSerivce.sendAppointment(this.signupForm.value).subscribe((res:any)=>{
-    console.log(res)
-    if(res.status == 201){
-      this.showMessage1 = true;
-      this.abc.push(this.signupForm.value);
-    this.ngOnInit();
+deletedoctor(dd:number)
+{   console.log(dd);
+    console.log("delete function started")
+    this.patientSerivce.deletehospital(dd)
+    .subscribe((res:any)=>
+  {
+    console.log(res);
+    if(res.status == 200){
+     // this.showMessage = true;
+      this.abc = this.abc.filter((abc)=> abc.id!=dd)
     }
-    
-    
-  });
+    this.showMessage=true;
   
-  this.closebutton.nativeElement.click();
+  });
+  //this.lists = this.lists.filter((lists)=> lists.id!=aid)
 }
-
 }

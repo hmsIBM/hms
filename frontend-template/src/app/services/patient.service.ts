@@ -11,6 +11,8 @@ const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiol
   providedIn: 'root'
 })
 export class PatientService {
+
+
  
   name:string=localStorage.getItem('name')
   
@@ -31,6 +33,10 @@ export class PatientService {
   // {
   //   return this.http.get(pUrl +department+'/patient');
   // }
+  deletehospital(dd: number) {
+    let pUrl:string = 'http://localhost:8080/api/hospital/'
+    return this.http.delete(pUrl+dd, { observe: 'response' })
+  }
   sendAppointment(value: any) {
     return this.http.post('http://localhost:8080/api/hospital',value);
   }
