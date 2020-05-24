@@ -137,10 +137,10 @@
                                 <button class="btn btn-primary" (click)="d.toggle()" type="button"><i
                                     class="fa fa-edit"></i></button>
                               </div>
-                              <p class="lblError" *ngIf="signupForm.get('appointmentDate').hasError('required')
-                                            && !signupForm.get('appointmentDate').pristine">
-                                Date is Required
-                              </p>
+                              <p class="lblError"
+                              *ngIf="signupForm.get('appointmentDate').hasError('required') && !signupForm.get('appointmentDate').pristine">
+                              Please provide your Mobile Number
+                            </p>
                             </div>
                           </div>
 
