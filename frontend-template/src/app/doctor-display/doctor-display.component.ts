@@ -18,6 +18,7 @@ export class DoctorDisplayComponent implements OnInit {
   hosname:string
   department: Array<any>= [];
   showMessage:boolean=false;
+  
 
   //i:number
   len:number
