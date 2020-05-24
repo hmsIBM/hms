@@ -4,11 +4,12 @@ import { Doctor } from '../models/doctor';
 
 
 const baseUrl="http://localhost:8080/api/hospital/";
-const doc='/doctor/'
+const delUrl="http://localhost:8080/api/hospital/doctor/";
+const doc="/doctor/";
 //const baseUrl="http://localhost:8000/api/hospital/";
 // const dUrl = 'http://localhost:8080/api/hospital/max hospital/department/cardiology/doctor/'
 // const pUrl = 'http://localhost:8080/api/hospital/max hospital/department/'
-// const doc='/doctor/'
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class DoctorService {
   name:string=localStorage.getItem('name')
   // dUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/cardiology/doctor/'
   // pUrl:string='http://localhost:8080/api/hospital/'+this.name+'/department/'
-  
+ // const doc='/doctor/'
   constructor(private http:HttpClient) { }
 
 

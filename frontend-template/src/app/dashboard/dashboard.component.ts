@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit ,AfterViewInit, OnDestroy{
   constructor(private hcs: HighchartsService,private patientService:PatientService,private doctorService:DoctorService,private functionalService:FunctionalService , private changeDetectionRef: ChangeDetectorRef,private cs:CountService,private route: ActivatedRoute) {
     setInterval(() =>{
       const currentDate = new Date();
+      
       this.date = currentDate.toLocaleTimeString();
        }, 1000);
   

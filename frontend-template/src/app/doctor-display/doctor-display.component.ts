@@ -21,7 +21,7 @@ export class DoctorDisplayComponent implements OnInit {
 
   //i:number
   len:number
-  constructor(private patientService: PatientService,private doctorService: DoctorService) { }
+  constructor(private patientService: PatientService, private doctorService: DoctorService) { }
 
   ngOnInit() {
     this.patientService.fetchAllPatient()
@@ -32,6 +32,7 @@ export class DoctorDisplayComponent implements OnInit {
     //  console.log(this.a);
      
 
+    
     
      for (let entry of this.Hospital.department) { 
       console.log(entry);

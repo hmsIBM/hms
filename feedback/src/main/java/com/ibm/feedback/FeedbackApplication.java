@@ -1,4 +1,4 @@
-package com.ibm.HospitalApp;
+package com.ibm.feedback;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,11 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients("com.ibm.HospitalApp")
-public class HospitalAppApplication {
+public class FeedbackApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HospitalAppApplication.class, args);
+		SpringApplication.run(FeedbackApplication.class, args);
 	}
 
 }
