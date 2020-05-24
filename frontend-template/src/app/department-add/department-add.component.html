@@ -1,0 +1,49 @@
+<div *ngIf="showMessage" class="alert alert-fill-primary" role="alert">
+  Department has been added successfully!!
+</div>
+
+
+
+<div class="container">
+    <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
+  
+      <h3 style="text-align:center">
+        <!-- Add Patient -->
+      </h3>
+      
+      <div class="form-group">
+        <!-- Username -->
+        <label for="username">Name: <span class="lblError">*</span></label>
+        <div class="controls">
+          <input type="text" id="username" placeholder="Name" class="form-control" formControlName="departmentName">
+        </div>
+      </div>
+    <div *ngIf="currentFileUpload" class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped"
+            role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+            aria-valuemin="0" aria-valuemax="100"
+            [ngStyle]="{width:progress.percentage+'%'}">
+            {{progress.percentage}}%</div>
+    </div>
+  
+    <label class="btn btn-default"> <input type="file" (change)="selectFile($event)">
+    </label>
+  
+    <button class="btn btn-success" [disabled]="!selectedFiles"
+        (click)="upload()">Upload</button>
+  
+  
+  
+  
+  
+  
+  
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit" style="width: 15%">
+      Add
+    </button>
+  </div>
+  
+  </form>
+  </div>
+  

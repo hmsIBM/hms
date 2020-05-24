@@ -1,6 +1,9 @@
 <body>
+    <div *ngIf="showMessage" class="alert alert-fill-danger" role="alert">
+        Doctor has been deleted successfully!!
+      </div>
 
-
+    
 
     <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -27,115 +30,119 @@
     </div>
 
     <!--====== PRELOADER PART ENDS ======-->
-
-    <!--====== HEADER PART START ======-->
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="contact-info">
-                                <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
-                                <h4><b>Take</b></h4>
-                                <h4><b>An</b></h4>
-                                <h4><b>Appointment</b></h4>
-                                <h4>We would love to cure your disease !</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-
-                            <div class="container">
-                                <div class="modal-header">
-                                    <button type="button" #closebutton class="close"
-                                        data-dismiss="modal">&times;</button>
-                                </div>
-                                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                                    <h3 style="text-align:center">
-                                        Sign Up
-                                    </h3>
-                                    <div class="form-group">
-                                        <!-- Username -->
-                                        <label for="username">Name: <span class="lblError">*</span></label>
-                                        <div class="controls">
-                                            <input type="text" id="username" placeholder="Name" class="form-control"
-                                                formControlName="name">
-                                            <p class="lblError" *ngIf="signupForm.get('name').hasError('required')
-                                                        && !signupForm.get('name').pristine">
-                                                Name is Required
-                                            </p>
-                                            <p class="lblError"
-                                                *ngIf="signupForm.get('name').hasError('invalidName') && !signupForm.get('name').pristine">
-                                                Name is Invalid
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <!-- E-mail -->
-                                                <label for="email">E-mail: <span class="lblError">*</span></label>
-                                                <div class="controls">
-                                                    <input type="text" id="email" placeholder="E-mail"
-                                                        class="form-control" formControlName="emailId">
-                                                    <br>
-                                                    <p class="lblError"
-                                                        *ngIf="signupForm.get('emailId').hasError('required') && !signupForm.get('emailId').pristine">
-                                                        Please provide your E-mail
-                                                    </p>
-                                                    <p class="lblError"
-                                                        *ngIf="signupForm.get('emailId').hasError('email') && !signupForm.get('emailId').pristine">
-                                                        E-mail is Invalid</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="email">Mobile No: <span class="lblError">*</span></label>
-                                                <div class="controls">
-                                                    <input type="num" id="Mnumber" placeholder="mobile number "
-                                                        class="form-control" formControlName="contactNo">
-                                                    <p class="lblError"
-                                                        *ngIf="signupForm.get('contactNo').hasError('required') && !signupForm.get('contactNo').pristine">
-                                                        Please provide your Mobile Number
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div *ngIf="currentFileUpload" class="progress">
-                                        <div class="progress-bar progress-bar-info progress-bar-striped"
-                                            role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
-                                            aria-valuemin="0" aria-valuemax="100"
-                                            [ngStyle]="{width:progress.percentage+'%'}">
-                                            {{progress.percentage}}%</div>
-                                    </div>
-
-                                    <label class="btn btn-default"> <input type="file" (change)="selectFile($event)">
-                                    </label>
-
-                                    <button class="btn btn-success" [disabled]="!selectedFiles"
-                                        (click)="upload()">Upload</button>
-
-                                    <div class="form-group">
-                                        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button> -->
-                                        <button *ngIf="!editMode" class="btn btn-primary" type="submit"
-                                            [disabled]="signupForm.invalid" style="width: 15%">
-                                            Sign Up
-                                        </button>
-
-                                    </div>
-                                </form>
-                            </div>
-
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="container">
+               
+                <div class="row">
+                    <div class="col-md-3" style="  background: linear-gradient(120deg, #00e4d0, #5983e8);
+                    padding: 4%;
+                    border-top-left-radius: 0.2rem;
+                    border-bottom-left-radius: 0.2rem;">
+                        <div class="contact-info">
+                            <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+                            <h4><b>Register</b></h4>
+                            <h4><b>Your</b></h4>
+                            <h4><b>Hospital</b></h4>
+                            <h4>We would love to add you to our family !</h4>
                         </div>
                     </div>
-                </div>
+                    <div class="col-md-9">
 
+                        <div class="container">
+                            <div class="modal-header">
+                                <button type="button" #closebutton class="close"
+                                    data-dismiss="modal">&times;</button>
+                            </div>
+                            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                                <h3 style="text-align:center">
+                                    Sign Up
+                                </h3>
+                                <div class="form-group">
+                                    <!-- Username -->
+                                    <label for="username">Name: <span class="lblError">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="username" placeholder="Name" class="form-control"
+                                            formControlName="name">
+                                        <p class="lblError" *ngIf="signupForm.get('name').hasError('required')
+                                                    && !signupForm.get('name').pristine">
+                                            Name is Required
+                                        </p>
+                                        <p class="lblError"
+                                            *ngIf="signupForm.get('name').hasError('invalidName') && !signupForm.get('name').pristine">
+                                            Name is Invalid
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <!-- E-mail -->
+                                            <label for="email">E-mail: <span class="lblError">*</span></label>
+                                            <div class="controls">
+                                                <input type="text" id="email" placeholder="E-mail"
+                                                    class="form-control" formControlName="email">
+                                                <br>
+                                                <p class="lblError"
+                                                    *ngIf="signupForm.get('email').hasError('required') && !signupForm.get('email').pristine">
+                                                    Please provide your E-mail
+                                                </p>
+                                                <p class="lblError"
+                                                    *ngIf="signupForm.get('email').hasError('email') && !signupForm.get('email').pristine">
+                                                    E-mail is Invalid</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="email">Mobile No: <span class="lblError">*</span></label>
+                                            <div class="controls">
+                                                <input type="num" id="Mnumber" placeholder="mobile number "
+                                                    class="form-control" formControlName="contactNo">
+                                                <p class="lblError"
+                                                    *ngIf="signupForm.get('contactNo').hasError('required') && !signupForm.get('contactNo').pristine">
+                                                    Please provide your Mobile Number
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="currentFileUpload" class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped"
+                                        role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                                        aria-valuemin="0" aria-valuemax="100"
+                                        [ngStyle]="{width:progress.percentage+'%'}">
+                                        {{progress.percentage}}%</div>
+                                </div>
+
+                                <label class="btn btn-default"> <input type="file" (change)="selectFile($event)">
+                                </label>
+
+                                <button class="btn btn-success" [disabled]="!selectedFiles"
+                                    (click)="upload()">Upload</button>
+
+                                <div class="form-group">
+                                    <!-- <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button> -->
+                                    <button *ngIf="!editMode" class="btn btn-primary" type="submit"
+                                        [disabled]="signupForm.invalid" style="width: 15%">
+                                        Get Started
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
+</div>
+    <!--====== HEADER PART START ======-->
+   
     <header class="header-area">
         <div class="navbar-area">
             <div class="container">
@@ -145,9 +152,7 @@
                             <a class="navbar-brand" href="index.html">
                                 <img src="assets/images/logo.svg" alt="Logo">
                             </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
@@ -170,15 +175,15 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="/landing#team">Team</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="page-scroll" href="/landing#blog">Blog</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div> <!-- navbar collapse -->
 
-                            <div class="navbar-btn d-none d-sm-inline-block">
+                            <!-- <div class="navbar-btn d-none d-sm-inline-block">
                                 <a class="main-btn" data-scroll-nav="0" href="/landing#pricing">Free Trial</a>
-                            </div>
+                            </div> -->
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -262,15 +267,15 @@
             </div> <!-- row -->
             <div class="row justify-content-center">
 
-                <div class="col-lg-4 col-md-7 col-sm-8" *ngFor="let p of abc; let i=index">
+                <!-- <div class="col-lg-4 col-md-7 col-sm-8" *ngFor="let p of abc; let i=index">
 
                     <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s"
                         data-wow-delay="0.2s">
                         <div class="services-icon">
-                        <img class="shape-1" src="assets/images/services-shape-1.svg" alt="shape">
+                      
                             <img class="shape" [src]=p.image.url alt="shape">
                             
-                            <i class="lni-baloon"></i>
+                        
                         </div>
                         <div class="services-content mt-30">
                             <h4 class="services-title"><a href="#">hello {{p.name}}</a></h4>
@@ -278,40 +283,38 @@
                             <button class="more" (click)="route(p.name)">Contact No:- {{p.contactNo}} <i
                                     class="lni-chevron-right"></i></button>
                         </div>
-                    </div> <!-- single services -->
-                </div>
-                <!-- <div class="col-lg-4 col-md-7 col-sm-8">
-                  <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                      <div class="services-icon">
-                          <img class="shape" src="assets/images/services-shape.svg" alt="shape">
-                          <img class="shape-1" src="assets/images/services-shape-2.svg" alt="shape">
-                          <i class="lni-cog"></i>
+                    </div> 
+                </div> -->
+                <div class="cards">
+                    <div class="card"  *ngFor="let doc of abc ">
+                      <div class="card__image-holder">
+                      <img [src]=doc.image.url class="card-img-top" alt="...">
+                    </div>
+                      <div class="card-title">
+                        <a >
+                          <span class="left"></span>
+                          <span class="right"></span>
+                        </a>
+                        <h4 class="services-title" style="text-align:center;display:block;">hello {{doc.name}}</h4>
+                        <!-- <h2 style="text-align:center;display:block;"> {{doc.name}}</h2> -->
+                        <p style="text-align:center;display:block;"class="text">Email:-{{doc.email}} <br>Contact No:- {{doc.contactNo}}</p>
+                        <div class="center">
+                        <button class="btn btn-inverse-primary btn-rounded btn-fw" (click)="route(doc.name)" style="text-align:center;margin-bottom:5px;display:block;">view Hospital</button>
+                      
+                        <button class="btn btn-inverse-danger btn-rounded btn-fw"  (click)="deletedoctor(doc.id)" style="text-align:center;margin-bottom:5px;display:block;">Delete Hospital</button>
+                    </div>
                       </div>
-                      <div class="services-content mt-30">
-                          <h4 class="services-title"><a href="#">Robust</a></h4>
-                          <p class="text">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                          <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                      </div>
-                  </div> 
-              </div> -->
-                <!-- <div class="col-lg-4 col-md-7 col-sm-8">
-                  <div class="single-services text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-                      <div class="services-icon">
-                          <img class="shape" src="assets/images/services-shape.svg" alt="shape">
-                          <img class="shape-1" src="assets/images/services-shape-3.svg" alt="shape">
-                          <i class="lni-bolt-alt"></i>
-                      </div>
-                      <div class="services-content mt-30">
-                          <h4 class="services-title"><a href="#">Powerful</a></h4>
-                          <p class="text">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod tempor invidunt labore.</p>
-                          <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                      </div>
-                  </div>  single services -->
-              </div>
-          <!-- row -->
-      </div> <!-- container -->
-  </section>
-  
+
+                    </div>
+                  </div>
+            </div>
+        </div> <!-- row -->
+        <!-- container -->
+    </section>
+
+    <!--====== SERVICES PART ENDS ======-->
+
+
   <!--====== SERVICES PART ENDS ======-->
   
   <!--====== ABOUT PART START ======-->
@@ -693,219 +696,12 @@
 
     <!--====== TESTIMONIAL PART START ======-->
 
-    <section id="testimonial" class="testimonial-area pt-120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="section-title text-center pb-40">
-                        <div class="line m-auto"></div>
-                        <h3 class="title">Users sharing<span> their experience</span></h3>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row testimonial-active wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.8s">
-                <div class="col-lg-4">
-                    <div class="single-testimonial">
-                        <div class="testimonial-review d-flex align-items-center justify-content-between">
-                            <div class="quota">
-                                <i class="lni-quotation"></i>
-                            </div>
-                            <div class="star">
-                                <ul>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="text">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod
-                                tempor invidunt labore.Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam
-                                nonu.</p>
-                        </div>
-                        <div class="testimonial-author d-flex align-items-center">
-                            <div class="author-image">
-                                <img class="shape" src="assets/images/textimonial-shape.svg" alt="shape">
-                                <img class="author" src="assets/images/author-1.png" alt="author">
-                            </div>
-                            <div class="author-content media-body">
-                                <h6 class="holder-name">Jenny Deo</h6>
-                                <p class="text">CEO, SpaceX</p>
-                            </div>
-                        </div>
-                    </div> <!-- single testimonial -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-testimonial">
-                        <div class="testimonial-review d-flex align-items-center justify-content-between">
-                            <div class="quota">
-                                <i class="lni-quotation"></i>
-                            </div>
-                            <div class="star">
-                                <ul>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="text">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod
-                                tempor invidunt labore.Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam
-                                nonu.</p>
-                        </div>
-                        <div class="testimonial-author d-flex align-items-center">
-                            <div class="author-image">
-                                <img class="shape" src="assets/images/textimonial-shape.svg" alt="shape">
-                                <img class="author" src="assets/images/author-2.png" alt="author">
-                            </div>
-                            <div class="author-content media-body">
-                                <h6 class="holder-name">Marjin Otte</h6>
-                                <p class="text">UX Specialist, Yoast</p>
-                            </div>
-                        </div>
-                    </div> <!-- single testimonial -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-testimonial">
-                        <div class="testimonial-review d-flex align-items-center justify-content-between">
-                            <div class="quota">
-                                <i class="lni-quotation"></i>
-                            </div>
-                            <div class="star">
-                                <ul>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="text">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod
-                                tempor invidunt labore.Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam
-                                nonu.</p>
-                        </div>
-                        <div class="testimonial-author d-flex align-items-center">
-                            <div class="author-image">
-                                <img class="shape" src="assets/images/textimonial-shape.svg" alt="shape">
-                                <img class="author" src="assets/images/author-3.png" alt="author">
-                            </div>
-                            <div class="author-content media-body">
-                                <h6 class="holder-name">David Smith</h6>
-                                <p class="text">CTO, Alphabet</p>
-                            </div>
-                        </div>
-                    </div> <!-- single testimonial -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-testimonial">
-                        <div class="testimonial-review d-flex align-items-center justify-content-between">
-                            <div class="quota">
-                                <i class="lni-quotation"></i>
-                            </div>
-                            <div class="star">
-                                <ul>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                    <li><i class="lni-star-filled"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="text">Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam nonu eirmod
-                                tempor invidunt labore.Lorem ipsum dolor sit amet,consetetur sadipscing elitr, seddiam
-                                nonu.</p>
-                        </div>
-                        <div class="testimonial-author d-flex align-items-center">
-                            <div class="author-image">
-                                <img class="shape" src="assets/images/textimonial-shape.svg" alt="shape">
-                                <img class="author" src="assets/images/author-2.png" alt="author">
-                            </div>
-                            <div class="author-content media-body">
-                                <h6 class="holder-name">Fajar Siddiq</h6>
-                                <p class="text">COO, MakerFlix</p>
-                            </div>
-                        </div>
-                    </div> <!-- single testimonial -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
+   
 
     <!--====== TESTIMONIAL PART ENDS ======-->
 
     <!--====== BLOG PART START ======-->
 
-    <section id="blog" class="blog-area pt-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title pb-35">
-                        <div class="line"></div>
-                        <h3 class="title"><span>Our Recent</span> Blog Posts</h3>
-                    </div> <!-- section title -->
-                </div>
-            </div> <!-- row -->
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-7">
-                    <div class="single-blog mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <div class="blog-image">
-                            <img src="assets/images/blog-1.jpg" alt="blog">
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li>Posted By: <a href="#">Admin</a></li>
-                                <li>03 June, 2023</li>
-                            </ul>
-                            <p class="text">Lorem ipsuamet conset sadips cing elitr seddiam nonu eirmod tempor invidunt
-                                labore.</p>
-                            <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-4 col-md-7">
-                    <div class="single-blog mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <div class="blog-image">
-                            <img src="assets/images/blog-2.jpg" alt="blog">
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li>Posted By: <a href="#">Admin</a></li>
-                                <li>03 June, 2023</li>
-                            </ul>
-                            <p class="text">Lorem ipsuamet conset sadips cing elitr seddiam nonu eirmod tempor invidunt
-                                labore.</p>
-                            <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-                <div class="col-lg-4 col-md-7">
-                    <div class="single-blog mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-                        <div class="blog-image">
-                            <img src="assets/images/blog-3.jpg" alt="blog">
-                        </div>
-                        <div class="blog-content">
-                            <ul class="meta">
-                                <li>Posted By: <a href="#">Admin</a></li>
-                                <li>03 June, 2023</li>
-                            </ul>
-                            <p class="text">Lorem ipsuamet conset sadips cing elitr seddiam nonu eirmod tempor invidunt
-                                labore.</p>
-                            <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                        </div>
-                    </div> <!-- single blog -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
 
     <!--====== BLOG PART ENDS ======-->
 

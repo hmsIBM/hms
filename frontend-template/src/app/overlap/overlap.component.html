@@ -22,7 +22,10 @@
           <div class="modal-content">
             <div class="container">
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3" style="  background: linear-gradient(120deg, #00e4d0, #5983e8);
+                padding: 4%;
+                border-top-left-radius: 0.2rem;
+                border-bottom-left-radius: 0.2rem;">
                   <div class="contact-info">
                     <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
                     <h4><b>Take</b></h4>
@@ -134,10 +137,10 @@
                                 <button class="btn btn-primary" (click)="d.toggle()" type="button"><i
                                     class="fa fa-edit"></i></button>
                               </div>
-                              <p class="lblError" *ngIf="signupForm.get('appointmentDate').hasError('required')
-                                            && !signupForm.get('appointmentDate').pristine">
-                                Date is Required
-                              </p>
+                              <p class="lblError"
+                              *ngIf="signupForm.get('appointmentDate').hasError('required') && !signupForm.get('appointmentDate').pristine">
+                              Please provide your Mobile Number
+                            </p>
                             </div>
                           </div>
 
@@ -252,8 +255,8 @@
 
                       <div class="form-group">
                         <!-- <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> Close</button> -->
-                        <button *ngIf="!editMode" class="btn btn-primary" type="submit" [disabled]="signupForm.invalid"
-                          style="width: 15%">
+                        <button *ngIf="!editMode" class="btn btn-primary"  type="submit" [disabled]="signupForm.invalid"
+                          style="width: 25%">
                           Sign Up
                         </button>
 

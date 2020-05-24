@@ -33,7 +33,7 @@ import { LoginComponent } from './login/login.component';
 import { DepartmentComponent } from './department/department.component';
 // import { PatientComponent } from './patient/patient.component';
 // import { HttpClient, HttpClientModule } from '@angular/common/http';
-// import { DepartmentAddComponent } from './department-add/department-add.component';
+import { DepartmentAddComponent } from './department-add/department-add.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { DoctorComponent } from './doctor/doctor.component';
@@ -88,6 +88,10 @@ import { HomepageComponent } from './homepage/homepage.component';
     DepartmentComponent,
     PatientComponent,
     OverlapComponent,
+    DepartmentComponent,
+    DepartmentAddComponent,
+    // DepartmentComponent,
+    // DepartmentAddComponent,
     DepartmentComponent,
    // DepartmentAddComponent,
     ImagesComponent,
