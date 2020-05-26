@@ -47,7 +47,7 @@ public class ProductServiceControllerTest extends AbstractTest {
 //    String content = mvcResult.getResponse().getContentAsString();
 //    assertEquals(content, "Doctor is created successfully");
 // }
-  @Test
+//  @Test
   public void updateProduct() throws Exception {
   String uri = "/api/hospital/max hospital/department/saiyam/patient";
   Patient p= new Patient();
