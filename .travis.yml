@@ -8,7 +8,7 @@ services:
     - docker
 branches:
     only:
-    - master
+    - minor
     except:
     - dev 
 # env:
