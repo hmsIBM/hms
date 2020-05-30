@@ -23,7 +23,7 @@ before_install:
 before_script:
     - cd ..
     - cd frontend-template
-    - npm install 
+    - npm install -g @angular/cli
     - npm run build --prod 
     - cd .. 
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static 
