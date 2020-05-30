@@ -5,20 +5,15 @@ jdk:
     - openjdk8
    
  env:
-        - NODE_VERSION=12 CC=clang CXX=clang++
+    - NODE_VERSION=12 CC=clang CXX=clang++
 
 services:
-
     - docker
  
 branches:
-
     only:
-
     - minor
-
     except:
-
     - dev 
 
 # env:
@@ -39,7 +34,6 @@ before_script:
     - cd HospitalApp
 
 script:
-    
     - mvn -N io.takari:maven:wrapper
     - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
  
