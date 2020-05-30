@@ -28,7 +28,8 @@ before_script:
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static 
     - cd HospitalApp
 script:
-- mvn clean install -DskipTests
+- mvn -N io.takari:maven:wrapper
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 
 
