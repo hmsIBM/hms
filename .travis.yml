@@ -1,40 +1,78 @@
-# sudo: required
+sudo: required
 language: java
 jdk: 
-    - openjdk8
-   
- env:
-    - NODE_VERSION=12 CC=clang CXX=clang++
-
+    - openjdk11
+env:
+        - NODE_VERSION=12 CC=clang CXX=clang++
 services:
     - docker
- 
 branches:
     only:
     - minor
     except:
     - dev 
-
 # env:
 #     global:
-#     - SHA=$(git rev-parse HEAD)
+#       - SHA=$(git rev-parse HEAD)
  
-before_install:
+before_install:   
     - nvm install $NODE_VERSION  
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "1000006652" -p "yash5814693"
     - cd HospitalApp
-    
-before_script:    
+
+before_script:
+    - cd ..
     - cd frontend-template
     - npm install 
     - npm run build --prod 
     - cd .. 
-    - mv frontend-template/dist/* HospitalApp/src/main/resources/static
+    - mv frontend-template/dist/* HospitalApp/src/main/resources/static 
     - cd HospitalApp
+install:
+- mvn -N io.takari:maven:wrapper
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
-script:
-    - mvn -N io.takari:maven:wrapper
-    - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+
+
+
+# sudo: required
+# language: java
+# jdk: 
+#     - openjdk8
+   
+#  env:
+#     - NODE_VERSION=12 CC=clang CXX=clang++
+
+# services:
+#     - docker
+ 
+# branches:
+#     only:
+#     - minor
+#     except:
+#     - dev 
+
+# # env:
+# #     global:
+# #     - SHA=$(git rev-parse HEAD)
+ 
+# before_install:
+#     - nvm install $NODE_VERSION  
+#     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#     - cd HospitalApp
+    
+# before_script:    
+#     - cd frontend-template
+#     - npm install 
+#     - npm run build --prod 
+#     - cd .. 
+#     - mv frontend-template/dist/* HospitalApp/src/main/resources/static
+#     - cd HospitalApp
+
+# script:
+# - mvn -N io.takari:maven:wrapper
+# - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
  
 
 
