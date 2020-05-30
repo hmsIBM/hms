@@ -21,6 +21,7 @@ before_install:
     - cd HospitalApp
 
 before_script:
+    - cd ..
     - cd frontend-template
     - npm install 
     - npm run build --prod 
