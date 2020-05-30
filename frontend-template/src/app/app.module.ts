@@ -6,7 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 // import {HttpClientModule} from '@angular/common/http'
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
- 
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/filter';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
@@ -104,6 +110,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     
   ],
   imports: [
+    Subject,
+    Observable,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
