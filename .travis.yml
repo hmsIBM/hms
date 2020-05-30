@@ -1,29 +1,34 @@
 sudo: required
 
 language: java
-
 jdk: 
     - openjdk8
    
  env:
-    - NODE_VERSION=12 CC=clang CXX=clang++
+        - NODE_VERSION=12 CC=clang CXX=clang++
 
 services:
+
     - docker
  
 branches:
+
     only:
+
     - minor
+
     except:
+
     - dev 
-env:
-    global:
-    - SHA=$(git rev-parse HEAD)
+
+# env:
+#     global:
+#     - SHA=$(git rev-parse HEAD)
  
 before_install:
     - nvm install $NODE_VERSION  
-    #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    # - cd dit-spring-boot-project
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - cd HospitalApp
     
 before_script:    
     - cd frontend-template
@@ -32,8 +37,9 @@ before_script:
     - cd .. 
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static
     - cd HospitalApp
-install:
 
+script:
+    
     - mvn -N io.takari:maven:wrapper
     - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
  
