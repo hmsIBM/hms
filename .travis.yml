@@ -33,8 +33,8 @@ before_script:
     - cd HospitalApp
 
 script:
-    - mvn -N io.takari:maven:wrapper
-    - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn -N io.takari:maven:wrapper
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
  
 
 
