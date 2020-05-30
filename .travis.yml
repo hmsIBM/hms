@@ -3,8 +3,13 @@ sudo: required
 language: java
 jdk: 
     - openjdk8
- 
+   
+ env:
+        - NODE_VERSION=12 CC=clang CXX=clang++
 
+services:
+        - docker
+ 
 branches:
     only:
     - minor
@@ -15,7 +20,15 @@ env:
       - SHA=$(git rev-parse HEAD)
  
 before_install:
-      
+    - nvm install $NODE_VERSION  
+    #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    # - cd dit-spring-boot-project
+    
+before_script:    
+      - cd frontend-template
+      - npm install 
+      - npm run build --prod 
+      - cd .. 
       - mv frontend-template/dist/* HospitalApp/src/main/resources/static
       - cd HospitalApp
 install:
