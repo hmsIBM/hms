@@ -1,5 +1,4 @@
-sudo: required
-
+# sudo: required
 language: java
 jdk: 
     - openjdk8
