@@ -16,6 +16,8 @@ export class ImagesComponent {
   retrieveResonse: any;
   message: string;
   imageName: any;
+  uploadImageData:any;
+
   //Gets called when the user selects an image
   public onFileChanged(event) {
     //Select File
@@ -27,12 +29,12 @@ onUpload() {
   console.log(this.selectedFile);
   console.log("hello my boy")
   //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-  const uploadImageData = new FormData();
-  uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+  this.uploadImageData = new FormData();
+  this.uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
   console.log("helloooo yeah")
-  console.log(uploadImageData)
+  console.log(this.uploadImageData)
   //Make a call to the Spring Boot Application to save the image
-  this.httpClient.put('http://localhost:8080/api/test/patient/58', uploadImageData, { observe: 'response' })
+  this.httpClient.put('http://localhost:8080/api/test/patient/58', this.uploadImageData, { observe: 'response' })
     .subscribe((response) => {
       console.log("shubbbb")
       if (response.status == 200) {

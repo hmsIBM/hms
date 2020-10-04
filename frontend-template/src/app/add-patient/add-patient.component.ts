@@ -42,6 +42,7 @@ export class AddPatientComponent implements OnInit {
   bb:string=''
   lists: Array<any>
   a: Array<any>
+  department: Array<any>= [];
 
 
   ngOnInit(): void {
