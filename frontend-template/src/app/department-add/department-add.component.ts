@@ -39,7 +39,7 @@ export class DepartmentAddComponent implements OnInit {
     bb:string=''
     lists: Array<any>
     a: Array<any>
-    department: Array<any>= [];
+    department: any
   
   
     ngOnInit(): void {

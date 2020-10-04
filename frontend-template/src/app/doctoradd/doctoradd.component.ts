@@ -55,6 +55,7 @@ export class DoctoraddComponent implements OnInit {
   showMessage:boolean= false;
   bb:string=''
   a:Array<any>=[]
+  department: Array<any>= [];
   constructor(private doctorService:DoctorService,private uploadService: UploadFileService,private patientService:PatientService, private fb: FormBuilder, private route: ActivatedRoute) {
 
   //   this.patientForm = new FormGroup({
