@@ -24,8 +24,9 @@ before_script:
     - cd ..
     - cd frontend-template
     - npm i
-    - npm run build --prod 
-    - cp index.html 404.html
+    - npm run build --prod
+    - cd dist/frontend-template
+    - cp index.html 404.html 
     - cd .. 
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static 
     - cd 
