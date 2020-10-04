@@ -48,6 +48,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "baseHref": "https://hmsIBM.github.io/hms/",
               "budgets": [
                 {
                   "type": "initial",
