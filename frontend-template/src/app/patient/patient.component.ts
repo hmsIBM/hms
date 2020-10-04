@@ -37,7 +37,7 @@ export class PatientComponent implements OnInit {
 
 
   patients:Array<any>=[];
-  departments:any;
+  departments:Array<any> = []
   dp:Array<any>=[]
   pp = ["dad", "mom"]
   doctor:Array<any>=[]
@@ -48,7 +48,7 @@ export class PatientComponent implements OnInit {
 
 
   @Input() public parentData;
-  constructor(private router: Router, private patientSerivce: PatientService, private httpClient: HttpClient) { }
+  constructor(public router: Router, public patientSerivce: PatientService, public httpClient: HttpClient) { }
 
   // constructor(private router: Router, private patientSerivce: PatientService,private httpClient: HttpClient) { }
 

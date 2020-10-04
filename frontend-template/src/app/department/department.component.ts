@@ -27,7 +27,7 @@ export class DepartmentComponent implements OnInit {
   hospitalname: Array<any> = []
   imageId: any;
 b:any
-
+showMessage:boolean= false
   myForm: FormGroup;
   departmentName: any;
   hospitalN: any;

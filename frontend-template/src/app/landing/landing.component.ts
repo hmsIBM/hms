@@ -23,6 +23,7 @@ closeResult = '';
 signupForm: FormGroup;
 invalidNamesArr: string[] = ['Hello', 'Angular'];
 showMessage : boolean = false;
+editMode : boolean = false;
 @ViewChild('closebutton',null) closebutton;
   constructor(private router:Router,private patientSerivce: PatientService,private modalService: NgbModal,private uploadService: UploadFileService) { }
 

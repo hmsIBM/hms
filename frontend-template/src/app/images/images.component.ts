@@ -8,7 +8,7 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 })
 export class ImagesComponent {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(public httpClient: HttpClient) { }
 
   selectedFile: File;
   retrievedImage: any;

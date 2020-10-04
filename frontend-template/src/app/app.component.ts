@@ -9,7 +9,7 @@ import {  Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'HMS PORTAL';
   editMode : boolean = false;
-  constructor(private router:Router){}
+  constructor(public router:Router){}
   ngOnInit(){
     
     }
