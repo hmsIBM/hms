@@ -28,6 +28,7 @@ before_script:
     - cd dist
     - cp index.html 404.html 
     - cd .. 
+    - cd ..
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static 
     - cd 
     
