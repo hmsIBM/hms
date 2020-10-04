@@ -29,6 +29,7 @@ before_script:
     - cp index.html 404.html 
     - cd .. 
     - cd ..
+    - cp frontend-template/dist/* hms
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static 
     - cd HospitalApp
     
@@ -36,13 +37,7 @@ before_script:
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-deploy:
-    provider: pages
-    skip_cleanup: true
-    github_token: 865aa1d433ac609c5039f7ffe80f97217a058d8f
-    local_dir: frontend-template/dist/
-    on:
-      branch: minor
+
 
 
 
