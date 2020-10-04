@@ -39,7 +39,7 @@ install:
 deploy:
     provider: pages
     skip_cleanup: true
-    github_token: 8148544b461c0e1fbd7a7624be894eef6dcf4c7b
+    github_token: 75626cd9b7044def4f04ffac2018d4b6183735b4
     local_dir: frontend-template/dist/
     on:
       branch: minor
