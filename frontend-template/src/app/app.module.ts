@@ -110,8 +110,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     
   ],
   imports: [
-    Subject,
-    Observable,
+    // Subject,
+    // Observable,
     BrowserModule,
     RouterModule,
     AppRoutingModule,

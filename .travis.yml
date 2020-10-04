@@ -27,7 +27,15 @@ before_script:
     - npm run build --prod 
     - cd .. 
     - mv frontend-template/dist/* HospitalApp/src/main/resources/static 
-    - cd HospitalApp
+    - cd 
+    
+deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist/angular-github-pages-travis
+        on:
+          branch: master
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
