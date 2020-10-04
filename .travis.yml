@@ -34,9 +34,9 @@ deploy:
         provider: pages
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
-        local_dir: dist/angular-github-pages-travis
+        local_dir: dist/frontend-template
         on:
-          branch: master
+          branch: minor
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
