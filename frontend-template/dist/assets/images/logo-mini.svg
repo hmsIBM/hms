@@ -1,19 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 15.9 16.1" style="enable-background:new 0 0 15.9 16.1;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:url(#SVGID_1_);}
-</style>
-<g>
-	
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="2.4048" y1="29.8906" x2="13.6548" y2="14.224" gradientTransform="matrix(1 0 0 -1 0 31)">
-		<stop  offset="0" style="stop-color:#04BEFE"/>
-		<stop  offset="0.5044" style="stop-color:#19A6F1"/>
-		<stop  offset="1" style="stop-color:#318BE3"/>
-	</linearGradient>
-	<path class="st0" d="M15.2,5.5l-4.5-0.7l-2-4.3C8.6,0.2,8.3,0,7.9,0C7.6,0,7.3,0.2,7.1,0.5l-2,4.3L0.7,5.5C0.4,5.5,0.1,5.8,0,6.1
-		C-0.1,6.4,0,6.8,0.2,7l3.3,3.3L2.7,15c-0.1,0.3,0.1,0.7,0.3,0.9c0.3,0.2,0.6,0.2,0.9,0.1l4-2.2l4,2.2c0.1,0.1,0.3,0.1,0.4,0.1
-		c0.2,0,0.4-0.1,0.5-0.2c0.3-0.2,0.4-0.5,0.3-0.9l-0.8-4.7L15.6,7c0.2-0.2,0.3-0.6,0.2-0.9C15.8,5.7,15.5,5.5,15.2,5.5z"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="111.196" height="30.566" viewBox="0 0 111.196 30.566">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="1.275" y2="0.725" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fe8464"/>
+      <stop offset="1" stop-color="#fe6e9a"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_2" data-name="Group 2" transform="translate(-372.804 -44.291)">
+    <text id="BASIC" transform="translate(409 68)" fill="#fff" font-size="24" font-family="Helvetica-Bold, Helvetica" font-weight="700"><tspan x="0" y="0">BASIC</tspan></text>
+    <path id="Subtraction_1" data-name="Subtraction 1" d="M9.126,19.253h0a8.835,8.835,0,0,1-6.453-2.82A9.835,9.835,0,0,1,0,9.626,9.835,9.835,0,0,1,2.673,2.82,8.835,8.835,0,0,1,9.126,0V19.252Z" transform="translate(382.43 45.489) rotate(30)" fill="url(#linear-gradient)"/>
+    <path id="Subtraction_2" data-name="Subtraction 2" d="M13.694,0h0A13.694,13.694,0,0,0,4.011,23.377a13.6,13.6,0,0,0,9.683,4.011V0Z" transform="translate(395.769 74.857) rotate(-150)" fill="#fff"/>
+  </g>
 </svg>
